@@ -1,0 +1,18 @@
+Per file, the code must not exceed from 400 lines limit
+Per function, the code must not exceed from 75 lines
+Maintain Constant For All Constants
+Always use ng commands to use component, module, service etc.
+Break large components into small reusable components
+Use NgIf and not CSS - If DOM elements aren’t visible, instead of hiding them with CSS, it's a good practice to remove them from the DOM by using *ngIf.
+Do limit logic in a component to only that required for the view. All other logic should be delegated to services.
+Do move reusable logic to services and keep components simple and focused on their intended purpose.
+Using strict types instead of "any"
+It is a good practice to document each variable and method. For methods, we need to define it using multi-line comments on what task the method performs and all parameters should be explained.
+Do place private members before public members
+Do create services with a single responsibility that is encapsulated by its context.
+If the values of the variables are intact, declare it with const
+Names of properties and methods should be in lower camel case
+Do use upper camel case for class names.
+Use PascalCase for enum values.
+We shouldn’t name our interfaces with the starting capital I letter as we do in some programming languages.
+Add TODO, FIXME with in your code

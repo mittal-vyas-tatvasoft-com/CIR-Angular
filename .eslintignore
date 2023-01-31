@@ -1,0 +1,3 @@
+*.html
+karma.conf.js
+.eslintrc.js
