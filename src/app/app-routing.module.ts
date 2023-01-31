@@ -7,6 +7,13 @@ const routes: Routes = [
     loadChildren: () =>
       import('./core/auth/auth.module').then((m) => m.AuthModule),
   },
+  {
+    path: 'app-control',
+    loadChildren: () =>
+      import('./app-controls/app-controls.module').then(
+        (m) => m.AppControlsModule,
+      ),
+  },
 ];
 
 @NgModule({
