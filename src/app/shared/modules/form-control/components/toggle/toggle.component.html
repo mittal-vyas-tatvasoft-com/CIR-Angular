@@ -1,6 +1,7 @@
 <div>{{ formControlModel.label }}</div>
 <div [formGroup]="form">
   <mat-slide-toggle
+    color="primary"
     [formControlName]="formControlModel.key"
     (change)="toggleEmitter.emit($event)"
   ></mat-slide-toggle>
