@@ -1,0 +1,46 @@
+<div [formGroup]="form">
+  <mat-form-field appearance="outline" id="matPicker">
+    <mat-label>{{ timePickerModel.label }}</mat-label>
+    <input
+      [type]="timePickerModel.inputType"
+      [name]="timePickerModel.key"
+      matInput
+      [ngxMatTimepicker]="timepicker"
+      [format]="timePickerModel.format"
+      [required]="timePickerModel.required"
+      readonly
+      [formControl]="formControlItem"
+      [id]="timePickerModel.key"
+      (ngModelChange)="changeTime()"
+    />
+
+    <mat-icon
+      matPrefix
+      *ngIf="
+        formControlItem.value &&
+        !formControlItem.disabled &&
+        !timePickerModel.required
+      "
+      (click)="onClear($event)"
+    >
+      close
+    </mat-icon>
+
+    <mat-icon
+      matSuffix
+      *ngIf="!formControlItem.disabled"
+      (click)="openFromIcon(timepicker)"
+    >
+      schedule
+    </mat-icon>
+  </mat-form-field>
+  <ngx-mat-timepicker #timepicker></ngx-mat-timepicker>
+  <app-button
+    class="setButton"
+    type="submit"
+    label="Set Now"
+    (btnClick)="setNow()"
+    *ngIf="timePickerModel.setNowButton"
+  >
+  </app-button>
+</div>

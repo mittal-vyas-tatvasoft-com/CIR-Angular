@@ -1,0 +1,14 @@
+<div [formGroup]="form">
+  <section>
+    <mat-checkbox
+      class="chk-margin"
+      color="primary"
+      [formControlName]="formControlModel.key"
+      [id]="formControlModel.key"
+      >{{ formControlModel.label }}</mat-checkbox
+    >
+  </section>
+  <mat-error>
+    {{ _validator.getError(form, formControlModel.key, formControlModel) }}
+  </mat-error>
+</div>

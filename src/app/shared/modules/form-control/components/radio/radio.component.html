@@ -1,0 +1,17 @@
+<div [formGroup]="form">
+  <mat-label id="radio-group-label">{{ formControlModel.label }}</mat-label>
+  <mat-radio-group
+    aria-labelledby="radio-group-label"
+    [formControlName]="formControlModel.key"
+    class="radio-group"
+    [id]="formControlModel.key"
+  >
+    <mat-radio-button
+      *ngFor="let item of getOptions(); let i = index"
+      [value]="item.value"
+      color="primary"
+      class="radio-button"
+      >{{ item.key }}</mat-radio-button
+    >
+  </mat-radio-group>
+</div>
