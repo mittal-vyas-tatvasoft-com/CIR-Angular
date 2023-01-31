@@ -12,11 +12,16 @@ export class TextControlComponent {
   @Input() formControlModel: FormControlModel;
   @Input() form: FormGroup;
   @Output() inputChange = new EventEmitter<string>();
+  @Output() iconClick = new EventEmitter<Event>();  
 
   constructor(public _validator: ValidatorService) {}
 
   onChange(event: Event) {
     const data = event?.target as HTMLInputElement;
     this.inputChange.emit(data?.value);
+  }
+
+  onIconClick(event: Event) {
+    this.iconClick.emit(event);
   }
 }

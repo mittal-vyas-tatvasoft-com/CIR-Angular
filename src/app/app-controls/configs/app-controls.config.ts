@@ -5,6 +5,8 @@ export const appControls = {
     label: 'Text Control',
     requiredErrMsg: 'Text Control is Required',
     inputType: 'text',
+    displayIcon: true,
+    iconName: 'visibility'
   },
   numberField: {
     value: '',
@@ -62,6 +64,12 @@ export const appControls = {
     label: 'File Upload Control',
     inputType: 'file',
     requiredErrMsg: 'File Upload Control is Required',
+  },
+  datePickerField: {
+    value: '',
+    key: 'datePickerField',
+    label: 'Date Picker Control',
+    inputType: 'text',
   },
 };
 

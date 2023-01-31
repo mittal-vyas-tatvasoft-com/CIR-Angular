@@ -6,4 +6,6 @@ export interface FormControlModel {
   patternErrMsg?: string;
   maxLengthError?: string;
   inputType: string;
+  displayIcon?: boolean;
+  iconName?: string;
 }
