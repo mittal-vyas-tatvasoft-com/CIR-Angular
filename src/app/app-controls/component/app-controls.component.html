@@ -6,6 +6,8 @@
     <app-text-control
       [formControlModel]="appControls.textField"
       [form]="form"
+      (iconClick)="onIconClick(input)"
+      #input
     ></app-text-control
   ></mat-card-content>
   <mat-card-content>
@@ -64,6 +66,12 @@
       [form]="form"
     >
     </app-file-upload>
+  </mat-card-content>
+  <mat-card-content>
+    <app-date-picker
+    [form]="form"
+    [formControlModel]="appControls.datePickerField"
+  ></app-date-picker>
   </mat-card-content>
   <mat-card-content>
     <app-button

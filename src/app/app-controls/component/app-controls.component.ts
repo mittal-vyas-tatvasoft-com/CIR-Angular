@@ -44,6 +44,7 @@ export class AppControlsComponent implements OnInit {
       checkboxField: ['', [Validators.required]],
       fileUploadField: [''],
       timePickerField: [''],
+      datePickerField: [''],
     });
   }
 
@@ -55,5 +56,13 @@ export class AppControlsComponent implements OnInit {
 
   submit() {
     if (this.form.invalid) this.form.markAllAsTouched();
+  }
+
+  onIconClick(event: any){
+     if(event.formControlModel.inputType == 'text'){
+      event.formControlModel.inputType = 'password';
+     }else{
+      event.formControlModel.inputType = 'text';
+     }
   }
 }

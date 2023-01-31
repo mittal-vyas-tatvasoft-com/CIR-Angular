@@ -8,6 +8,7 @@
       [type]="formControlModel.inputType"
       (input)="onChange($event)"
     />
+    <mat-icon matSuffix *ngIf="formControlModel.displayIcon"  (click)="onIconClick($event)">{{ formControlModel.iconName }}</mat-icon>
     <mat-error>
       {{ _validator.getError(form, formControlModel.key, formControlModel) }}
     </mat-error>
