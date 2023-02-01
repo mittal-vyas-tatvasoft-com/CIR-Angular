@@ -12,21 +12,41 @@
 
 // primary color 
 $mat-primary: (
-  main: var(--primary-color),
-  lighter: var(--primary-lighter-color),
-  darker: var(--primary-darker-color),
-  200: #4c5dde, // For slide toggle,
+  50: #A9B1EF,
+  100: #98A1EC,
+  200: #8692E9,
+  300: #7582E6,
+  400: #6473E3,
+  500: #4c5dde,
+  600: #2030AC,
+  700: #1C2B9B,
+  800: #19268A,
+  900: #162279,
+  A100: #4153DC,
+  A200: #3044D9,
+  A400: #263ACF,
   contrast : (
-    main: $light-primary-text,
-    lighter: $dark-primary-text,
-    darker: $light-primary-text,
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $light-primary-text,
+    A400: $light-primary-text,
+    A700: $light-primary-text,
   )
 );
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
 // $CIR-front-end-primary: mat.define-palette(mat.$indigo-palette);
-$CIR-front-end-primary: mat.define-palette($mat-primary, main, lighter, darker);
+$CIR-front-end-primary: mat.define-palette($mat-primary);
 
 // accent color
 $mat-accent: (

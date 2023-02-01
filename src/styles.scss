@@ -1,6 +1,553 @@
+@charset "utf-8";
 @import './assets/scss/core';
-
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap');
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/*
+------------------------------------------------------------
+Project Name : Sample Project;
+------------------------------------------------------------
+*/
+
+/* Reset 
+--------------------------------------------------------------------------------------------------------*/
+
+/* 
+http://meyerweb.com/eric/tools/css/reset/
+v2.0 | 20110126
+License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* General 
+--------------------------------------------------------------------------------------------------------*/
+* {
+    outline: none !important;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
+}
+
+a,
+.mat-button-base {
+    transition: all 0.3s;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+html,
+body {
+    min-width: 320px;
+}
+
+body {
+    font-size: 1.6rem;
+    line-height: 2rem;
+    font-family: 'Nunito', sans-serif;
+    -ms-overflow-style: scrollbar;
+    -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.wrapper {
+    min-height: 100vh;
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #999;
+    text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    line-height: 1.2em;
+    padding: 0 0 2rem;
+}
+
+h1 span,
+h2 span,
+h3 span,
+h4 span,
+h5 span,
+h6 span {
+    display: block;
+}
+
+h1 {}
+
+h2 {
+    font-size: 3.8rem;
+    line-height: 4.2rem;
+    font-weight: 800;
+    color: #333333;
+}
+
+h3 {}
+
+h4 {}
+
+h5 {}
+
+h6 {}
+
+p {
+    padding: 0 0 2rem;
+}
+
+input[type=text],
+input[type=email],
+input[type=password],
+textarea {
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+::-webkit-input-placeholder {
+    color: #000;
+}
+
+::-moz-placeholder {
+    color: #000;
+}
+
+:-ms-input-placeholder {
+    color: #000;
+}
+
+:-moz-placeholder {
+    color: #000;
+}
+
+::-moz-focus-inner {
+    border: 0;
+}
+
+select:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #000;
+}
+
+option:not(:checked) {
+    color: black;
+}
+
+img {
+    max-width: 100%;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.mat-chip-list-wrapper {
+    margin: 0;
+}
+
+
+/* checkbox */
+
+.mat-checkbox-layout .mat-checkbox-label{
+    color: #333;
+}
+.mat-checkbox .mat-checkbox-inner-container {
+    height: 2rem;
+    width: 2rem;
+}
+
+.mat-checkbox .mat-checkbox-frame {
+    border-width: 1px;
+}
+
+/* btns */
+.mat-button,
+.mat-raised-button,
+.mat-icon-button,
+.mat-stroked-button,
+.mat-flat-button,
+.mat-fab,
+.mat-mini-fab {
+    font-size: 1.6rem;
+    line-height: 2rem;
+    letter-spacing: 0.02em;
+    font-weight: 700;
+    font-family: 'Nunito', sans-serif;
+  }
+
+
+.mat-button-base {
+&.mat-stroked-button,
+&.mat-flat-button,
+&.mat-raised-button {
+    min-height: 5rem;
+}
+}
+
+.mat-form-field-appearance-outline .mat-form-field-prefix .mat-button-wrapper,
+.mat-form-field-appearance-outline .mat-form-field-suffix .mat-button-wrapper {
+    display: flex;
+}
+
+/* Header
+--------------------------------------------------------------------------------------------------------*/
+.header {}
+
+.logo {
+    display: inline-block;
+}
+
+.logo>img {
+    display: block;
+}
+
+/* MainNavigation
+--------------------------------------------------------------------------------------------------------*/
+.main-navigation {}
+
+
+/* Login
+--------------------------------------------------------------------------------------------------------*/
+.login-wrapper {
+    display: flex;
+    min-height: 100vh;
+    color: #666;
+}
+
+.login-wrapper .login-left {
+    width: 61.5%;
+    background-color: #4C5DDE;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 5rem;
+}
+
+.login-wrapper .mat-chip-list-wrapper {
+    margin: 0;
+}
+
+.login-wrapper .login-mid {
+    text-align: center;
+}
+
+.login-wrapper .login-left .logo {
+    margin-bottom: 7rem;
+}
+
+.login-wrapper .login-left>p {
+    padding: 2.2rem 0 0;
+    font-weight: 600;
+}
+
+.login-wrapper .login-right {
+    width: 38.5%;
+    align-self: center;
+}
+
+.login-wrapper .login-right a {
+    color: #4C5DDE;
+}
+
+.login-wrapper .login-right a:hover,
+.login-wrapper .login-right a:focus {
+    color: #333;
+}
+
+
+.login-wrapper .login-right .login-form {
+    max-width: 460px;
+    margin: 0 auto;
+    padding: 15px;
+}
+
+.login-wrapper .login-right h2 {
+    padding-bottom: 12px;
+}
+
+.login-wrapper .login-right .sub {
+    font-size: 2.2rem;
+    line-height: 2.6rem;
+    color: #777777;
+    padding-bottom: 40px;
+}
+
+.login-wrapper .frgt-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: -3px 0 14px;
+}
+
+.login-wrapper .login-btn {
+    width: 100%;
+}
+
+.login-wrapper .signup-text {
+    text-align: right;
+    display: block;
+    margin: 12px 0 56px;
+}
+
+.login-wrapper .underline-text {
+    text-align: center;
+    border-bottom: 1px solid #FCC110;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 25px;
+    padding-bottom: 4px;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+.login-wrapper .login-links-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-wrapper .login-links-wrapper ul {
+    display: flex;
+    align-items: center;
+}
+
+.login-wrapper .login-links-wrapper ul>li:not(:last-child) {
+    padding-right: 4.8rem;
+    position: relative;
+}
+
+.login-wrapper .login-links-wrapper ul>li:not(:last-child)::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 2.4rem;
+    bottom: 0;
+    width: 1px;
+    background-color: #737373;
+}
+
+.login-wrapper .login-links-wrapper ul a {
+    background-color: #fff;
+    color: #666;
+    border: 1px solid #C9C9C9;
+    display: flex;
+    align-items: center;
+    border-radius: 50px;
+    padding: 4px 10px 4px 4px;
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+}
+
+.login-wrapper .login-links-wrapper ul a:hover,
+.login-wrapper .login-links-wrapper ul a:focus {
+    background-color: #C9C9C9;
+}
+
+.login-wrapper .login-links-wrapper ul a em {
+    display: flex;
+    margin-right: 8px;
+    min-width: 24px;
+}
+
+
+/* Main Content
+--------------------------------------------------------------------------------------------------------*/
+.main-content {}
+
+/* Footer
+--------------------------------------------------------------------------------------------------------*/
+.footer {
+    background: #333;
+    padding: 15px;
+    text-align: center;
+}
+
+.copyright {
+    padding: 0;
+    color: #fff;
+    font-size: 0.8em;
+    line-height: 1.2em;
+}
+
+/* Responsive Media Queries
+--------------------------------------------------------------------------------------------------------*/
+@media (max-width:1199px) {
+
+    /* login */
+    .login-wrapper .login-left {
+        padding: 3rem;
+    }
+
+    .login-wrapper .login-links-wrapper ul>li:not(:last-child) {
+        padding-right: 2.5rem;
+    }
+
+    .login-wrapper .login-links-wrapper ul>li:not(:last-child)::before {
+        right: 1.25rem;
+    }
+}
+
+@media (max-width:991px) {
+
+    /* login */
+    .login-wrapper .login-left,
+    .login-wrapper .login-right {
+        width: 50%;
+    }
+}
+
+@media (max-width:767px) {
+
+    /* login */
+    .login-wrapper .login-left {
+        display: none;
+    }
+
+    .login-wrapper .login-right {
+        width: 100%;
+    }
+}
+
+@media (max-width:575px) {}
