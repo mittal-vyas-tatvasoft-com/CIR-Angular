@@ -4,7 +4,6 @@ import { AppControlsRoutingModule } from './app-controls-routing.module';
 import { SharedMaterialModule } from '../shared/material/shared-material.module';
 import { FormControlModule } from '../shared/modules/form-control/form-control.module';
 import { AppControlsComponent } from './component/app-controls.component';
-import { AppModule } from "../app.module";
 
 @NgModule({
     declarations: [AppControlsComponent],
@@ -13,7 +12,6 @@ import { AppModule } from "../app.module";
         AppControlsRoutingModule,
         SharedMaterialModule,
         FormControlModule,
-        AppModule
     ]
 })
 export class AppControlsModule {}
