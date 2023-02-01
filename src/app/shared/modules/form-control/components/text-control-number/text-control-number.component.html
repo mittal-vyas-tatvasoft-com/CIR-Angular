@@ -7,8 +7,8 @@
       [id]="formControlModel.key"
       numbersOnly
     />
+    <mat-error>
+      {{ _validator.getError(form, formControlModel.key, formControlModel) }}
+    </mat-error>
   </mat-form-field>
-  <mat-error>
-    {{ _validator.getError(form, formControlModel.key, formControlModel) }}
-  </mat-error>
 </div>
