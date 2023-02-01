@@ -1,3 +1,51 @@
-.lg-grey-tree.selected .mat-tree {
-  background: var(--border-color-lg-grey);
+.mat-button-base {
+  transition: all 0.3s;
+}
+
+.mat-chip-list-wrapper {
+  margin: 0;
+}
+
+/* btns */
+.mat-button,
+.mat-raised-button,
+.mat-icon-button,
+.mat-stroked-button,
+.mat-flat-button,
+.mat-fab,
+.mat-mini-fab {
+  font-size: 1.6rem;
+  line-height: 2rem;
+  letter-spacing: 0.02em;
+  font-weight: 700;
+  font-family: 'Nunito', sans-serif;
+}
+
+
+.mat-button-base {
+  &.mat-stroked-button,
+  &.mat-flat-button,
+  &.mat-raised-button {
+    min-height: 5rem;
+  }
+}
+
+.mat-form-field-appearance-outline .mat-form-field-prefix .mat-button-wrapper,
+.mat-form-field-appearance-outline .mat-form-field-suffix .mat-button-wrapper {
+  display: flex;
+}
+
+
+/* checkbox */
+.mat-checkbox-layout .mat-checkbox-label {
+  color: #333;
+}
+
+.mat-checkbox .mat-checkbox-inner-container {
+  height: 2rem;
+  width: 2rem;
+}
+
+.mat-checkbox .mat-checkbox-frame {
+  border-width: 1px;
 }
