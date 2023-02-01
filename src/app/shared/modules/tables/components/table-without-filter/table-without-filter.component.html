@@ -1,0 +1,83 @@
+<table mat-table [dataSource]="tableDataSource" matSort>
+  <ng-container
+    *ngFor="let columnData of tableColumns"
+    matColumnDef="{{ columnData.columnDef }}"
+  >
+    <ng-container *ngIf="columnData.isSortable; else notSortable">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        {{ columnData.header }}
+      </th>
+    </ng-container>
+
+    <ng-template #notSortable>
+      <th mat-header-cell *matHeaderCellDef>
+        {{ columnData.header }}
+      </th>
+    </ng-template>
+
+    <td mat-cell *matCellDef="let element; let i = index">
+      <ng-container
+        *ngIf="
+          getDataToDisplay(columnData.columnDef, element) === '' &&
+            isControl(columnData) == false;
+          else columnHasValue
+        "
+      >
+        <span class="column-no-data"> -- </span>
+      </ng-container>
+      <ng-template #columnHasValue>
+        <ng-container
+          *ngIf="isControl(columnData) == false; else columnHasInput"
+        >
+          <span>
+            {{ element[columnData.columnDef] }}
+          </span>
+        </ng-container>
+        <ng-template #columnHasInput>
+          <div *ngIf="columnData.type == 'toggle'">
+            <mat-slide-toggle
+              (change)="
+                selection.emit({
+                  data: $event,
+                  element: element,
+                  columnDef: columnData.columnDef
+                })
+              "
+              [checked]="element[columnData.columnDef]"
+            ></mat-slide-toggle>
+          </div>
+          <div *ngIf="columnData.type == 'radio'">
+            <mat-radio-button
+              (change)="
+                selection.emit({
+                  data: $event,
+                  element: element,
+                  columnDef: columnData.columnDef
+                })
+              "
+              [checked]="element[columnData.columnDef]"
+            >
+            </mat-radio-button>
+          </div>
+          <div *ngIf="columnData.type == 'textInput'">
+            <mat-form-field appearance="outline">
+              <input
+                matInput
+                value="{{ element[columnData.columnDef] }}"
+                (change)="
+                  selection.emit({
+                    data: $event,
+                    element: element,
+                    columnDef: columnData.columnDef
+                  })
+                "
+              />
+            </mat-form-field>
+          </div>
+        </ng-template>
+      </ng-template>
+    </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayColumns"></tr>
+</table>

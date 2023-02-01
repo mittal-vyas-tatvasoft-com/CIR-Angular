@@ -22,3 +22,9 @@ export interface FilterColumns {
   options: SelectOption[] | undefined;
   value?: boolean | string;
 }
+
+export interface SelectionEvent<T> {
+  data: any;
+  element: T;
+  columnDef: string;
+}
