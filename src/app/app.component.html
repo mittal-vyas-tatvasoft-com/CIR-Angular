@@ -1,1 +1,22 @@
-<router-outlet></router-outlet>
+<div class="wrapper">
+    <!-- Start Header -->
+    <app-main-header></app-main-header>
+    <!-- End Header -->
+
+    <!-- Main Navigation -->
+    <app-side-nav></app-side-nav>
+    <!-- End Main Navigation -->
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <router-outlet></router-outlet>
+    </main>
+    <!-- End Main Content -->
+
+    <!-- Start Footer -->
+    <footer class="footer">
+        <p class="copyright">V 1.1.0 | Copyright 2022. All rights reserved</p>
+    </footer>
+    <!-- End Footer -->
+</div>
+
