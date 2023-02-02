@@ -17,13 +17,90 @@ export class TableWithFilterComponent {
       type: 'string',
       isFilter: true,
       options: [{ id: 1, key: 'Select', value: 'ass' }],
+      searchValue: '',
+    },
+    {
+      columnDef: 'firstName',
+      header: 'First Name',
+      isSortable: true,
+      type: 'string',
+      isFilter: false,
+      searchValue: '',
+    },
+    {
+      columnDef: 'lastName',
+      header: 'Last Name',
+      isSortable: true,
+      type: 'string',
+      isFilter: false,
+      searchValue: '',
+    },
+    {
+      columnDef: 'email',
+      header: 'Email',
+      isSortable: true,
+      type: 'string',
+      isFilter: true,
+      options: [{ id: 1, key: 'Select', value: 'ass' }],
+      searchValue: '',
+    },
+    {
+      columnDef: 'role',
+      header: 'Role',
+      isSortable: true,
+      type: 'string',
+      isFilter: false,
+      searchValue: '',
+    },
+    {
+      columnDef: 'more_option',
+      header: 'Action',
+      isSortable: true,
+      type: 'string',
+      isFilter: false,
       actions: ['edit', 'delete'],
       searchValue: '',
-    }
+    },
   ]
 
   userList = new MatTableDataSource<any[]>();
-  users: any[] = [];
+  users: any[] = [
+    {
+      user: 'User name',
+      firstName: 'Test1',
+      lastName: 'Last Name2',
+      email : 'email',
+      role : 'admin'
+    },
+    {
+      user: 'User name',
+      firstName: 'Test1',
+      lastName: 'Last Name2',
+      email : 'email',
+      role : 'admin'
+    },
+    {
+      user: 'User name',
+      firstName: 'Test1',
+      lastName: 'Last Name2',
+      email : 'email',
+      role : 'admin'
+    },
+    {
+      user: 'User name',
+      firstName: 'Test1',
+      lastName: 'Last Name2',
+      email : 'email',
+      role : 'admin'
+    },
+    {
+      user: 'User name',
+      firstName: 'Test1',
+      lastName: 'Last Name2',
+      email : 'email',
+      role : 'admin'
+    },
+  ];
   noUserDataFound = 'No data found';
 
 }
