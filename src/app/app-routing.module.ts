@@ -14,6 +14,13 @@ const routes: Routes = [
         (m) => m.AppControlsModule,
       ),
   },
+  {
+    path: 'table',
+    loadChildren: () =>
+      import('./tables/table-demo.module').then(
+        (m) => m.TableDemoModule,
+      ),
+  },
 ];
 
 @NgModule({

@@ -9,7 +9,7 @@ import {
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { defaultDateFormat } from 'src/app/shared/common/constants.static';
+import { defaultDateFormat } from 'src/app/shared/common/interfaces/constanst.static';
 import { FormControlModel } from '../../../form-control/interface/form-control.interface';
 import { SelectOption } from '../../../form-control/interface/select-option.interface';
 import { Column, FilterColumns } from '../../interfaces/table-data.interface';

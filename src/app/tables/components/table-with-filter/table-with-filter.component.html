@@ -1,0 +1,55 @@
+<app-table
+[tableColumns]="tableColumn"
+[tableData]="users"
+[noDataFoundMessage]="noUserDataFound"
+></app-table>
+
+<mat-paginator
+[length]="100"
+[pageSize]="10"
+[pageSizeOptions]="[10, 25, 50]"
+aria-labels="Select page of users"
+showFirstLastButtons
+></mat-paginator>
+<div
+class="float-right">
+<app-button
+  type="submit"
+  label="Create new user"
+>
+  Add User
+</app-button>
+
+
+
+<mat-divider></mat-divider>
+<br><br>
+<h3>Table with form control</h3>
+<app-table-without-filter
+    [tableColumns]="tableColumnData"
+    [tableData]="currencySelections"
+  ></app-table-without-filter>
+
+
+  
+<mat-divider></mat-divider>
+<br><br>
+<h3>Default Dropdown Options
+</h3>
+<app-table-without-filter
+    [tableColumns]="dropDownColumn"
+    [tableData]="dropDownSections"
+  ></app-table-without-filter>
+
+
+    
+<mat-divider></mat-divider>
+<br><br>
+<h3>Font
+</h3>
+<app-table-without-filter
+    [tableColumns]="fontColumn"
+    [tableData]="fontSections"
+  ></app-table-without-filter>
+
+
