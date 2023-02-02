@@ -1,22 +1,28 @@
-<div class="wrapper">
-    <!-- Start Header -->
-    <app-main-header></app-main-header>
-    <!-- End Header -->
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+        [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+        <app-side-nav></app-side-nav>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="wrapper">
+            <!-- Start Header -->
+            <app-main-header [isHandset]="isHandset$ | async" (onMenuIconClick)="drawer.toggle()"></app-main-header>
+            <!-- End Header -->
 
-    <!-- Main Navigation -->
-    <app-side-nav></app-side-nav>
-    <!-- End Main Navigation -->
+            <!-- Main Navigation -->
+            <!-- End Main Navigation -->
 
-    <!-- Main Content -->
-    <main class="main-content">
-        <router-outlet></router-outlet>
-    </main>
-    <!-- End Main Content -->
+            <!-- Main Content -->
+            <main class="main-content">
+                <router-outlet></router-outlet>
+            </main>
+            <!-- End Main Content -->
 
-    <!-- Start Footer -->
-    <footer class="footer">
-        <p class="copyright">V 1.1.0 | Copyright 2022. All rights reserved</p>
-    </footer>
-    <!-- End Footer -->
-</div>
-
+            <!-- Start Footer -->
+            <footer class="footer">
+                <p class="copyright">V 1.1.0 | Copyright 2022. All rights reserved</p>
+            </footer>
+            <!-- End Footer -->
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
