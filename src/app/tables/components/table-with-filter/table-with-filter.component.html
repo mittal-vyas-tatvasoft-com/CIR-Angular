@@ -19,3 +19,37 @@ class="float-right">
 >
   Add User
 </app-button>
+
+
+
+<mat-divider></mat-divider>
+<br><br>
+<h3>Table with form control</h3>
+<app-table-without-filter
+    [tableColumns]="tableColumnData"
+    [tableData]="currencySelections"
+  ></app-table-without-filter>
+
+
+  
+<mat-divider></mat-divider>
+<br><br>
+<h3>Default Dropdown Options
+</h3>
+<app-table-without-filter
+    [tableColumns]="dropDownColumn"
+    [tableData]="dropDownSections"
+  ></app-table-without-filter>
+
+
+    
+<mat-divider></mat-divider>
+<br><br>
+<h3>Font
+</h3>
+<app-table-without-filter
+    [tableColumns]="fontColumn"
+    [tableData]="fontSections"
+  ></app-table-without-filter>
+
+
