@@ -18,7 +18,7 @@ export class MainHeaderComponent implements OnInit {
   form: FormGroup;
   selectOptions: SelectOption[] = selectOptions;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
     this.createForm();

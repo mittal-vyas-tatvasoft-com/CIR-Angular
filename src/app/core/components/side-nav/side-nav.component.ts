@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./side-nav.component.scss']
 })
 export class SideNavComponent implements OnInit {
-
+  events: string[] = [];
+  opened: boolean;
   constructor() { }
 
   ngOnInit(): void {

@@ -26,6 +26,9 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTabsModule } from '@angular/material/tabs';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatBadgeModule} from '@angular/material/badge';
+import {MatRippleModule} from '@angular/material/core';
 
 @NgModule({
   declarations: [],
@@ -40,7 +43,10 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatTableModule,
     MatSelectModule,
     MatSlideToggleModule,
-    MatTabsModule
+    MatTabsModule,
+    MatMenuModule,
+    MatBadgeModule,
+    MatRippleModule
   ],
   exports: [
     MatChipsModule,
@@ -68,7 +74,10 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatDividerModule,
     MatListModule,
     MatExpansionModule,
-    MatTabsModule
+    MatTabsModule,
+    MatMenuModule,
+    MatBadgeModule,
+    MatRippleModule
   ],
   providers: [MatDatepickerModule],
 })

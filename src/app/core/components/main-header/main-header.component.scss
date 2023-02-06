@@ -1,3 +1,45 @@
-.example-spacer {
-    flex: 1 1 auto;
-  }
+.mat-toolbar {
+    justify-content: space-between;
+    height: 96px;
+    padding: 0 30px;
+
+    @media (max-width:767px) {
+        height: 70px;
+        padding: 0 10px;
+    }
+
+    .right-block {
+
+        &>button+button {
+            margin-left: 1.7rem;
+
+            @media (max-width:767px) {
+                margin-left: 0.4rem;
+            }
+        }
+    }
+
+    ::ng-deep .mat-badge .mat-badge-content {
+        font-size: 0;
+        width: 1rem;
+        height: 1rem;
+        line-height: 1rem;
+        right: 9px;
+        top: 10px;
+    }
+}
+
+.profile-btn.mat-icon-button {
+    width: 6.8rem;
+    height: 6.8rem;
+    line-height: 6.8rem;
+    border-radius: 1.2rem;
+
+    img {
+        width: 4.8rem;
+        min-width: 4.8rem;
+        height: 4.8rem;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+}

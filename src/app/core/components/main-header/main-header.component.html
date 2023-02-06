@@ -1,20 +1,75 @@
-<mat-toolbar>
-  <button *ngIf="isHandset" mat-icon-button (click)="onClick()" class="example-icon" aria-label="Example icon-button with menu icon">
-    <mat-icon>menu</mat-icon>
-  </button>
-  <div>
-    <app-select
-    [formControlModel]="appControls.selectField"
-    [form]="form"
-    [options]="selectOptions"
-  ></app-select>
-  </div>
-  
-  <span class="example-spacer"></span>
-  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-    <mat-icon>favorite</mat-icon>
-  </button>
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-    <mat-icon>share</mat-icon>
-  </button>
+<mat-toolbar class="c-header">
+    <button mat-icon-button (click)="onClick()" class="example-icon"
+        aria-label="Example icon-button with menu icon">
+        <mat-icon class="lg">menu</mat-icon>
+    </button>
+    <div class="right-block">
+        <button mat-icon-button>
+            <img src="../../../../assets/images/search-ic.svg" alt="" />
+        </button>
+        <button mat-icon-button matBadge="1" matBadgeColor="warn" [matMenuTriggerFor]="notifMenu">
+            <img src="../../../../assets/images/notification-ic.svg" alt="" />
+        </button>
+        <button mat-icon-button [matMenuTriggerFor]="profileMenu" class="profile-btn">
+            <img src="../../../../assets/images/dp.jpg" alt="" />
+        </button>
+        <mat-menu #notifMenu="matMenu" xPosition="before" class="with-icon notification-menu primary">
+            <h4 class="noti-header">
+                Notifications
+            </h4>
+            <ul class="noti-body">
+                <li>
+                    <a href="#" title="" matRipple class="noti-layout">
+                        <h6>Daily Standup Meeting</h6>
+                        <p>Due in 24 hours</p>
+                    </a>
+                    <button mat-icon-button><img src="../../../../assets/images/delete-ic.svg" alt="" /></button>
+                </li>
+                <li>
+                    <a href="#" title="" matRipple class="noti-layout alert">
+                        <h6>Next sprint planning and estimations</h6>
+                        <p>Due in 24 hours</p>
+                    </a>
+                    <button mat-icon-button><img src="../../../../assets/images/delete-ic.svg" alt="" /></button>
+                </li>
+                <li>
+                    <a href="#" title="" matRipple class="noti-layout success">
+                        <h6>Data analytics research showcase</h6>
+                        <p>Due in 24 hours</p>
+                    </a>
+                    <button mat-icon-button><img src="../../../../assets/images/delete-ic.svg" alt="" /></button>
+                </li>
+                <li>
+                    <a href="#" title="" matRipple class="noti-layout blue">
+                        <h6>Sprint delivery and project deployment</h6>
+                        <p>Due in 24 hours</p>
+                    </a>
+                    <button mat-icon-button><img src="../../../../assets/images/delete-ic.svg" alt="" /></button>
+                </li>
+                <li>
+                    <a href="#" title="" matRipple class="noti-layout red">
+                        <h6>Next sprint planning and estimations</h6>
+                        <p>Due in 24 hours</p>
+                    </a>
+                    <button mat-icon-button><img src="../../../../assets/images/delete-ic.svg" alt="" /></button>
+                </li>
+            </ul>
+        </mat-menu>
+        <mat-menu #profileMenu="matMenu" xPosition="before" class="with-icon user-detail-menu primary">
+            <div class="user-top">
+                <h6>Mark Zukerberg</h6>
+                <span>Super Admin</span>
+            </div>
+            <div class="user-mid">
+                <button mat-menu-item><em class="mat-icon"> <img src="../../../../assets/images/person-outline-ic.svg"
+                            alt="" /></em> User Profile</button>
+                <button mat-menu-item><em class="mat-icon"> <img src="../../../../assets/images/settings-ic.svg"
+                            alt="" /></em> Setting</button>
+                <button mat-menu-item><em class="mat-icon"> <img src="../../../../assets/images/help-outline-ic.svg"
+                            alt="" /></em> Help & Support </button>
+            </div>
+            <button mat-menu-item><em class="mat-icon"> <img src="../../../../assets/images/power-ic.svg" alt="" /></em>
+                Logout </button>
+        </mat-menu>
+    </div>
 </mat-toolbar>

@@ -15,9 +15,11 @@ export class AppComponent {
   ) { }
 
   isHandset$: Observable<boolean> = this.breakpointObserver
-    .observe(Breakpoints.Handset)
-    .pipe(
-      map((result) => result.matches),
-      shareReplay(),
-    );
+  .observe([
+    '(max-width: 991px)'
+  ])
+  .pipe(
+    map((result) => result.matches),
+    shareReplay(),
+  );
 }
