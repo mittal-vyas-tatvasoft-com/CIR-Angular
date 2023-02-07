@@ -1,1 +1,44 @@
-<p>login works</p>
+<div class="login-wrapper">
+    <div class="login-left">
+        <a href="#" title="Logo" class="logo">
+            <img src="assets/images/logo.svg" alt="logo" />
+        </a>
+        <div class="login-mid">
+            <img src="assets/images/login-img.svg" alt="login-img" />
+        </div>
+        <p>V 1.1.0 | Copyright 2022. All rights reserved</p>
+    </div>
+    <div class="login-right">
+        <div class="login-form">
+            <h2>LOGIN</h2>
+            <p class="sub">Please enter your credentials</p>
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Username</mat-label>
+                <input matInput>
+                <img matSuffix src="assets/images/person-black.svg" alt="person" />
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="hide">
+                    <img src="assets/images/visibility-black.svg" alt="visibility" />
+                </button>
+            </mat-form-field>
+            <div class="frgt-block">
+                <mat-checkbox formControlName="Remember me" color="primary">Remember me</mat-checkbox>
+                <a href="#" title="Forgot password">Forgot password ?</a>
+            </div>
+            <button mat-flat-button color="primary" class="login-btn">SIGN UP</button>
+            <span class="signup-text">Don’t have an account ? <a href="#" title="Signup">Sign Up </a></span>
+            <div class="login-links-wrapper">
+                <span class="underline-text">Or login with</span>
+                <ul>
+                    <li> <a href="#" title=""><em><img src="assets/images/google-ic.svg" alt="google" /></em>Google</a></li>
+                    <li> <a href="#" title=""><em><img src="assets/images/facebook-ic.svg" alt="google" /></em>Facebook</a> </li>
+                    <li> <a href="#" title=""><em><img src="assets/images/twitter-ic.svg" alt="google" /></em>Twitter</a> </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
