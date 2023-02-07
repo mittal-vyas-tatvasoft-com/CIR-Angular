@@ -1,0 +1,50 @@
+<div class="page-title">
+    <h3>Innerpage</h3>
+    <div class="right-block">
+        <mat-form-field appearance="outline">
+            <mat-label>Search</mat-label>
+            <input matInput>
+            <button mat-icon-button matSuffix>
+                <img src="assets/images/search-ic.svg" alt="search" />
+            </button>
+        </mat-form-field>
+        <button mat-raised-button color="primary">
+            Create
+        </button>
+    </div>
+</div>
+    <mat-tab-group>
+        <mat-tab>
+          <ng-template mat-tab-label>
+            First
+          </ng-template>
+          <app-table
+          [tableColumns]="tableColumn"
+          [tableData]="users"
+          [noDataFoundMessage]="noUserDataFound"
+          ></app-table>
+          
+          <mat-paginator
+          [length]="100"
+          [pageSize]="10"
+          [pageSizeOptions]="[10, 25, 50]"
+          aria-labels="Select page of users"
+          showFirstLastButtons
+          ></mat-paginator>
+        </mat-tab>
+      
+        <mat-tab>
+          <ng-template mat-tab-label>
+            Second
+          </ng-template>
+          Content 2
+        </mat-tab>
+      
+        <mat-tab>
+          <ng-template mat-tab-label>
+            Third
+          </ng-template>
+      
+          Content 3
+        </mat-tab>
+      </mat-tab-group>
