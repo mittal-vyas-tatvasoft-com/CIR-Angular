@@ -1,4 +1,35 @@
-<app-side-bar-navigation></app-side-bar-navigation>
-<app-header></app-header>
-<router-outlet></router-outlet>
-<app-footer></app-footer>
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="(isHandset$ | async) === false"
+  >
+    <app-side-bar-navigation></app-side-bar-navigation>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="wrapper">
+      <!-- Start Header -->
+      <app-header
+        [isHandset]="isHandset$ | async"
+        (onMenuIconClick)="drawer.toggle()"
+      ></app-header>
+      <!-- End Header -->
+
+      <!-- Main Navigation -->
+      <!-- End Main Navigation -->
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <router-outlet></router-outlet>
+      </main>
+      <!-- End Main Content -->
+
+      <!-- Start Footer -->
+      <app-footer></app-footer>
+      <!-- End Footer -->
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

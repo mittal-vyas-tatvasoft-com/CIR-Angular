@@ -1,3 +1,359 @@
-.lg-grey-tree.selected .mat-tree {
-  background: var(--border-color-lg-grey);
+.mat-button-base {
+  transition: all 0.3s;
+}
+
+.mat-chip-list-wrapper {
+  margin: 0;
+}
+
+// Fields
+.mat-form-field {
+  font-family: 'Nunito', sans-serif;
+
+  &.mat-form-field-appearance-outline {
+    .mat-form-field-flex {
+      padding: 0 0.7rem 0 1.4rem;
+    }
+
+    .mat-form-field-infix {
+      padding: 0.8rem 0;
+      height: 5.4rem;
+      line-height: 1;
+    }
+
+    .mat-form-field-label {
+      top: 2.6rem;
+    }
+
+    &.mat-form-field-can-float.mat-form-field-should-float
+      .mat-form-field-label,
+    &.mat-form-field-can-float
+      .mat-input-server:focus
+      + .mat-form-field-label-wrapper
+      .mat-form-field-label {
+      transform: translateY(-2.2rem) scale(0.75);
+    }
+
+    .mat-form-field-outline-start {
+      border-radius: 0.8rem 0 0 0.8rem;
+    }
+
+    .mat-form-field-outline-end {
+      border-radius: 0 0.8rem 0.8rem 0;
+    }
+
+    .mat-form-field-prefix,
+    .mat-form-field-suffix {
+      width: 4rem;
+      height: 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      top: 0.3rem;
+    }
+
+    .mat-select-arrow-wrapper {
+      transform: initial;
+    }
+  }
+}
+
+/* btns */
+.mat-button-base {
+  &.mat-button,
+  &.mat-raised-button,
+  &.mat-icon-button,
+  &.mat-stroked-button,
+  &.mat-flat-button,
+  &.mat-fab,
+  &.mat-mini-fab {
+    font-size: 1.6rem;
+    line-height: 2rem;
+    letter-spacing: 0.02em;
+    font-weight: 700;
+    font-family: 'Nunito', sans-serif;
+  }
+
+  &.mat-stroked-button,
+  &.mat-flat-button,
+  &.mat-raised-button {
+    min-height: 5rem;
+    border-radius: 0.8rem;
+  }
+
+  .mat-button-wrapper {
+    display: block;
+  }
+
+  &.icon-btn {
+    .mat-icon,
+    em,
+    i {
+      margin-right: 0.4rem;
+    }
+  }
+
+  &.mat-stroked-button:not(.mat-button-disabled) {
+    border-color: currentColor;
+  }
+}
+
+.mat-form-field-appearance-outline .mat-form-field-prefix .mat-button-wrapper,
+.mat-form-field-appearance-outline .mat-form-field-suffix .mat-button-wrapper {
+  display: flex;
+}
+
+.mat-icon-button .mat-icon.lg {
+  font-size: 3rem;
+  height: 3rem;
+  width: 3rem;
+  line-height: 3rem;
+}
+
+// CARD
+mat-card.mat-card {
+  box-shadow: 0 0.4rem 2rem rgba(0, 0, 0, 0.08);
+  border-radius: 1.2rem;
+  padding: 2rem;
+}
+
+// Tabbing
+.mat-tab-group {
+  background-color: #fff;
+  border-radius: 1.2rem;
+  box-shadow: 0 0.4rem 2rem rgba(0, 0, 0, 0.08);
+  .mat-tab-body-content {
+    padding: 2rem;
+  }
+}
+.mat-tab-label-container {
+  .mat-tab-label {
+    padding: 1.4rem 3.5rem;
+    font-size: 1.6rem;
+    line-height: 2rem;
+    transition: all 0.3s;
+    font-weight: 600;
+    opacity: 1;
+    color: #333333;
+    border-radius: 1.2rem 1.2rem 0 0;
+
+    &.mat-tab-label-active {
+      background: #4c5dde;
+      color: #fff;
+      border-radius: 1.2rem 1.2rem 0 0;
+    }
+  }
+
+  .mat-ink-bar {
+    display: none;
+  }
+}
+
+/* checkbox */
+.mat-checkbox-layout .mat-checkbox-label {
+  color: #333;
+}
+
+.mat-checkbox .mat-checkbox-inner-container {
+  height: 2rem;
+  width: 2rem;
+}
+
+.mat-checkbox .mat-checkbox-frame {
+  border-width: 1px;
+}
+
+// dropdown menu
+.mat-menu-panel.primary {
+  background: #ffffff;
+  box-shadow: 0 0.4rem 1.2rem rgba(0, 0, 0, 0.36);
+  border-radius: 0.8rem;
+}
+
+.mat-menu-panel.primary.with-icon {
+  .mat-menu-item {
+    display: flex;
+    align-items: center;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+    font-weight: 400;
+
+    .mat-icon {
+      display: flex;
+      margin-right: 8px;
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+}
+
+.mat-menu-panel.primary.user-detail-menu {
+  width: 24.2rem;
+
+  .mat-menu-content {
+    padding: 1.6rem 1.5rem 0.8rem;
+  }
+
+  .mat-menu-item {
+    height: 3rem;
+    padding: 0 0.5rem;
+    border-radius: 0.4rem;
+  }
+
+  .user-top {
+    border-bottom: 1px solid #e3e3e3;
+    padding: 0 0.5rem 1.2rem;
+    margin-bottom: 0.9rem;
+
+    h6 {
+      font-weight: 700;
+      font-size: 1.4rem;
+      line-height: 1.9rem;
+      color: #333;
+      padding: 0;
+    }
+
+    span {
+      font-weight: 400;
+      font-size: 1.2rem;
+      line-height: 1.6rem;
+      color: #666;
+    }
+  }
+
+  .user-mid {
+    border-bottom: 1px solid #e3e3e3;
+    padding-bottom: 1rem;
+    margin-bottom: 0.9rem;
+  }
+}
+
+.mat-menu-panel.primary.notification-menu {
+  width: 43.2rem;
+  max-width: 100%;
+  margin: 0.6rem;
+
+  .mat-menu-content {
+    padding: 0;
+  }
+
+  .noti-header {
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid #dcdcdc;
+
+    @media (max-width: 767px) {
+      padding: 1.5rem;
+    }
+  }
+
+  .noti-body {
+    padding: 2rem;
+
+    @media (max-width: 767px) {
+      padding: 1.5rem;
+    }
+
+    li {
+      position: relative;
+
+      .mat-icon-button {
+        width: 3rem;
+        height: 3rem;
+        line-height: 1;
+        background-color: #eeeeee;
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+    }
+
+    > li + li {
+      margin-top: 2rem;
+    }
+  }
+
+  .noti-layout {
+    padding: 0.4rem 3.8rem 0.4rem 1.5rem;
+    font-weight: 400;
+    display: block;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 4px;
+      background-color: #ac58ff;
+      border-top-right-radius: 4px;
+      border-bottom-right-radius: 4px;
+    }
+
+    &.alert::before {
+      background-color: #ffc000;
+    }
+
+    &.success::before {
+      background-color: #37b400;
+    }
+
+    &.blue::before {
+      background-color: #0058e9;
+    }
+
+    &.red::before {
+      background-color: #ff6358;
+    }
+
+    h6 {
+      font-weight: 400;
+      padding-bottom: 0.4rem;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    p {
+      font-size: 1.2rem;
+      line-height: 1.6rem;
+      color: #8f8f8f;
+      padding: 0;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+  }
+}
+
+// table
+.mat-table {
+  td.mat-cell {
+    padding: 0.4rem;
+    color: #666666;
+    font-size: 1.6rem;
+    line-height: 2.2rem;
+    vertical-align: middle;
+  }
+
+  tr.mat-header-row,
+  tr.mat-row,
+  tr.mat-footer-row {
+    height: 5.4rem;
+  }
+
+  th.mat-header-cell {
+    text-align: left;
+    font-weight: 700;
+    font-size: 1.6rem;
+    line-height: 2.2rem;
+    color: #333333;
+    padding: 0.4rem;
+    background-color: #f6f6f6;
+    vertical-align: middle;
+  }
+
+  .mat-form-field-wrapper {
+    padding-bottom: 0;
+  }
 }

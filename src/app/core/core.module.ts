@@ -7,6 +7,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { SideBarNavigationComponent } from './components/side-bar-navigation/side-bar-navigation.component';
 import { RouterModule } from '@angular/router';
 import { CoreRoutingModule } from './core-routing.module';
+import { SharedMaterialModule } from '../shared/material/shared-material.module';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,11 @@ import { CoreRoutingModule } from './core-routing.module';
     FooterComponent,
     SideBarNavigationComponent,
   ],
-  imports: [CommonModule, RouterModule, CoreRoutingModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    CoreRoutingModule,
+    SharedMaterialModule,
+  ],
 })
 export class CoreModule {}

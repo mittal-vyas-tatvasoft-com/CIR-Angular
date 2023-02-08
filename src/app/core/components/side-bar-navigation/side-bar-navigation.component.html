@@ -1,1 +1,71 @@
-<p>side-bar-navigation works!</p>
+<aside class="main-navigation">
+  <a href="#" title="Logo" class="logo"
+    ><img src="../../../../assets/images/logo.svg" alt=""
+  /></a>
+  <mat-accordion multi>
+    <mat-expansion-panel hideToggle>
+      <mat-expansion-panel-header routerLink="table">
+        <em class="icon">
+          <img src="../../../../assets/images/dashboard-white-ic.svg" alt=""
+        /></em>
+        Dashboard
+      </mat-expansion-panel-header>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <em class="icon">
+          <img src="../../../../assets/images/calendar-white-ic.svg" alt=""
+        /></em>
+        Calendar
+      </mat-expansion-panel-header>
+
+      <!-- sub -->
+      <mat-accordion multi class="sub-menu">
+        <mat-expansion-panel>
+          <mat-expansion-panel-header> Sublink 1 </mat-expansion-panel-header>
+          <ul class="sub-menu-list">
+            <li><a routerLink="table" title="" class="link">Sublink 2</a></li>
+            <li><a href="#" title="" class="link">Sublink 2</a></li>
+            <li><a href="#" title="" class="link">Sublink 2</a></li>
+          </ul>
+        </mat-expansion-panel>
+        <mat-expansion-panel hideToggle>
+          <mat-expansion-panel-header routerLink="table">
+            Sublink 2
+          </mat-expansion-panel-header>
+        </mat-expansion-panel>
+        <mat-expansion-panel hideToggle>
+          <mat-expansion-panel-header> Sublink 3 </mat-expansion-panel-header>
+        </mat-expansion-panel>
+        <mat-expansion-panel hideToggle>
+          <mat-expansion-panel-header> Sublink 4 </mat-expansion-panel-header>
+        </mat-expansion-panel>
+      </mat-accordion>
+      <!--  -->
+    </mat-expansion-panel>
+    <mat-expansion-panel hideToggle>
+      <mat-expansion-panel-header>
+        <em class="icon">
+          <img src="../../../../assets/images/description-white-ic.svg" alt=""
+        /></em>
+        Pages
+      </mat-expansion-panel-header>
+    </mat-expansion-panel>
+    <mat-expansion-panel hideToggle>
+      <mat-expansion-panel-header>
+        <em class="icon">
+          <img src="../../../../assets/images/help-white-ic.svg" alt=""
+        /></em>
+        Help
+      </mat-expansion-panel-header>
+    </mat-expansion-panel>
+    <mat-expansion-panel hideToggle>
+      <mat-expansion-panel-header>
+        <em class="icon">
+          <img src="../../../../assets/images/email-white-ic.svg" alt=""
+        /></em>
+        Mails
+      </mat-expansion-panel-header>
+    </mat-expansion-panel>
+  </mat-accordion>
+</aside>

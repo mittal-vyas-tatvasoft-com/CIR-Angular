@@ -1,6 +1,413 @@
+@charset "utf-8";
 @import './assets/scss/core';
-
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap');
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/*
+------------------------------------------------------------
+Project Name : Sample Project;
+------------------------------------------------------------
+*/
+
+/* Reset
+--------------------------------------------------------------------------------------------------------*/
+
+/*
+http://meyerweb.com/eric/tools/css/reset/
+v2.0 | 20110126
+License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* General
+--------------------------------------------------------------------------------------------------------*/
+* {
+  outline: none !important;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: 'Nunito', sans-serif;
+}
+
+a {
+  transition: all 0.3s;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+html,
+body {
+  min-width: 320px;
+}
+
+body {
+  font-size: 1.6rem;
+  line-height: 2rem;
+  font-family: 'Nunito', sans-serif;
+  -ms-overflow-style: scrollbar;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #999;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.2em;
+  padding: 0 0 2rem;
+}
+
+h1 span,
+h2 span,
+h3 span,
+h4 span,
+h5 span,
+h6 span {
+  display: block;
+}
+
+h1 {
+}
+
+h2 {
+  font-size: 3.8rem;
+  line-height: 4.2rem;
+  font-weight: 800;
+  color: #333333;
+}
+
+h3 {
+  font-size: 3.4rem;
+  line-height: 3.8rem;
+  font-weight: 700;
+  color: #333333;
+  @media (max-width: 991px) {
+    font-size: 3rem;
+    line-height: 3.4rem;
+  }
+  @media (max-width: 767px) {
+    font-size: 2.8rem;
+    line-height: 3.2rem;
+  }
+}
+
+h4 {
+  font-size: 2.2rem;
+  line-height: 2.6rem;
+  font-weight: 700;
+  color: #333333;
+}
+
+h5 {
+}
+
+h6 {
+}
+
+p {
+  padding: 0 0 2rem;
+}
+
+input[type='text'],
+input[type='email'],
+input[type='password'],
+textarea {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+::-webkit-input-placeholder {
+  color: #000;
+}
+
+::-moz-placeholder {
+  color: #000;
+}
+
+:-ms-input-placeholder {
+  color: #000;
+}
+
+:-moz-placeholder {
+  color: #000;
+}
+
+::-moz-focus-inner {
+  border: 0;
+}
+
+select:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+
+option:not(:checked) {
+  color: black;
+}
+
+img {
+  max-width: 100%;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.input-group {
+  display: flex;
+}
+.input-group > *:not(:last-child) {
+  margin-right: 0.6rem;
+}
+.input-group button {
+  margin-top: 0.4rem;
+}
+
+.btns-block {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+}
+
+/* Header
+--------------------------------------------------------------------------------------------------------*/
+.header {
+}
+
+.logo {
+  display: inline-block;
+}
+
+.logo > img {
+  display: block;
+}
+
+/* MainNavigation
+--------------------------------------------------------------------------------------------------------*/
+.main-navigation {
+}
+
+/* Main Content
+--------------------------------------------------------------------------------------------------------*/
+.main-content {
+  padding: 3rem 4rem;
+  flex: 1;
+  @media (max-width: 991px) {
+    padding: 2rem;
+  }
+  @media (max-width: 767px) {
+    padding: 1.5rem;
+  }
+}
+
+.page-title {
+  display: flex;
+  gap: 1.6rem;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+  @media (max-width: 991px) {
+    margin-bottom: 2rem;
+  }
+  .right-block {
+    display: flex;
+    gap: 1.6rem;
+    align-items: center;
+  }
+  h3 {
+    padding: 0;
+  }
+  .mat-form-field-wrapper {
+    padding: 0;
+    margin: 0;
+  }
+}
+
+// table
+.responsive-table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  .mat-table td.mat-cell {
+    min-width: 11.2rem;
+  }
+}
+
+/* Footer
+--------------------------------------------------------------------------------------------------------*/
+.footer {
+  margin-top: auto;
+  padding: 1.5rem;
+  font-weight: 600;
+  color: #333333;
+}
+
+.copyright {
+  padding: 0;
+}
+
+/* Responsive Media Queries
+--------------------------------------------------------------------------------------------------------*/
+@media (max-width: 1199px) {
+}
+
+@media (max-width: 991px) {
+}
+
+@media (max-width: 767px) {
+}
+
+@media (max-width: 575px) {
+}
