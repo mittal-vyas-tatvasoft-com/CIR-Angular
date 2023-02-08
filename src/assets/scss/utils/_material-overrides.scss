@@ -10,15 +10,7 @@
 .mat-form-field {
   font-family: 'Nunito', sans-serif;
 
-  // color: var(--color-textfont);
-  &.mat-form-field-label {
-    // color: var(--color-textlabel);
-  }
-
   &.mat-form-field-appearance-outline {
-    .mat-form-field-outline {
-      // color: var(--color-textborder);
-    }
 
     .mat-form-field-flex {
       padding: 0 0.7rem 0 1.4rem;
@@ -37,11 +29,6 @@
     &.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label,
     &.mat-form-field-can-float .mat-input-server:focus+.mat-form-field-label-wrapper .mat-form-field-label {
       transform: translateY(-2.2rem) scale(0.75);
-    }
-
-    &.mat-focused .mat-form-field-outline-thick,
-    &.mat-focused .mat-form-field-label {
-      // color: var(--color-primary);
     }
 
     .mat-form-field-outline-start {
@@ -66,15 +53,6 @@
       transform: initial
     }
   }
-
-  &.mat-form-field-invalid .mat-form-field-label,
-  &.mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-form-field-outline-thick {
-    // color :var(--color-error);
-  }
-}
-
-.mat-error {
-  // color: var(--color-error);
 }
 
 /* btns */
@@ -98,10 +76,21 @@
   &.mat-flat-button,
   &.mat-raised-button {
     min-height: 5rem;
+    border-radius: 0.8rem;
   }
 
   .mat-button-wrapper {
     display: block;
+  }
+
+  &.icon-btn {
+    .mat-icon,em,i{
+      margin-right: 0.4rem;
+    }
+  }
+
+  &.mat-stroked-button:not(.mat-button-disabled){
+    border-color: currentColor;
   }
 }
 
