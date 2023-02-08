@@ -8,11 +8,8 @@ const routes: Routes = [
       import('./core/auth/auth.module').then((m) => m.AuthModule),
   },
   {
-    path: 'app-control',
-    loadChildren: () =>
-      import('./app-controls/app-controls.module').then(
-        (m) => m.AppControlsModule,
-      ),
+    path: 'admin',
+    loadChildren: () => import('./core/core.module').then((m) => m.CoreModule),
   },
 ];
 
