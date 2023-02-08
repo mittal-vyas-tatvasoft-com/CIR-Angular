@@ -32,11 +32,11 @@
     }
 
     .mat-form-field-outline-start {
-      border-radius: 8px 0 0 8px;
+      border-radius: 0.8rem 0 0 0.8rem;
     }
 
     .mat-form-field-outline-end {
-      border-radius: 0 8px 8px 0;
+      border-radius: 0 0.8rem 0.8rem 0;
     }
 
     .mat-form-field-prefix,
@@ -108,7 +108,7 @@
 
 // CARD
 mat-card.mat-card {
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 0.4rem 2rem rgba(0, 0, 0, 0.08);
   border-radius: 1.2rem;
   padding: 2rem;
 }
@@ -117,7 +117,7 @@ mat-card.mat-card {
 .mat-tab-group{
   background-color: #fff;
   border-radius: 1.2rem;
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 0.4rem 2rem rgba(0, 0, 0, 0.08);
   .mat-tab-body-content {
     padding: 2rem;
   }
@@ -131,12 +131,12 @@ mat-card.mat-card {
     font-weight: 600;
     opacity: 1;
     color: #333333;
-    border-radius: 12px 12px 0px 0px;
+    border-radius: 1.2rem 1.2rem 0 0;
 
     &.mat-tab-label-active {
       background: #4C5DDE;
       color: #fff;
-      border-radius: 12px 12px 0px 0px;
+      border-radius: 1.2rem 1.2rem 0 0;
     }
   }
 
@@ -163,8 +163,8 @@ mat-card.mat-card {
 // dropdown menu
 .mat-menu-panel.primary {
   background: #FFFFFF;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.36);
-  border-radius: 8px;
+  box-shadow: 0 0.4rem 1.2rem rgba(0, 0, 0, 0.36);
+  border-radius: 0.8rem;
 }
 
 .mat-menu-panel.primary.with-icon {
@@ -195,7 +195,7 @@ mat-card.mat-card {
   .mat-menu-item {
     height: 3rem;
     padding: 0 .5rem;
-    border-radius: 4px;
+    border-radius: 0.4rem;
   }
 
   .user-top {
@@ -229,7 +229,7 @@ mat-card.mat-card {
 .mat-menu-panel.primary.notification-menu {
   width: 43.2rem;
   max-width: 100%;
-  margin: 6px;
+  margin: 0.6rem;
 
   .mat-menu-content {
     padding: 0;
@@ -266,12 +266,12 @@ mat-card.mat-card {
     }
 
     >li+li {
-      margin-top: 20px;
+      margin-top: 2rem;
     }
   }
 
   .noti-layout {
-    padding: 4px 38px 4px 15px;
+    padding: 0.4rem 3.8rem 0.4rem 1.5rem;
     font-weight: 400;
     display: block;
 
@@ -305,15 +305,15 @@ mat-card.mat-card {
 
     h6 {
       font-weight: 400;
-      padding-bottom: 4px;
+      padding-bottom: 0.4rem;
       text-overflow: ellipsis;
       overflow: hidden;
       white-space: nowrap;
     }
 
     p {
-      font-size: 12px;
-      line-height: 16px;
+      font-size: 1.2rem;
+      line-height: 1.6rem;
       color: #8F8F8F;
       padding: 0;
       text-overflow: ellipsis;
@@ -326,26 +326,26 @@ mat-card.mat-card {
 // table
 .mat-table {
   td.mat-cell {
-    padding: 4px;
+    padding: .4rem;
     color: #666666;
-    font-size: 16px;
-    line-height: 22px;
+    font-size: 1.6rem;
+    line-height: 2.2rem;
     vertical-align: middle;
   }
 
   tr.mat-header-row,
   tr.mat-row,
   tr.mat-footer-row {
-    height: 54px;
+    height: 5.4rem;
   }
 
   th.mat-header-cell {
     text-align: left;
     font-weight: 700;
-    font-size: 16px;
-    line-height: 22px;
+    font-size: 1.6rem;
+    line-height: 2.2rem;
     color: #333333;
-    padding: 4px;
+    padding: 0.4rem;
     background-color: #F6F6F6;
     vertical-align: middle;
   }

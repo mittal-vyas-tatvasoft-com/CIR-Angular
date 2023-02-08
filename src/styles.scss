@@ -303,10 +303,10 @@ img {
     display: flex;
 }
 .input-group > *:not(:last-child) {
-   margin-right: 6px;
+   margin-right: 0.6rem;
 }
 .input-group button {
-    margin-top: 4px;
+    margin-top: 0.4rem;
  }
 
  .btns-block {
@@ -385,7 +385,7 @@ img {
 --------------------------------------------------------------------------------------------------------*/
 .footer {
     margin-top: auto;
-    padding: 15px;
+    padding: 1.5rem;
     font-weight: 600;
     color: #333333;
 }
