@@ -69,21 +69,26 @@
   </mat-card-content>
   <mat-card-content>
     <app-date-picker
-    [form]="form"
-    [formControlModel]="appControls.datePickerField"
-  ></app-date-picker>
+      [form]="form"
+      [formControlModel]="appControls.datePickerField"
+    ></app-date-picker>
   </mat-card-content>
   <mat-card-content>
-    <app-button
-      type="button"
-      label="Button Control"
-      (btnClick)="submit()"
-    ></app-button>
+    <app-button label="Button Control" (btnClick)="submit()"></app-button>
+    <app-button label="Button accent Control" [color]="'accent'"></app-button>
   </mat-card-content>
   <mat-card-content>
-    <app-stroked-button      
+    stroked button
+    <app-stroked-button
       label="Stroked Button Control"
       (onBtnClick)="submit()"
     ></app-stroked-button>
+    <br /><br />
+    <div>
+      icon button
+      <button mat-raised-button color="primary">
+        <mat-icon>favorite</mat-icon>Primary
+      </button>
+    </div>
   </mat-card-content>
 </mat-card>
