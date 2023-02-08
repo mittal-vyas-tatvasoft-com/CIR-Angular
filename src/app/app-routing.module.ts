@@ -20,6 +20,10 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'admin',
+    loadChildren: () => import('./core/core.module').then((m) => m.CoreModule),
+  },
+  {
     path: 'table',
     loadChildren: () =>
       import('./tables/table-demo.module').then(

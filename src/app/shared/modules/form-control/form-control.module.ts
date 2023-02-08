@@ -16,6 +16,7 @@ import { NumbersOnlyDirective } from './directives/numbers-only.directive';
 import { FileUploadComponent } from './components/file-upload/file-upload.component';
 import { SharedMaterialModule } from 'src/app/shared/material/shared-material.module';
 import { DatePickerComponent } from './components/date-picker/date-picker.component';
+import { StrokedButtonComponent } from './components/stroked-button/stroked-button.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { DatePickerComponent } from './components/date-picker/date-picker.compon
     TimePickerComponent,
     // directives
     NumbersOnlyDirective,    
-    DatePickerComponent,
+    DatePickerComponent, 
+    StrokedButtonComponent,
   ],
   imports: [
     CommonModule,
@@ -55,6 +57,7 @@ import { DatePickerComponent } from './components/date-picker/date-picker.compon
     // directives
     NumbersOnlyDirective,    
     DatePickerComponent,
+    StrokedButtonComponent,
   ],
 })
 export class FormControlModule {}
