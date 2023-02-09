@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class LoginComponent {
   //TODO: add comment for every methods
+  hide = true;
 }

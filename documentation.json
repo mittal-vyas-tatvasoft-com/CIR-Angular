@@ -1806,11 +1806,11 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<p>footer works!</p>\r\n"
+            "templateData": "<footer class=\"footer\">\r\n  <p class=\"copyright\">V 1.1.0 | Copyright 2022. All rights reserved</p>\r\n</footer>\r\n"
         },
         {
             "name": "HeaderComponent",
-            "id": "component-HeaderComponent-66aab1b24c0d8854e1f82fba28138804b4b85580f247fc5033dd7baf800ad39c3ed2312637667e7b335e90cb144fdbd62673e2ce34182a65e43f7cecfaa900cc",
+            "id": "component-HeaderComponent-36d7b838628b032e4e89843aeffbfee5c188342375b332803764a0d7876b86ef95cd8163900fe0ebcf447509980fc6fb4802d6a5d1129ab8739018fff4abdf23",
             "file": "src/app/core/components/header/header.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1826,12 +1826,30 @@
                 "./header.component.html"
             ],
             "viewProviders": [],
-            "inputsClass": [],
-            "outputsClass": [],
+            "inputsClass": [
+                {
+                    "name": "isHandset",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 9,
+                    "type": "boolean | null",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "onMenuIconClick",
+                    "defaultValue": "new EventEmitter()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 10,
+                    "type": "EventEmitter"
+                }
+            ],
             "propertiesClass": [],
             "methodsClass": [
                 {
-                    "name": "ngOnInit",
+                    "name": "onClick",
                     "args": [],
                     "optional": false,
                     "returnType": "void",
@@ -1848,27 +1866,16 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-header',\r\n  templateUrl: './header.component.html',\r\n  styleUrls: ['./header.component.scss']\r\n})\r\nexport class HeaderComponent implements OnInit {\r\n\r\n  constructor() { }\r\n\r\n  ngOnInit(): void {\r\n  }\r\n\r\n}\r\n",
+            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-header',\r\n  templateUrl: './header.component.html',\r\n  styleUrls: ['./header.component.scss'],\r\n})\r\nexport class HeaderComponent {\r\n  @Input() isHandset: boolean | null;\r\n  @Output() onMenuIconClick = new EventEmitter();\r\n\r\n  onClick() {\r\n    this.onMenuIconClick.emit();\r\n  }\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "",
+                    "data": ".mat-toolbar {\r\n  justify-content: space-between;\r\n  height: 96px;\r\n  padding: 0 30px;\r\n\r\n  @media (max-width: 767px) {\r\n    height: 70px;\r\n    padding: 0 10px;\r\n  }\r\n\r\n  .right-block {\r\n    & > button + button {\r\n      margin-left: 1.7rem;\r\n\r\n      @media (max-width: 767px) {\r\n        margin-left: 0.4rem;\r\n      }\r\n    }\r\n  }\r\n\r\n  ::ng-deep .mat-badge .mat-badge-content {\r\n    font-size: 0;\r\n    width: 1rem;\r\n    height: 1rem;\r\n    line-height: 1rem;\r\n    right: 9px;\r\n    top: 10px;\r\n  }\r\n}\r\n\r\n.profile-btn.mat-icon-button {\r\n  width: 6.8rem;\r\n  height: 6.8rem;\r\n  line-height: 6.8rem;\r\n  border-radius: 1.2rem;\r\n\r\n  img {\r\n    width: 4.8rem;\r\n    min-width: 4.8rem;\r\n    height: 4.8rem;\r\n    object-fit: cover;\r\n    border-radius: 50%;\r\n  }\r\n}\r\n",
                     "styleUrl": "./header.component.scss"
                 }
             ],
             "stylesData": "",
-            "constructorObj": {
-                "name": "constructor",
-                "description": "",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "args": [],
-                "line": 8
-            },
-            "implements": [
-                "OnInit"
-            ],
-            "templateData": "<p>header works!</p>\r\n"
+            "templateData": "<mat-toolbar class=\"c-header\">\r\n  <button\r\n    mat-icon-button\r\n    (click)=\"onClick()\"\r\n    class=\"example-icon\"\r\n    aria-label=\"Example icon-button with menu icon\"\r\n  >\r\n    <mat-icon class=\"lg\">menu</mat-icon>\r\n  </button>\r\n  <div class=\"right-block\">\r\n    <button mat-icon-button>\r\n      <img src=\"../../../../assets/images/search-ic.svg\" alt=\"\" />\r\n    </button>\r\n    <button\r\n      mat-icon-button\r\n      matBadge=\"1\"\r\n      matBadgeColor=\"warn\"\r\n      [matMenuTriggerFor]=\"notifMenu\"\r\n    >\r\n      <img src=\"../../../../assets/images/notification-ic.svg\" alt=\"\" />\r\n    </button>\r\n    <button\r\n      mat-icon-button\r\n      [matMenuTriggerFor]=\"profileMenu\"\r\n      class=\"profile-btn\"\r\n    >\r\n      <img src=\"../../../../assets/images/dp.jpg\" alt=\"\" />\r\n    </button>\r\n    <mat-menu\r\n      #notifMenu=\"matMenu\"\r\n      xPosition=\"before\"\r\n      class=\"with-icon notification-menu primary\"\r\n    >\r\n      <h4 class=\"noti-header\">Notifications</h4>\r\n      <ul class=\"noti-body\">\r\n        <li>\r\n          <a href=\"#\" title=\"\" matRipple class=\"noti-layout\">\r\n            <h6>Daily Standup Meeting</h6>\r\n            <p>Due in 24 hours</p>\r\n          </a>\r\n          <button mat-icon-button>\r\n            <img src=\"../../../../assets/images/delete-ic.svg\" alt=\"\" />\r\n          </button>\r\n        </li>\r\n        <li>\r\n          <a href=\"#\" title=\"\" matRipple class=\"noti-layout alert\">\r\n            <h6>Next sprint planning and estimations</h6>\r\n            <p>Due in 24 hours</p>\r\n          </a>\r\n          <button mat-icon-button>\r\n            <img src=\"../../../../assets/images/delete-ic.svg\" alt=\"\" />\r\n          </button>\r\n        </li>\r\n        <li>\r\n          <a href=\"#\" title=\"\" matRipple class=\"noti-layout success\">\r\n            <h6>Data analytics research showcase</h6>\r\n            <p>Due in 24 hours</p>\r\n          </a>\r\n          <button mat-icon-button>\r\n            <img src=\"../../../../assets/images/delete-ic.svg\" alt=\"\" />\r\n          </button>\r\n        </li>\r\n        <li>\r\n          <a href=\"#\" title=\"\" matRipple class=\"noti-layout blue\">\r\n            <h6>Sprint delivery and project deployment</h6>\r\n            <p>Due in 24 hours</p>\r\n          </a>\r\n          <button mat-icon-button>\r\n            <img src=\"../../../../assets/images/delete-ic.svg\" alt=\"\" />\r\n          </button>\r\n        </li>\r\n        <li>\r\n          <a href=\"#\" title=\"\" matRipple class=\"noti-layout red\">\r\n            <h6>Next sprint planning and estimations</h6>\r\n            <p>Due in 24 hours</p>\r\n          </a>\r\n          <button mat-icon-button>\r\n            <img src=\"../../../../assets/images/delete-ic.svg\" alt=\"\" />\r\n          </button>\r\n        </li>\r\n      </ul>\r\n    </mat-menu>\r\n    <mat-menu\r\n      #profileMenu=\"matMenu\"\r\n      xPosition=\"before\"\r\n      class=\"with-icon user-detail-menu primary\"\r\n    >\r\n      <div class=\"user-top\">\r\n        <h6>Mark Zukerberg</h6>\r\n        <span>Super Admin</span>\r\n      </div>\r\n      <div class=\"user-mid\">\r\n        <button mat-menu-item>\r\n          <em class=\"mat-icon\">\r\n            <img src=\"../../../../assets/images/person-outline-ic.svg\" alt=\"\"\r\n          /></em>\r\n          User Profile\r\n        </button>\r\n        <button mat-menu-item>\r\n          <em class=\"mat-icon\">\r\n            <img src=\"../../../../assets/images/settings-ic.svg\" alt=\"\"\r\n          /></em>\r\n          Setting\r\n        </button>\r\n        <button mat-menu-item>\r\n          <em class=\"mat-icon\">\r\n            <img src=\"../../../../assets/images/help-outline-ic.svg\" alt=\"\"\r\n          /></em>\r\n          Help & Support\r\n        </button>\r\n      </div>\r\n      <button mat-menu-item>\r\n        <em class=\"mat-icon\">\r\n          <img src=\"../../../../assets/images/power-ic.svg\" alt=\"\"\r\n        /></em>\r\n        Logout\r\n      </button>\r\n    </mat-menu>\r\n  </div>\r\n</mat-toolbar>\r\n"
         },
         {
             "name": "LoginComponent",
@@ -2508,7 +2515,7 @@
         },
         {
             "name": "SidebarComponent",
-            "id": "component-SidebarComponent-be46fffb4966af4e56156becb320cfe65482447bd400adde085ae3e89ee6a3c1c60c14e32bf21a152cf27ec72983a996a0dec4cf04b383ea896d68a39330bde5",
+            "id": "component-SidebarComponent-c4d2ce1a907c8c0f668959067b79cf290ee857123d68a07bd045f0126c4b70724a14d296e888cb61990afa6ced4f57cf4d735183e12a9ed0fda6e8c1db932214",
             "file": "src/app/core/components/sidebar/sidebar.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -2526,7 +2533,18 @@
             "viewProviders": [],
             "inputsClass": [],
             "outputsClass": [],
-            "propertiesClass": [],
+            "propertiesClass": [
+                {
+                    "name": "isHandset$",
+                    "defaultValue": "this.breakpointObserver\r\n    .observe(['(max-width: 991px)'])\r\n    .pipe(\r\n      map((result) => result.matches),\r\n      shareReplay(),\r\n    )",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Observable<boolean>",
+                    "optional": false,
+                    "description": "",
+                    "line": 13
+                }
+            ],
             "methodsClass": [],
             "deprecated": false,
             "deprecationMessage": "",
@@ -2535,7 +2553,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-sidebar',\r\n  templateUrl: './sidebar.component.html',\r\n  styleUrls: ['./sidebar.component.scss'],\r\n})\r\nexport class SidebarComponent {}\r\n",
+            "sourceCode": "import { BreakpointObserver } from '@angular/cdk/layout';\r\nimport { Component } from '@angular/core';\r\nimport { map, Observable, shareReplay } from 'rxjs';\r\n\r\n@Component({\r\n  selector: 'app-sidebar',\r\n  templateUrl: './sidebar.component.html',\r\n  styleUrls: ['./sidebar.component.scss'],\r\n})\r\nexport class SidebarComponent {\r\n  constructor(private breakpointObserver: BreakpointObserver) {}\r\n\r\n  isHandset$: Observable<boolean> = this.breakpointObserver\r\n    .observe(['(max-width: 991px)'])\r\n    .pipe(\r\n      map((result) => result.matches),\r\n      shareReplay(),\r\n    );\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -2544,7 +2562,33 @@
                 }
             ],
             "stylesData": "",
-            "templateData": "<app-side-bar-navigation></app-side-bar-navigation>\r\n<app-header></app-header>\r\n<router-outlet></router-outlet>\r\n<app-footer></app-footer>\r\n"
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "breakpointObserver",
+                        "type": "BreakpointObserver",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 10,
+                "jsdoctags": [
+                    {
+                        "name": "breakpointObserver",
+                        "type": "BreakpointObserver",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "templateData": "<mat-sidenav-container class=\"sidenav-container\">\r\n  <mat-sidenav\r\n    #drawer\r\n    class=\"sidenav\"\r\n    fixedInViewport\r\n    [attr.role]=\"(isHandset$ | async) ? 'dialog' : 'navigation'\"\r\n    [mode]=\"(isHandset$ | async) ? 'over' : 'side'\"\r\n    [opened]=\"(isHandset$ | async) === false\"\r\n  >\r\n    <app-side-bar-navigation></app-side-bar-navigation>\r\n  </mat-sidenav>\r\n  <mat-sidenav-content>\r\n    <div class=\"wrapper\">\r\n      <!-- Start Header -->\r\n      <app-header\r\n        [isHandset]=\"isHandset$ | async\"\r\n        (onMenuIconClick)=\"drawer.toggle()\"\r\n      ></app-header>\r\n      <!-- End Header -->\r\n\r\n      <!-- Main Navigation -->\r\n      <!-- End Main Navigation -->\r\n\r\n      <!-- Main Content -->\r\n      <main class=\"main-content\">\r\n        <router-outlet></router-outlet>\r\n      </main>\r\n      <!-- End Main Content -->\r\n\r\n      <!-- Start Footer -->\r\n      <app-footer></app-footer>\r\n      <!-- End Footer -->\r\n    </div>\r\n  </mat-sidenav-content>\r\n</mat-sidenav-container>\r\n"
         },
         {
             "name": "SideBarNavigationComponent",
@@ -2590,7 +2634,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "",
+                    "data": ".main-navigation {\r\n  width: 260px;\r\n  min-height: 100%;\r\n  background: var(--primary-color);\r\n\r\n  .logo {\r\n    margin: 22px 48px 48px;\r\n  }\r\n}\r\n\r\n::ng-deep .mat-accordion {\r\n  .mat-expansion-panel:not(.mat-expanded):not([aria-disabled='true'])\r\n    .mat-expansion-panel-header:hover {\r\n    background: rgba(0, 0, 0, 0.1);\r\n  }\r\n\r\n  .mat-expansion-panel {\r\n    box-shadow: none;\r\n    font-family: 'Nunito', sans-serif;\r\n    background-color: transparent;\r\n    color: #fff;\r\n    margin: 0 !important;\r\n\r\n    &.mat-expanded {\r\n      background: rgba(0, 0, 0, 0.1);\r\n    }\r\n  }\r\n\r\n  .mat-expansion-panel-header {\r\n    font-weight: 600;\r\n    font-size: 16px;\r\n    line-height: 22px;\r\n    height: 58px !important;\r\n    background-color: transparent;\r\n    color: #fff;\r\n    transition: all 0.3s;\r\n\r\n    .mat-expansion-indicator::after {\r\n      position: relative;\r\n      top: -5px;\r\n    }\r\n  }\r\n\r\n  .mat-expansion-indicator::after {\r\n    color: #fff;\r\n  }\r\n\r\n  .mat-expansion-panel-body {\r\n    padding: 0;\r\n  }\r\n\r\n  .mat-content {\r\n    align-items: center;\r\n\r\n    .icon {\r\n      display: flex;\r\n      margin-right: 14px;\r\n      width: 24px;\r\n      height: 24px;\r\n    }\r\n  }\r\n\r\n  &.sub-menu {\r\n    .mat-expansion-panel {\r\n      background-color: transparent !important;\r\n    }\r\n\r\n    .mat-expansion-panel-header {\r\n      font-size: 14px;\r\n      line-height: 28px;\r\n      height: 40px !important;\r\n      padding-left: 50px;\r\n    }\r\n\r\n    .mat-content {\r\n      position: relative;\r\n      padding-left: 14px;\r\n\r\n      &::before {\r\n        content: '';\r\n        position: absolute;\r\n        top: calc(50% - 3px);\r\n        left: 0;\r\n        width: 6px;\r\n        height: 6px;\r\n        border-radius: 50%;\r\n        background-color: #fff;\r\n      }\r\n    }\r\n\r\n    ul.sub-menu-list {\r\n      list-style: circle;\r\n      margin-left: 80px;\r\n\r\n      .link {\r\n        padding: 8px 0;\r\n        color: #fff;\r\n        display: block;\r\n\r\n        &:hover {\r\n          color: rgba(255, 255, 255, 0.6);\r\n        }\r\n      }\r\n    }\r\n  }\r\n}\r\n",
                     "styleUrl": "./side-bar-navigation.component.scss"
                 }
             ],
@@ -2606,7 +2650,7 @@
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<p>side-bar-navigation works!</p>\r\n"
+            "templateData": "<aside class=\"main-navigation\">\r\n  <a href=\"#\" title=\"Logo\" class=\"logo\"\r\n    ><img src=\"../../../../assets/images/logo.svg\" alt=\"\"\r\n  /></a>\r\n  <mat-accordion multi>\r\n    <mat-expansion-panel hideToggle>\r\n      <mat-expansion-panel-header routerLink=\"table\">\r\n        <em class=\"icon\">\r\n          <img src=\"../../../../assets/images/dashboard-white-ic.svg\" alt=\"\"\r\n        /></em>\r\n        Dashboard\r\n      </mat-expansion-panel-header>\r\n    </mat-expansion-panel>\r\n    <mat-expansion-panel>\r\n      <mat-expansion-panel-header>\r\n        <em class=\"icon\">\r\n          <img src=\"../../../../assets/images/calendar-white-ic.svg\" alt=\"\"\r\n        /></em>\r\n        Calendar\r\n      </mat-expansion-panel-header>\r\n\r\n      <!-- sub -->\r\n      <mat-accordion multi class=\"sub-menu\">\r\n        <mat-expansion-panel>\r\n          <mat-expansion-panel-header> Sublink 1 </mat-expansion-panel-header>\r\n          <ul class=\"sub-menu-list\">\r\n            <li><a routerLink=\"table\" title=\"\" class=\"link\">Sublink 2</a></li>\r\n            <li><a href=\"#\" title=\"\" class=\"link\">Sublink 2</a></li>\r\n            <li><a href=\"#\" title=\"\" class=\"link\">Sublink 2</a></li>\r\n          </ul>\r\n        </mat-expansion-panel>\r\n        <mat-expansion-panel hideToggle>\r\n          <mat-expansion-panel-header routerLink=\"table\">\r\n            Sublink 2\r\n          </mat-expansion-panel-header>\r\n        </mat-expansion-panel>\r\n        <mat-expansion-panel hideToggle>\r\n          <mat-expansion-panel-header> Sublink 3 </mat-expansion-panel-header>\r\n        </mat-expansion-panel>\r\n        <mat-expansion-panel hideToggle>\r\n          <mat-expansion-panel-header> Sublink 4 </mat-expansion-panel-header>\r\n        </mat-expansion-panel>\r\n      </mat-accordion>\r\n      <!--  -->\r\n    </mat-expansion-panel>\r\n    <mat-expansion-panel hideToggle>\r\n      <mat-expansion-panel-header>\r\n        <em class=\"icon\">\r\n          <img src=\"../../../../assets/images/description-white-ic.svg\" alt=\"\"\r\n        /></em>\r\n        Pages\r\n      </mat-expansion-panel-header>\r\n    </mat-expansion-panel>\r\n    <mat-expansion-panel hideToggle>\r\n      <mat-expansion-panel-header>\r\n        <em class=\"icon\">\r\n          <img src=\"../../../../assets/images/help-white-ic.svg\" alt=\"\"\r\n        /></em>\r\n        Help\r\n      </mat-expansion-panel-header>\r\n    </mat-expansion-panel>\r\n    <mat-expansion-panel hideToggle>\r\n      <mat-expansion-panel-header>\r\n        <em class=\"icon\">\r\n          <img src=\"../../../../assets/images/email-white-ic.svg\" alt=\"\"\r\n        /></em>\r\n        Mails\r\n      </mat-expansion-panel-header>\r\n    </mat-expansion-panel>\r\n  </mat-accordion>\r\n</aside>\r\n"
         },
         {
             "name": "StrokedButtonComponent",
@@ -4066,13 +4110,13 @@
         },
         {
             "name": "CoreModule",
-            "id": "module-CoreModule-5616f7915bda6a2932f00695ef8be20925bd58b613c7f0922482d8fe5198111d3ba5e68a0dcb3efd805eaa07418a9bb08483493e51cba07835c7dd77061fc4ec",
+            "id": "module-CoreModule-5cc51e61e15d1048092c81505267b39fb1816c4387c6cb251e3b2199acc4dedb36c428e3c1f070ce5fb138dcbcbe75c65bb55c5610054452e7945fdd6db5502a",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "src/app/core/core.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\nimport { CoreComponent } from './core.component';\r\nimport { SidebarComponent } from './components/sidebar/sidebar.component';\r\nimport { HeaderComponent } from './components/header/header.component';\r\nimport { FooterComponent } from './components/footer/footer.component';\r\nimport { SideBarNavigationComponent } from './components/side-bar-navigation/side-bar-navigation.component';\r\nimport { RouterModule } from '@angular/router';\r\nimport { CoreRoutingModule } from './core-routing.module';\r\n\r\n@NgModule({\r\n  declarations: [\r\n    CoreComponent,\r\n    SidebarComponent,\r\n    HeaderComponent,\r\n    FooterComponent,\r\n    SideBarNavigationComponent,\r\n  ],\r\n  imports: [CommonModule, RouterModule, CoreRoutingModule],\r\n})\r\nexport class CoreModule {}\r\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\nimport { CoreComponent } from './core.component';\r\nimport { SidebarComponent } from './components/sidebar/sidebar.component';\r\nimport { HeaderComponent } from './components/header/header.component';\r\nimport { FooterComponent } from './components/footer/footer.component';\r\nimport { SideBarNavigationComponent } from './components/side-bar-navigation/side-bar-navigation.component';\r\nimport { RouterModule } from '@angular/router';\r\nimport { CoreRoutingModule } from './core-routing.module';\r\nimport { SharedMaterialModule } from '../shared/material/shared-material.module';\r\n\r\n@NgModule({\r\n  declarations: [\r\n    CoreComponent,\r\n    SidebarComponent,\r\n    HeaderComponent,\r\n    FooterComponent,\r\n    SideBarNavigationComponent,\r\n  ],\r\n  imports: [\r\n    CommonModule,\r\n    RouterModule,\r\n    CoreRoutingModule,\r\n    SharedMaterialModule,\r\n  ],\r\n})\r\nexport class CoreModule {}\r\n",
             "children": [
                 {
                     "type": "providers",
@@ -4103,6 +4147,9 @@
                     "elements": [
                         {
                             "name": "CoreRoutingModule"
+                        },
+                        {
+                            "name": "SharedMaterialModule"
                         }
                     ]
                 },
@@ -4281,13 +4328,13 @@
         },
         {
             "name": "SharedMaterialModule",
-            "id": "module-SharedMaterialModule-158000b62d068ddf969406c1b46681506d96ed4b80a3d290e074f63020fa926bced3b055b731b5ca3b257135a3502d9dace347a0c3589b0f6e7be72fcb55db8f",
+            "id": "module-SharedMaterialModule-45430c8e412cef0d4345bb321ae9dc0583d8a81ae3063268d54845ce2871a8cb4868f0aa4a9e377f155387a3d56fc3e606dd1e6eed518019485536b9500a5f02",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "src/app/shared/material/shared-material.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\r\nimport { MatFormFieldModule } from '@angular/material/form-field';\r\nimport { MatInputModule } from '@angular/material/input';\r\nimport { MatCardModule } from '@angular/material/card';\r\nimport { MatButtonModule } from '@angular/material/button';\r\nimport { MatSnackBarModule } from '@angular/material/snack-bar';\r\nimport { MatSelectModule } from '@angular/material/select';\r\nimport { MatTableModule } from '@angular/material/table';\r\nimport { MatRadioModule } from '@angular/material/radio';\r\nimport { MatPaginatorModule } from '@angular/material/paginator';\r\nimport { MatIconModule } from '@angular/material/icon';\r\nimport { MatGridListModule } from '@angular/material/grid-list';\r\nimport { MatDatepickerModule } from '@angular/material/datepicker';\r\nimport { MatSlideToggleModule } from '@angular/material/slide-toggle';\r\nimport { MatSortModule } from '@angular/material/sort';\r\nimport { MatChipsModule } from '@angular/material/chips';\r\nimport { MatAutocompleteModule } from '@angular/material/autocomplete';\r\nimport { MatTreeModule } from '@angular/material/tree';\r\nimport { MatCheckboxModule } from '@angular/material/checkbox';\r\nimport { CommonModule } from '@angular/common';\r\nimport { MatDialogModule } from '@angular/material/dialog';\r\nimport { MatProgressSpinnerModule } from '@angular/material/progress-spinner';\r\nimport { MatToolbarModule } from '@angular/material/toolbar';\r\nimport { MatSidenavModule } from '@angular/material/sidenav';\r\nimport { MatDividerModule } from '@angular/material/divider';\r\nimport { MatListModule } from '@angular/material/list';\r\nimport { MatExpansionModule } from '@angular/material/expansion';\r\nimport { MatTabsModule } from '@angular/material/tabs';\r\n\r\n@NgModule({\r\n  declarations: [],\r\n  imports: [\r\n    CommonModule,\r\n    MatFormFieldModule,\r\n    MatInputModule,\r\n    MatCardModule,\r\n    MatButtonModule,\r\n    MatSnackBarModule,\r\n    MatPaginatorModule,\r\n    MatTableModule,\r\n    MatSelectModule,\r\n    MatSlideToggleModule,\r\n    MatTabsModule\r\n  ],\r\n  exports: [\r\n    MatChipsModule,\r\n    MatAutocompleteModule,\r\n    MatFormFieldModule,\r\n    MatInputModule,\r\n    MatCardModule,\r\n    MatButtonModule,\r\n    MatSnackBarModule,\r\n    MatTableModule,\r\n    MatSelectModule,\r\n    MatRadioModule,\r\n    MatPaginatorModule,\r\n    MatIconModule,\r\n    MatGridListModule,\r\n    MatDatepickerModule,\r\n    MatSlideToggleModule,\r\n    MatSortModule,\r\n    MatTreeModule,\r\n    MatCheckboxModule,\r\n    MatDialogModule,\r\n    MatProgressSpinnerModule,\r\n    MatToolbarModule,\r\n    MatSidenavModule,\r\n    MatDividerModule,\r\n    MatListModule,\r\n    MatExpansionModule,\r\n    MatTabsModule\r\n  ],\r\n  providers: [MatDatepickerModule],\r\n})\r\nexport class SharedMaterialModule { }\r\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\r\nimport { MatFormFieldModule } from '@angular/material/form-field';\r\nimport { MatInputModule } from '@angular/material/input';\r\nimport { MatCardModule } from '@angular/material/card';\r\nimport { MatButtonModule } from '@angular/material/button';\r\nimport { MatSnackBarModule } from '@angular/material/snack-bar';\r\nimport { MatSelectModule } from '@angular/material/select';\r\nimport { MatTableModule } from '@angular/material/table';\r\nimport { MatRadioModule } from '@angular/material/radio';\r\nimport { MatPaginatorModule } from '@angular/material/paginator';\r\nimport { MatIconModule } from '@angular/material/icon';\r\nimport { MatGridListModule } from '@angular/material/grid-list';\r\nimport { MatDatepickerModule } from '@angular/material/datepicker';\r\nimport { MatSlideToggleModule } from '@angular/material/slide-toggle';\r\nimport { MatSortModule } from '@angular/material/sort';\r\nimport { MatChipsModule } from '@angular/material/chips';\r\nimport { MatAutocompleteModule } from '@angular/material/autocomplete';\r\nimport { MatTreeModule } from '@angular/material/tree';\r\nimport { MatCheckboxModule } from '@angular/material/checkbox';\r\nimport { CommonModule } from '@angular/common';\r\nimport { MatDialogModule } from '@angular/material/dialog';\r\nimport { MatProgressSpinnerModule } from '@angular/material/progress-spinner';\r\nimport { MatToolbarModule } from '@angular/material/toolbar';\r\nimport { MatSidenavModule } from '@angular/material/sidenav';\r\nimport { MatDividerModule } from '@angular/material/divider';\r\nimport { MatListModule } from '@angular/material/list';\r\nimport { MatExpansionModule } from '@angular/material/expansion';\r\nimport { MatTabsModule } from '@angular/material/tabs';\r\nimport { MatMenuModule } from '@angular/material/menu';\r\n\r\n@NgModule({\r\n  declarations: [],\r\n  imports: [\r\n    CommonModule,\r\n    MatFormFieldModule,\r\n    MatInputModule,\r\n    MatCardModule,\r\n    MatButtonModule,\r\n    MatSnackBarModule,\r\n    MatPaginatorModule,\r\n    MatTableModule,\r\n    MatSelectModule,\r\n    MatSlideToggleModule,\r\n    MatTabsModule,\r\n  ],\r\n  exports: [\r\n    MatChipsModule,\r\n    MatAutocompleteModule,\r\n    MatFormFieldModule,\r\n    MatInputModule,\r\n    MatCardModule,\r\n    MatButtonModule,\r\n    MatSnackBarModule,\r\n    MatTableModule,\r\n    MatSelectModule,\r\n    MatRadioModule,\r\n    MatPaginatorModule,\r\n    MatIconModule,\r\n    MatGridListModule,\r\n    MatDatepickerModule,\r\n    MatSlideToggleModule,\r\n    MatSortModule,\r\n    MatTreeModule,\r\n    MatCheckboxModule,\r\n    MatDialogModule,\r\n    MatProgressSpinnerModule,\r\n    MatToolbarModule,\r\n    MatSidenavModule,\r\n    MatDividerModule,\r\n    MatListModule,\r\n    MatExpansionModule,\r\n    MatTabsModule,\r\n    MatMenuModule,\r\n  ],\r\n  providers: [MatDatepickerModule],\r\n})\r\nexport class SharedMaterialModule {}\r\n",
             "children": [
                 {
                     "type": "providers",
@@ -4466,21 +4513,21 @@
                 "name": "environment",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/environments/environment.prod.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "object",
-                "defaultValue": "{\r\n  production: true\r\n}"
-            },
-            {
-                "name": "environment",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/environments/environment.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "object",
                 "defaultValue": "{\r\n  production: false\r\n}"
+            },
+            {
+                "name": "environment",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/environments/environment.prod.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\r\n  production: true\r\n}"
             },
             {
                 "name": "multiChipSelect",
@@ -4643,18 +4690,6 @@
                     "defaultValue": "'dd/MM/yyyy'"
                 }
             ],
-            "src/environments/environment.prod.ts": [
-                {
-                    "name": "environment",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/environments/environment.prod.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "object",
-                    "defaultValue": "{\r\n  production: true\r\n}"
-                }
-            ],
             "src/environments/environment.ts": [
                 {
                     "name": "environment",
@@ -4665,6 +4700,18 @@
                     "deprecationMessage": "",
                     "type": "object",
                     "defaultValue": "{\r\n  production: false\r\n}"
+                }
+            ],
+            "src/environments/environment.prod.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/environments/environment.prod.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\r\n  production: true\r\n}"
                 }
             ],
             "src/app/shared/modules/form-control/components/button/button.stories.ts": [
@@ -4868,7 +4915,7 @@
                 "linktype": "component",
                 "name": "HeaderComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/3",
+                "coverageCount": "0/4",
                 "status": "low"
             },
             {
@@ -4886,7 +4933,7 @@
                 "linktype": "component",
                 "name": "SidebarComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/1",
+                "coverageCount": "0/3",
                 "status": "low"
             },
             {
