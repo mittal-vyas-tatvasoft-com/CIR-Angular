@@ -38,7 +38,6 @@ const Template: Story<RadioComponent> = (args: RadioComponent) => ({
 });
 
 export const Radio = Template.bind({});
-// More on args: https://storybook.js.org/docs/angular/writing-stories/args
 Radio.args = {
   formControlModel: {
     value: '',
@@ -51,7 +50,6 @@ Radio.args = {
 };
 
 export const PreSelectedRadio = Template.bind({});
-// More on args: https://storybook.js.org/docs/angular/writing-stories/args
 PreSelectedRadio.args = {
   formControlModel: {
     value: '',

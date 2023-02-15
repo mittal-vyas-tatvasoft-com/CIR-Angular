@@ -29,7 +29,6 @@ const Template: Story<ToggleComponent> = (args: ToggleComponent) => ({
 });
 
 export const allPermissions = Template.bind({});
-// More on args: https://storybook.js.org/docs/angular/writing-stories/args
 allPermissions.args = {
   formControlModel: {
     value: '',
@@ -41,7 +40,6 @@ allPermissions.args = {
 };
 
 export const haveAllPermissions = Template.bind({});
-// More on args: https://storybook.js.org/docs/angular/writing-stories/args
 haveAllPermissions.args = {
   formControlModel: {
     value: '',

@@ -36,24 +36,22 @@ const Template: Story<DatePickerComponent> = (args: DatePickerComponent) => ({
 });
 
 export const DatePicker = Template.bind({});
-// More on args: https://storybook.js.org/docs/angular/writing-stories/args
 DatePicker.args = {
   formControlModel: {
-    value: 'date',
+    value: 'DOB',
     key: 'date',
-    label: 'date',
+    label: 'Date Of Birth',
     inputType: 'text',
   },
   form: 'Default' as any,
 };
 
 export const PreSelectedDatePicker = Template.bind({});
-// More on args: https://storybook.js.org/docs/angular/writing-stories/args
 PreSelectedDatePicker.args = {
   formControlModel: {
-    value: 'date',
+    value: 'Selected Date',
     key: 'preDate',
-    label: 'date',
+    label: 'Selected Date',
     inputType: 'text',
   },
   form: 'Default' as any,

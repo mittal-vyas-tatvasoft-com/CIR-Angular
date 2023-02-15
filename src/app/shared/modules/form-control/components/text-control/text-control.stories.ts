@@ -40,7 +40,6 @@ const Template: Story<TextControlComponent> = (args: TextControlComponent) => ({
 });
 
 export const textWithoutValidation = Template.bind({});
-// More on args: https://storybook.js.org/docs/angular/writing-stories/args
 textWithoutValidation.args = {
   formControlModel: {
     value: '',
@@ -52,7 +51,6 @@ textWithoutValidation.args = {
 };
 
 export const textWithValidation = Template.bind({});
-// More on args: https://storybook.js.org/docs/angular/writing-stories/args
 textWithValidation.args = {
   formControlModel: {
     value: '',
