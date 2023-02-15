@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthGuard } from './core/guards/auth/auth.guard';
 import { Navigation } from './shared/common/enum';
 
 const routes: Routes = [
@@ -12,13 +11,8 @@ const routes: Routes = [
   {
     path: `${Navigation.Admin}`,
     //component: SideNavComponent,
-    canActivate: [AuthGuard],
+    //canActivate: [AuthGuard],
     children: [
-      {
-        path: '',
-        redirectTo: 'users',
-        pathMatch: 'full',
-      },
       {
         path: `${Navigation.Role}`,
         loadChildren: () =>
