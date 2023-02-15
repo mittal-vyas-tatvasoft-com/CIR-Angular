@@ -26,6 +26,13 @@ const routes: Routes = [
             (m) => m.RolesModule,
           ),
       },
+      {
+        path: `${Navigation.User}`,
+        loadChildren: () =>
+          import('./modules/users/users/users.module').then(
+            (m) => m.UsersModule,
+          ),
+      },
     ],
   },
 ];
