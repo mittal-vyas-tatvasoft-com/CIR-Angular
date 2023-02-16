@@ -6,10 +6,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthTokenInterceptor } from './core/interceptors/auth/auth-token.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { GlobalConfigurationModule } from './modules/global-configuration/global-configuration.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
+  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, GlobalConfigurationModule],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
