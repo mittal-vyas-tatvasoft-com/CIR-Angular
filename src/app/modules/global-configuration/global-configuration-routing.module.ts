@@ -13,6 +13,18 @@ const routes: Routes = [
     loadChildren: () =>
       import('./currencies/currencies.module').then((m) => m.CurrenciesModule),
   },
+  {
+    path: `${Navigation.CutOffTimes}`,
+    loadChildren: () =>
+      import('./cut-off-times/cut-off-times.module').then(
+        (m) => m.CutOffTimesModule,
+      ),
+  },
+  {
+    path: `${Navigation.Email}`,
+    loadChildren: () =>
+      import('./email/email.module').then((m) => m.EmailModule),
+  },
 ];
 
 @NgModule({
