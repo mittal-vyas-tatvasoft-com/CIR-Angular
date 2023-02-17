@@ -2,10 +2,12 @@ export const loginControl = {
   userNameField: {
     value: '',
     key: 'userName',
-    label: 'userName',
+    label: 'User Name',
     requiredErrMsg: 'userName is Required',
     patternErrMsg: 'userName is not valid',
     inputType: 'text',
+    displayIcon: true,
+    iconName: 'person',
   },
   passwordField: {
     value: '',
@@ -14,6 +16,14 @@ export const loginControl = {
     requiredErrMsg: 'Password is Required',
     patternErrMsg: 'Password is not valid',
     inputType: 'password',
+    displayIcon: true,
+    iconName: 'visibility',
+  },
+  checkboxField: {
+    value: '',
+    key: 'checkbox',
+    label: 'Remember Me',
+    inputType: 'text',
   },
   CheckboxItem: {
     value: '',

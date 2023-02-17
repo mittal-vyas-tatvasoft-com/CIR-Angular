@@ -7,6 +7,8 @@ export const resetPasswordControl = {
     requiredErrMsg: 'User Name is Required',
     patternErrMsg: 'User Name is not valid',
     inputType: 'text',
+    displayIcon: true,
+    iconName: 'person',
   },
   oldPasswordField: {
     value: '',
@@ -15,7 +17,9 @@ export const resetPasswordControl = {
     required: true,
     requiredErrMsg: 'Old Password is Required',
     patternErrMsg: 'Please enter a valid old password',
-    inputType: 'text',
+    inputType: 'password',
+    displayIcon: true,
+    iconName: 'visibility',
   },
   newPasswordField: {
     value: '',
@@ -24,6 +28,8 @@ export const resetPasswordControl = {
     required: true,
     requiredErrMsg: 'New Password is Required',
     patternErrMsg: 'Please enter a valid new password',
-    inputType: 'text',
+    inputType: 'password',
+    displayIcon: true,
+    iconName: 'visibility',
   },
 };

@@ -6,5 +6,7 @@ export const forgotControl = {
     required: true,
     requiredErrMsg: 'UserName is Required',
     inputType: 'text',
+    displayIcon: true,
+    iconName: 'person',
   },
 };
