@@ -27,6 +27,13 @@ const routes: Routes = [
             (m) => m.UsersModule,
           ),
       },
+      {
+        path: `${Navigation.GlobalConfiguration}`,
+        loadChildren: () =>
+          import(
+            './modules/global-configuration/global-configuration.module'
+          ).then((m) => m.GlobalConfigurationModule),
+      },
     ],
   },
 ];

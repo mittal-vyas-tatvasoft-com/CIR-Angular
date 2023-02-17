@@ -10,6 +10,11 @@ const routes: Routes = [
         (m) => m.CutOffTimesModule,
       ),
   },
+  {
+    path: `${Navigation.Email}`,
+    loadChildren: () =>
+      import('./email/email.module').then((m) => m.EmailModule),
+  }
 ];
 
 @NgModule({
