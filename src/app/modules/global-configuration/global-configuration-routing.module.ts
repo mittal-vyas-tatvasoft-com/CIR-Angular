@@ -14,11 +14,16 @@ const routes: Routes = [
     path: `${Navigation.Email}`,
     loadChildren: () =>
       import('./email/email.module').then((m) => m.EmailModule),
-  }
+  },
+  {
+    path: `${Navigation.Messages}`,
+    loadChildren: () =>
+      import('./messages/messages.module').then((m) => m.MessagesModule),
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class GlobalConfigurationRoutingModule {}
+export class GlobalConfigurationRoutingModule { }
