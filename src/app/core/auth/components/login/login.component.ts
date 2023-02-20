@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -6,6 +5,7 @@ import { Subject, takeUntil } from 'rxjs';
 import { Navigation } from 'src/app/shared/common/enum';
 import { ResponseModel } from 'src/app/shared/common/interfaces/response.interface';
 import { validations } from 'src/app/shared/messages/validation.static';
+import { SnackbarService } from 'src/app/shared/snackbar/snackbar.service';
 import { loginControl } from '../../configs/login.config';
 import { LoginService } from '../../services/login.service';
 @Component({
@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder,
     private loginService: LoginService,
     private router: Router,
-    private http: HttpClient,
+    private snackbarService: SnackbarService,
   ) {}
 
   // apply when page loads
@@ -85,16 +85,17 @@ export class LoginComponent implements OnInit {
               const token = this.loginService.getToken();
               if (token) {
                 localStorage.setItem('isCaptchaDone', 'true');
+
                 this.router.navigate([
                   `${Navigation.Admin}/${Navigation.User}`,
                 ]);
               }
             } else {
-              console.log(res.message);
+              this.snackbarService.error(res.message);
             }
           },
           error: (error) => {
-            console.log(error);
+            this.snackbarService.error(error.message);
           },
         });
     } else {
