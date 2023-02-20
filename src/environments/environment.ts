@@ -4,8 +4,7 @@
 
 export const environment = {
   production: false,
-  baseURL: 'https://localhost:7256/api/',
-  // baseURL: 'https://web2.anasource.com/CIRBackend/api/',
+  baseURL: 'https://web2.anasource.com/CIRBackend/api/',
   SITE_KEY: '6LcIiBIiAAAAAJdVw_WfOIax4hvXV6VrPxFLAQvg',
 };
 
