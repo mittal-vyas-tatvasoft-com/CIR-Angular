@@ -20,7 +20,7 @@ export class LoginService {
   }
 
   getToken(): string | null {
-    return localStorage.getItem('token');
+    return localStorage.getItem(this.storageToken);
   }
 
   isLoggedIn(): boolean {
@@ -28,7 +28,7 @@ export class LoginService {
   }
 
   logout(): void {
-    localStorage.removeItem('token');
+    localStorage.removeItem(this.storageToken);
     this.router.navigate(['/']);
   }
 
