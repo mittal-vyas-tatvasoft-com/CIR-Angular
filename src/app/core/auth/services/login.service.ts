@@ -12,10 +12,11 @@ import { ResetPasswordModel } from '../interfaces/reset-password.interface';
   providedIn: 'root',
 })
 export class LoginService {
+  storageToken = 'token';
   constructor(private http: HttpClient, private router: Router) {}
 
   setToken(token: string): void {
-    localStorage.setItem('token', token);
+    localStorage.setItem(this.storageToken, token);
   }
 
   getToken(): string | null {

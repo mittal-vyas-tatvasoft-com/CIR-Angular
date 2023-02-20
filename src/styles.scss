@@ -411,3 +411,21 @@ img {
 
 @media (max-width: 575px) {
 }
+
+/* Responsive Media Queries
+--------------------------------------------------------------------------------------------------------*/
+.success {
+  color: var(--color-white);
+  background-color: var(--color-success);
+}
+
+.error {
+  color: var(--color-white);
+  background-color: var(--color-error);
+}
+
+.login-btn,
+.forgot-btn,
+.reset-btn {
+  width: 100%;
+}
