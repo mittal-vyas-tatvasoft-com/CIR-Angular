@@ -17,6 +17,7 @@ import { FileUploadComponent } from './components/file-upload/file-upload.compon
 import { SharedMaterialModule } from 'src/app/shared/material/shared-material.module';
 import { DatePickerComponent } from './components/date-picker/date-picker.component';
 import { StrokedButtonComponent } from './components/stroked-button/stroked-button.component';
+import { DeleteConfirmationDialogComponent } from './components/dialogs/delete-confirmation-dialog/delete-confirmation-dialog.component';
 
 @NgModule({
   declarations: [
@@ -31,9 +32,10 @@ import { StrokedButtonComponent } from './components/stroked-button/stroked-butt
     FileUploadComponent,
     TimePickerComponent,
     // directives
-    NumbersOnlyDirective,    
-    DatePickerComponent, 
+    NumbersOnlyDirective,
+    DatePickerComponent,
     StrokedButtonComponent,
+    DeleteConfirmationDialogComponent,
   ],
   imports: [
     CommonModule,
@@ -55,7 +57,7 @@ import { StrokedButtonComponent } from './components/stroked-button/stroked-butt
     FileUploadComponent,
     TimePickerComponent,
     // directives
-    NumbersOnlyDirective,    
+    NumbersOnlyDirective,
     DatePickerComponent,
     StrokedButtonComponent,
   ],
