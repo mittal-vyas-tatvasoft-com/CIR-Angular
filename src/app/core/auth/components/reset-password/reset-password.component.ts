@@ -1,4 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Subject, takeUntil } from 'rxjs';
+import { ResponseModel } from 'src/app/shared/common/interfaces/response.interface';
+import { validations } from 'src/app/shared/messages/validation.static';
+import { resetPasswordControl } from '../../configs/reset-password.config';
+import { LoginService } from '../../services/login.service';
 
 @Component({
   selector: 'app-reset-password',
@@ -6,7 +13,80 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./reset-password.component.scss'],
 })
 export class ResetPasswordComponent implements OnInit {
-  constructor() {}
+  form: FormGroup;
+  resetModel = resetPasswordControl;
+  private ngUnsubscribe$ = new Subject<void>();
 
-  ngOnInit(): void {}
+  constructor(
+    private fb: FormBuilder,
+    private loginService: LoginService,
+    private router: Router,
+  ) {}
+
+  // apply when page loads
+  ngOnInit(): void {
+    this.createForm();
+  }
+
+  createForm() {
+    this.form = this.fb.group({
+      userName: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern(validations.common.emailREGEX),
+        ],
+      ],
+      oldPassword: ['', [Validators.required]],
+      newPassword: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern(validations.common.passwordREGEX),
+        ],
+      ],
+    });
+  }
+
+  // api call on reset password click and set the new password
+  onReset() {
+    const payload = {
+      userName: this.form.value.userName,
+      oldPassword: this.form.value.oldPassword,
+      newPassword: this.form.value.newPassword,
+    };
+    if (this.form.valid) {
+      this.loginService
+        .resetPassword(payload)
+        .pipe(takeUntil(this.ngUnsubscribe$))
+        .subscribe({
+          next: (res: ResponseModel<string>) => {
+            if (res.result) {
+              console.log('password reseted successfully');
+              this.form.reset();
+              this.router.navigate(['/']);
+            } else {
+              console.log(res.message);
+            }
+          },
+          error: (error) => {
+            console.log(error.message);
+          },
+        });
+    }
+  }
+
+  // password show and hide
+  onIconClick(event: any) {
+    if (event.formControlModel.inputType == 'text') {
+      event.formControlModel.inputType = 'password';
+    } else {
+      event.formControlModel.inputType = 'text';
+    }
+  }
+
+  ngOnDestroy() {
+    this.ngUnsubscribe$.next();
+    this.ngUnsubscribe$.complete();
+  }
 }
