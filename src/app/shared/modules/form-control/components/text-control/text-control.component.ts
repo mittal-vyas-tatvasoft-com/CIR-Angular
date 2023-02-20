@@ -11,8 +11,9 @@ import { ValidatorService } from '../../service/validator.service';
 export class TextControlComponent {
   @Input() formControlModel: FormControlModel;
   @Input() form: FormGroup;
+  @Input() class = '';
   @Output() inputChange = new EventEmitter<string>();
-  @Output() iconClick = new EventEmitter<Event>();  
+  @Output() iconClick = new EventEmitter<Event>();
 
   constructor(public _validator: ValidatorService) {}
 
