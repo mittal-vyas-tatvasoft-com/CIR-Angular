@@ -1,5 +1,5 @@
 <div [formGroup]="form">
-  <mat-form-field appearance="outline">
+  <mat-form-field appearance="outline" [class]="class">
     <mat-label>{{ formControlModel.label }}</mat-label>
     <input
       matInput
@@ -8,7 +8,12 @@
       [type]="formControlModel.inputType"
       (input)="onChange($event)"
     />
-    <mat-icon matSuffix *ngIf="formControlModel.displayIcon"  (click)="onIconClick($event)">{{ formControlModel.iconName }}</mat-icon>
+    <mat-icon
+      matSuffix
+      *ngIf="formControlModel.displayIcon"
+      (click)="onIconClick($event)"
+      >{{ formControlModel.iconName }}</mat-icon
+    >
     <mat-error>
       {{ _validator.getError(form, formControlModel.key, formControlModel) }}
     </mat-error>
