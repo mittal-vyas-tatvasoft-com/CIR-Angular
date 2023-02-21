@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Subject, takeUntil } from 'rxjs';
 import { ResponseModel } from 'src/app/shared/common/interfaces/response.interface';
 import { validations } from 'src/app/shared/messages/validation.static';
+import { SnackbarService } from 'src/app/shared/snackbar/snackbar.service';
 import { forgotControl } from '../../configs/forgot-password.config';
 import { LoginService } from '../../services/login.service';
 
@@ -16,7 +17,11 @@ export class ForgotPasswordComponent implements OnInit {
   forgotModel = forgotControl;
   private ngUnsubscribe$ = new Subject<void>();
 
-  constructor(private fb: FormBuilder, private loginService: LoginService) {}
+  constructor(
+    private fb: FormBuilder,
+    private loginService: LoginService,
+    private snackbarService: SnackbarService,
+  ) {}
 
   // apply when page loads
   ngOnInit(): void {
@@ -47,13 +52,13 @@ export class ForgotPasswordComponent implements OnInit {
         .subscribe({
           next: (res: ResponseModel<string>) => {
             if (res.result) {
-              console.log('password sent successfully');
+              this.snackbarService.success(res.message);
             } else {
-              console.log(res.message);
+              this.snackbarService.success(res.message);
             }
           },
           error: (error) => {
-            console.log(error);
+            this.snackbarService.success(error.message);
           },
         });
     }

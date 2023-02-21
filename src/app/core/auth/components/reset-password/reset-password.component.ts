@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 import { ResponseModel } from 'src/app/shared/common/interfaces/response.interface';
 import { validations } from 'src/app/shared/messages/validation.static';
+import { SnackbarService } from 'src/app/shared/snackbar/snackbar.service';
 import { resetPasswordControl } from '../../configs/reset-password.config';
 import { LoginService } from '../../services/login.service';
 
@@ -21,6 +22,7 @@ export class ResetPasswordComponent implements OnInit {
     private fb: FormBuilder,
     private loginService: LoginService,
     private router: Router,
+    private snackbarService: SnackbarService,
   ) {}
 
   // apply when page loads
@@ -62,15 +64,15 @@ export class ResetPasswordComponent implements OnInit {
         .subscribe({
           next: (res: ResponseModel<string>) => {
             if (res.result) {
-              console.log('password reseted successfully');
+              this.snackbarService.success(res.message);
               this.form.reset();
               this.router.navigate(['/']);
             } else {
-              console.log(res.message);
+              this.snackbarService.success(res.message);
             }
           },
           error: (error) => {
-            console.log(error.message);
+            this.snackbarService.success(error.message);
           },
         });
     }
