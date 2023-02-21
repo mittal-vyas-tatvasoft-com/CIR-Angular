@@ -1,14 +1,35 @@
-<h1 mat-dialog-title>
-  {{ title }}
-</h1>
-<div mat-dialog-content>
-  <p>{{ message }}</p>
-</div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onDismiss()">
-    {{ cancelBtnText }}
-  </button>
-  <button mat-raised-button color="primary" (click)="onConfirm()">
-    {{ confirmBtnText }}
-  </button>
+<div class="seachange-theme">
+  <div mat-dialog-title>{{ title }}</div>
+  <p class="sub-header-title">{{ subHeaderTitle }}</p>
+
+  <div class="content">
+    <mat-list class="delete-dialog-item">
+      <mat-list-item class="list-item delete-dialog-list-item">
+        <mat-icon *ngIf="icon" matListIcon>
+          <img [src]="icon" />
+        </mat-icon>
+        <div mat-line>{{ name }}</div>
+        <div mat-line *ngIf="subtitle">{{ subtitle }}</div>
+      </mat-list-item>
+      <div *ngIf="bottomText" class="bottomText">
+        {{ bottomText }}
+      </div>
+    </mat-list>
+  </div>
+
+  <div fxLayout fxLayoutAlign="end center" fxLayoutGap="0.8rem" class="actions">
+    <button class="cancel-btn" mat-button [mat-dialog-close]="true">
+      {{ buttonText ? buttonText.cancel : 'cancel' }}
+    </button>
+    <button
+      mat-flat-button
+      [mat-dialog-close]="{ confirm: true }"
+      [ngClass]="{
+        'delete-btn': !bottomText,
+        'primary-delete-btn': buttonText.ok === 'Archive'
+      }"
+    >
+      {{ buttonText ? buttonText.ok : 'ok' }}
+    </button>
+  </div>
 </div>

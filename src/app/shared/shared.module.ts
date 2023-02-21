@@ -5,6 +5,7 @@ import { SnackbarService } from './snackbar/snackbar.service';
 import { TreeViewComponent } from './modules/form-control/components/tree-view/tree-view.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NoDataFoundComponent } from './modules/form-control/components/no-data-found/no-data-found/no-data-found.component';
+import { FormControlModule } from './modules/form-control/form-control.module';
 
 @NgModule({
   declarations: [TreeViewComponent, NoDataFoundComponent],
