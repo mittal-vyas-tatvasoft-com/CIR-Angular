@@ -9,37 +9,43 @@
     <p>V 1.1.0 | Copyright 2022. All rights reserved</p>
   </div>
   <div class="login-right">
-    <div class="login-form">
+    <form (ngSubmit)="onLogin()" [formGroup]="form" class="login-form">
       <h2>LOGIN</h2>
       <p class="sub">Please enter your credentials</p>
-      <mat-form-field appearance="outline" class="w-100">
-        <mat-label>Username</mat-label>
-        <input matInput />
-        <img matSuffix src="assets/images/person-black.svg" alt="person" />
-      </mat-form-field>
-      <mat-form-field appearance="outline" class="w-100">
-        <mat-label>Password</mat-label>
-        <input matInput [type]="hide ? 'password' : 'text'" />
-        <button
-          mat-icon-button
-          matSuffix
-          (click)="hide = !hide"
-          [attr.aria-label]="'Hide password'"
-          [attr.aria-pressed]="hide"
-        >
-          <img src="assets/images/visibility-black.svg" alt="visibility" />
-        </button>
-      </mat-form-field>
-      <div class="frgt-block">
-        <mat-checkbox formControlName="Remember me" color="primary"
-          >Remember me</mat-checkbox
-        >
-        <a href="#" title="Forgot password">Forgot password ?</a>
+      <app-text-control
+        [formControlModel]="loginModel.userNameField"
+        [form]="form"
+        class="w-100"
+      ></app-text-control>
+      <app-text-control
+        [formControlModel]="loginModel.passwordField"
+        [form]="form"
+        (iconClick)="onIconClick(input)"
+        class="w-100"
+        #input
+      ></app-text-control>
+      <div *ngIf="!isCaptchaDone" class="captcha">
+        <app-captcha [captchaForm]="form"></app-captcha>
       </div>
-      <button mat-flat-button color="primary" class="login-btn">SIGN UP</button>
-      <span class="signup-text"
-        >Don’t have an account ? <a href="#" title="Signup">Sign Up </a></span
+      <div class="frgt-block">
+        <app-checkbox
+          [form]="form"
+          [formControlModel]="loginModel.checkboxField"
+        ></app-checkbox>
+        <a [routerLink]="['/forgot-password']" title="Forgot password"
+          >Forgot password ?</a
+        >
+      </div>
+      <app-button
+        type="submit"
+        [isDisabled]="!form.valid"
+        class="forgot-btn"
+        label="LOGIN"
       >
+      </app-button>
+      <!-- <span class="signup-text"
+        >Don’t have an account ? <a href="#" title="Signup">Sign Up </a></span
+      > -->
       <div class="login-links-wrapper">
         <span class="underline-text">Or login with</span>
         <ul>
@@ -63,6 +69,6 @@
           </li>
         </ul>
       </div>
-    </div>
+    </form>
   </div>
 </div>

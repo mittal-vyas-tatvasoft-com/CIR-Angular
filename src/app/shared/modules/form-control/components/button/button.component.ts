@@ -11,6 +11,7 @@ export class ButtonComponent {
   @Input() type = 'button';
   @Input() isDisabled = false;
   @Input() label: string;
+  @Input() class = '';
   @Output() btnClick = new EventEmitter<Event>();
 
   onClick(event: Event) {

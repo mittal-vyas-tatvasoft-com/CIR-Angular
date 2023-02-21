@@ -4,6 +4,16 @@ import { Navigation } from 'src/app/shared/common/enum';
 
 const routes: Routes = [
   {
+    path: '',
+    redirectTo: 'currencies',
+    pathMatch: 'full',
+  },
+  {
+    path: `${Navigation.Currencies}`,
+    loadChildren: () =>
+      import('./currencies/currencies.module').then((m) => m.CurrenciesModule),
+  },
+  {
     path: `${Navigation.CutOffTimes}`,
     loadChildren: () =>
       import('./cut-off-times/cut-off-times.module').then(

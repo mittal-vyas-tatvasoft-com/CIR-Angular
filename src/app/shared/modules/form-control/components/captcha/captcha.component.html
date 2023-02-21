@@ -1,0 +1,7 @@
+<div [formGroup]="captchaForm">
+  <re-captcha
+    (resolved)="resolved($event)"
+    siteKey="{{ SITE_KEY }}"
+    formControlName="recaptchaReactive"
+  ></re-captcha>
+</div>
