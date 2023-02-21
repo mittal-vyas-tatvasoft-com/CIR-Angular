@@ -11,6 +11,7 @@ import { ValidatorService } from '../../service/validator.service';
 export class FileUploadComponent {
   @Input() formControlModel: FormControlModel;
   @Input() form: FormGroup;
+  @Input() fileType: string[];
   @Output()
   imageFile: EventEmitter<File | null> = new EventEmitter<File | null>();
 

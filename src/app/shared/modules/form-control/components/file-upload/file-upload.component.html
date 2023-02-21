@@ -7,7 +7,7 @@
       (change)="onChange($event)"
       [name]="formControlModel.key"
       multiple="multiple"
-      accept=".png, .jpg, .jpeg"
+      [accept]="fileType"
     />
     <app-button type="submit" [isDisabled]="!form.valid" label="Upload">
     </app-button>

@@ -1,6 +1,11 @@
 // also exported from '@storybook/angular' if you can deal with breaking changes in 6.1
 import { CommonModule } from '@angular/common';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { moduleMetadata } from '@storybook/angular';
 import { Story, Meta } from '@storybook/angular/types-6-0';
@@ -10,12 +15,15 @@ import { ValidatorService } from '../../service/validator.service';
 import { ButtonComponent } from '../button/button.component';
 
 const fb = new FormGroup({
-  file: new FormControl()
+  file: new FormControl(),
 });
 
+const imageFileTypes = ['.jpg', '.png', '.jpeg'];
+const csvFIleTypes = ['.csv', '.xlsx'];
+
 const validationFB = new FormGroup({
-  SelectValidate: new FormControl(null, [Validators.required])
-})
+  SelectValidate: new FormControl(null, [Validators.required]),
+});
 
 // More on default export: https://storybook.js.org/docs/angular/writing-stories/introduction#default-export
 export default {
@@ -30,7 +38,7 @@ export default {
         ReactiveFormsModule,
         BrowserAnimationsModule,
       ],
-      providers: [ValidatorService]
+      providers: [ValidatorService],
     }),
   ],
 
@@ -49,9 +57,7 @@ export default {
 } as Meta<FileUploadComponent>;
 
 // More on component templates: https://storybook.js.org/docs/angular/writing-stories/introduction#using-args
-const Template: Story<FileUploadComponent> = (
-  args: FileUploadComponent,
-) => ({
+const Template: Story<FileUploadComponent> = (args: FileUploadComponent) => ({
   props: args,
 });
 
@@ -74,7 +80,31 @@ Validation.args = {
     key: 'SelectValidate',
     value: '',
     inputType: 'file',
-    requiredErrMsg: 'Please upload a file'
+    requiredErrMsg: 'Please upload a file',
   },
   form: 'validateDefault' as any,
+};
+
+export const OnlyImages = Template.bind({});
+OnlyImages.args = {
+  formControlModel: {
+    label: 'Test',
+    key: 'file',
+    value: '',
+    inputType: 'file',
+  },
+  form: 'Default' as any,
+  fileType: imageFileTypes,
+};
+
+export const OnlyCsv = Template.bind({});
+OnlyCsv.args = {
+  formControlModel: {
+    label: 'Test',
+    key: 'file',
+    value: '',
+    inputType: 'file',
+  },
+  form: 'Default' as any,
+  fileType: csvFIleTypes,
 };
