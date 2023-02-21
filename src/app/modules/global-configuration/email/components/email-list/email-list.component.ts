@@ -4,6 +4,7 @@ import { Subject, takeUntil } from 'rxjs';
 import { DynamicFieldTypes } from 'src/app/shared/common/enum';
 import { dynamicFields } from 'src/app/shared/common/interfaces/constants.static';
 import { ResponseModel } from 'src/app/shared/common/interfaces/response.interface';
+import { errors } from 'src/app/shared/messages/error.static';
 import { CommonFacadeService } from 'src/app/shared/services/common/common-facade.service';
 import { SnackbarService } from 'src/app/shared/snackbar/snackbar.service';
 import { emailControl } from '../../config/emails.config';
@@ -52,12 +53,14 @@ export class EmailListComponent implements OnInit {
           if (res.data[0].cultureId == 1) this.isDefaultData = true;
         }
       },
+      error: (e) => {
+        this.snackbarService.error(e.message || errors.common.serverError);
+      },
     });
   }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   contentChange(event: any) {
-    console.log(event);
     this.emailContentList[event.fieldTypeId - 1].content = event.content.data;
   }
 
@@ -71,12 +74,19 @@ export class EmailListComponent implements OnInit {
     this.emailService
       .saveEmails(this.emailContentList)
       .pipe(takeUntil(this.ngUnsubscribe$))
-      .subscribe((res: ResponseModel<Email[]>) => {
-        if (res.result) {
-          this.snackbarService.success(res.message);
-        } else {
-          this.snackbarService.error(res.message);
-        }
+      .subscribe({
+        next: (res: ResponseModel<Email[]>) => {
+          if (res.result) {
+            if (res.result) {
+              this.snackbarService.success(res.message);
+            } else {
+              this.snackbarService.error(res.message);
+            }
+          }
+        },
+        error: (e) => {
+          this.snackbarService.error(e.message || errors.common.serverError);
+        },
       });
   }
 
