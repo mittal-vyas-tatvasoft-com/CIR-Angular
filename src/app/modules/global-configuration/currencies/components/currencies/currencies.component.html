@@ -1,0 +1,22 @@
+<div class="table-responsive">
+  <div class="row">
+    <div class="title">Global Currencies</div>
+    <div>
+      <app-select
+        [form]="form"
+        [formControlModel]="countryField"
+        [options]="commonFacadeService.countryList$ | async"
+        (selection)="onSelectCountry($event.value)"
+      ></app-select>
+    </div>
+  </div>
+  <app-table-without-filter
+    *ngIf="currencies.length > 0"
+    [tableColumns]="tableColumn"
+    [tableData]="currencies"
+    (selection)="selectionChanges($event)"
+  ></app-table-without-filter>
+  <div class="footer-button" *ngIf="currencies.length > 0">
+    <app-button [label]="'Save'" (btnClick)="onSubmit()"></app-button>
+  </div>
+</div>

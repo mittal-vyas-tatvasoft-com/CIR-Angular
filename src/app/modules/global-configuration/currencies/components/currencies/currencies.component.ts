@@ -1,0 +1,198 @@
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
+import { MatTableDataSource } from '@angular/material/table';
+import { Subject, takeUntil } from 'rxjs';
+import { defaultCountryId } from 'src/app/shared/common/interfaces/constants.static';
+import { CountryCode } from 'src/app/shared/common/interfaces/country.interface';
+import { ResponseModel } from 'src/app/shared/common/interfaces/response.interface';
+import { CommonFacadeService } from 'src/app/shared/services/common/common-facade.service';
+import { SnackbarService } from 'src/app/shared/snackbar/snackbar.service';
+import { currenciesControl } from '../../configs/currencies.config';
+import {
+  CurrencyModel,
+  GlobalConfigurationCurrencyModel,
+} from '../../interfaces/currencies.interface';
+import { CurrenciesFacadeService } from '../../services/currencies-facade.service';
+import { CurrenciesService } from '../../services/currencies.service';
+
+@Component({
+  selector: 'app-currencies',
+  templateUrl: './currencies.component.html',
+  styleUrls: ['./currencies.component.scss'],
+})
+export class CurrenciesComponent implements OnInit, OnDestroy {
+  private ngUnsubscribe$ = new Subject<void>();
+  displayedColumns: string[] = ['currency', 'enabled'];
+  dataSource = new MatTableDataSource<GlobalConfigurationCurrencyModel>();
+  countries: CountryCode[] = [];
+  selectedCountry: number = defaultCountryId;
+  currencySelections: GlobalConfigurationCurrencyModel[] = [];
+  currencies: CurrencyModel[] = [];
+  changedCurrencies: CurrencyModel[] = [];
+  form: FormGroup;
+  countryField = currenciesControl.countryField;
+  tableColumn = [
+    {
+      columnDef: 'codeName',
+      header: 'Currency',
+      isSortable: false,
+      type: 'String',
+      isFilter: false,
+      options: [],
+    },
+    {
+      columnDef: 'enabled',
+      header: 'Enabled',
+      isSortable: false,
+      type: 'toggle',
+      isFilter: false,
+      options: [],
+    },
+  ];
+
+  constructor(
+    private fb: FormBuilder,
+    private currenciesService: CurrenciesService,
+    private currenciesFacadeService: CurrenciesFacadeService,
+    public commonFacadeService: CommonFacadeService,
+    public snackbarService: SnackbarService,
+  ) {}
+
+  ngOnInit(): void {
+    this.getCurrencies();
+    this.getCurrencyByCountryId(this.selectedCountry);
+    this.commonFacadeService.fetchCountryList().subscribe();
+    this.createForm();
+  }
+
+  createForm() {
+    this.form = this.fb.group({});
+    this.form.addControl('country', new FormControl(this.selectedCountry));
+  }
+
+  // fetches all currencies
+  getCurrencies(): void {
+    this.currenciesFacadeService
+      .fetchAllCurrencies()
+      .pipe(takeUntil(this.ngUnsubscribe$))
+      .subscribe({
+        next: (res: CurrencyModel[]) => {
+          this.currencies = res;
+          console.log(res);
+        },
+        error: (e: Error) => {
+          this.snackbarService.error(e.message);
+        },
+      });
+  }
+
+  //updates currencies list on changing/selecting a country
+  getCurrencyByCountryId(selectedCountry: number): void {
+    this.currenciesService
+      .getCurrencyListByCountryId(selectedCountry)
+      .pipe(takeUntil(this.ngUnsubscribe$))
+      .subscribe({
+        next: (res: ResponseModel<GlobalConfigurationCurrencyModel[]>) => {
+          this.resetCurrencies();
+
+          if (res.result) {
+            res.data.forEach((ele: GlobalConfigurationCurrencyModel) => {
+              this.currencies.map((data, i) => {
+                if (data.currencyId === ele.currencyId) {
+                  this.currencies[i].countryId = this.selectedCountry;
+
+                  if (ele.enabled) {
+                    this.currencies[i].enabled = true;
+                  } else {
+                    this.currencies[i].enabled = false;
+                  }
+                }
+              });
+            });
+          }
+        },
+        error: (e: Error) => {
+          this.snackbarService.error(e.message);
+        },
+      });
+  }
+
+  // resets all currencies values to default before changing country's currency list
+  resetCurrencies(): void {
+    this.currencies.map((data) => {
+      data.countryId = 0;
+      if (data.enabled) {
+        data.enabled = false;
+      }
+    });
+
+    this.changedCurrencies = [];
+    this.currencySelections = [];
+  }
+
+  // sets country id
+  onSelectCountry(event: Event | number): void {
+    this.selectedCountry = event as number;
+    this.getCurrencyByCountryId(this.selectedCountry);
+  }
+
+  //on toggle change, pushes changed currencies into a list to use it as input on api
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  selectionChanges(e: any): void {
+    this.currencies.map((data, i) => {
+      if (data.currencyId == e.element.currencyId) {
+        this.currencies[i].enabled = e.data.checked;
+
+        const existingCurrencyIndex = this.changedCurrencies.findIndex(
+          (x) =>
+            x.currencyId === e.element.currencyId &&
+            x.countryId === e.element.countryId,
+        );
+
+        if (existingCurrencyIndex === -1) {
+          this.changedCurrencies.push(this.currencies[i]);
+        } else {
+          this.changedCurrencies[existingCurrencyIndex].enabled =
+            e.element.enabled;
+        }
+      }
+    });
+  }
+
+  // set currencies for api input
+  setCurrencies(): void {
+    this.changedCurrencies.forEach((ele) => {
+      this.currencySelections.push({
+        countryId: this.selectedCountry,
+        currencyId: ele.currencyId,
+        enabled: ele.enabled,
+      });
+    });
+  }
+
+  // submits/saves currencies data
+  onSubmit(): void {
+    this.setCurrencies();
+    this.currenciesService
+      .updateCurrencyList(this.changedCurrencies)
+      .subscribe({
+        next: (res: ResponseModel<GlobalConfigurationCurrencyModel[]>) => {
+          if (res.result) {
+            this.snackbarService.success(res.message);
+          } else {
+            this.snackbarService.error(res.message);
+          }
+          this.getCurrencyByCountryId(this.selectedCountry);
+        },
+        error: (e: Error) => {
+          this.snackbarService.error(e.message);
+          this.getCurrencyByCountryId(this.selectedCountry);
+        },
+      });
+  }
+
+  ngOnDestroy(): void {
+    this.ngUnsubscribe$.next();
+    this.ngUnsubscribe$.complete();
+  }
+}

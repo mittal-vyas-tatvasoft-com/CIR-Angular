@@ -17,6 +17,9 @@ import { FileUploadComponent } from './components/file-upload/file-upload.compon
 import { SharedMaterialModule } from 'src/app/shared/material/shared-material.module';
 import { DatePickerComponent } from './components/date-picker/date-picker.component';
 import { StrokedButtonComponent } from './components/stroked-button/stroked-button.component';
+import { NoDataFoundComponent } from './components/no-data-found/no-data-found/no-data-found.component';
+import { CaptchaComponent } from './components/captcha/captcha.component';
+import { RecaptchaFormsModule, RecaptchaModule } from 'ng-recaptcha';
 import { DeleteConfirmationDialogComponent } from './components/dialogs/delete-confirmation-dialog/delete-confirmation-dialog.component';
 
 @NgModule({
@@ -31,16 +34,20 @@ import { DeleteConfirmationDialogComponent } from './components/dialogs/delete-c
     TextControlNumberComponent,
     FileUploadComponent,
     TimePickerComponent,
+    NoDataFoundComponent,
     // directives
     NumbersOnlyDirective,
     DatePickerComponent,
     StrokedButtonComponent,
+    CaptchaComponent,
     DeleteConfirmationDialogComponent,
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     SharedModule,
+    RecaptchaModule,
+    RecaptchaFormsModule,
     FormsModule,
     NgxMatTimepickerModule,
     SharedMaterialModule,
@@ -56,6 +63,8 @@ import { DeleteConfirmationDialogComponent } from './components/dialogs/delete-c
     TextControlNumberComponent,
     FileUploadComponent,
     TimePickerComponent,
+    CaptchaComponent,
+    NoDataFoundComponent,
     // directives
     NumbersOnlyDirective,
     DatePickerComponent,
