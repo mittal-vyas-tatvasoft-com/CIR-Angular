@@ -37,11 +37,13 @@ export class EmailListComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      languageField: [1],
+      languageField: [],
     });
-    this.commonFacadeService.fetchCultureList().subscribe();
-    this.cultureId = this.form.get('languageField')?.value;
-    this.getEmails(this.cultureId);
+    this.commonFacadeService.fetchCultureList().subscribe((res) => {
+      this.form.get('languageField')?.setValue(res[0].id);
+      this.cultureId = this.form.get('languageField')?.value;
+      this.getEmails(this.cultureId);
+    });
   }
 
   getEmails(cultureId: number) {
