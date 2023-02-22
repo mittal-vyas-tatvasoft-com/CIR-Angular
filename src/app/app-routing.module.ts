@@ -5,7 +5,7 @@ import { Navigation } from './shared/common/enum';
 
 const routes: Routes = [
   {
-    path: '',
+    path: ``,
     loadChildren: () =>
       import('./core/auth/auth.module').then((m) => m.AuthModule),
   },
