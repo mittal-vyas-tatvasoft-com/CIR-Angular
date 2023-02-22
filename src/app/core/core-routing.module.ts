@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { Navigation } from '../shared/common/enum';
 import { CoreComponent } from './core.component';
 
 const routes: Routes = [
@@ -16,21 +17,21 @@ const routes: Routes = [
           ),
       },
       {
-        path: `role`,
+        path: `${Navigation.Role}`,
         loadChildren: () =>
           import('../modules/users/roles/roles.module').then(
             (m) => m.RolesModule,
           ),
       },
       {
-        path: `user`,
+        path: `${Navigation.User}`,
         loadChildren: () =>
           import('../modules/users/roles/roles.module').then(
             (m) => m.RolesModule,
           ),
       },
       {
-        path: `GlobalConfiguration`,
+        path: `${Navigation.GlobalConfiguration}`,
         loadChildren: () =>
           import('../modules/users/roles/roles.module').then(
             (m) => m.RolesModule,
