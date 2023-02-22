@@ -15,6 +15,27 @@ const routes: Routes = [
             (m) => m.AppControlsModule,
           ),
       },
+      {
+        path: `role`,
+        loadChildren: () =>
+          import('../modules/users/roles/roles.module').then(
+            (m) => m.RolesModule,
+          ),
+      },
+      {
+        path: `user`,
+        loadChildren: () =>
+          import('../modules/users/roles/roles.module').then(
+            (m) => m.RolesModule,
+          ),
+      },
+      {
+        path: `GlobalConfiguration`,
+        loadChildren: () =>
+          import('../modules/users/roles/roles.module').then(
+            (m) => m.RolesModule,
+          ),
+      },
     ],
   },
 ];
