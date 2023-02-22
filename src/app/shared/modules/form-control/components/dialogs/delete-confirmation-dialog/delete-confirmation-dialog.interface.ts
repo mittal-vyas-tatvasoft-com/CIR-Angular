@@ -1,13 +1,17 @@
-export interface IDeleteDialogData {
+export interface DeleteDialogData {
   title?: string;
   message?: string;
   disableClose?: boolean;
-  buttonText?: IButtonText;
+  buttonText?: ButtonText;
   width?: string;
   topPosition?: string;
 }
 
-interface IButtonText {
+export interface ButtonText {
   ok?: string;
   cancel?: string;
+}
+
+export interface DialogStyleWidth {
+  width: string;
 }

@@ -1,35 +1,51 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { message } from 'src/app/shared/messages/messages.static';
-import { IDeleteDialogData } from './delete-confirmation-dialog.interface';
+
+import {
+  ButtonText,
+  DialogData,
+} from 'src/app/shared/common/interfaces/dialogdata.interface';
+import { DialogStyleWidth } from './delete-confirmation-dialog.interface';
 
 @Component({
   selector: 'app-delete-confirmation-dialog',
   templateUrl: './delete-confirmation-dialog.component.html',
   styleUrls: ['./delete-confirmation-dialog.component.scss'],
 })
-export class DeleteConfirmationDialogComponent {
+export class DeleteConfirmationDialogComponent implements OnInit {
+  // vars
+  dialogStyleWidth: DialogStyleWidth;
   title = '';
-  message = '';
-  cancelBtnText = '';
-  confirmBtnText = '';
+  item = '';
+  name = '';
+  icon = '';
+  subTitle = '';
+  subHeaderTitle = '';
+  buttonText!: ButtonText;
+  bottomText!: string;
+  width: string;
 
   constructor(
     public dialogRef: MatDialogRef<DeleteConfirmationDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: IDeleteDialogData,
-  ) {
-    const { dialogs } = message;
-    this.title = this.data.title || '';
-    this.message = this.data.message || dialogs.areYouSureToDelete;
-    this.confirmBtnText = this.data.buttonText?.ok || dialogs.yes;
-    this.cancelBtnText = this.data.buttonText?.cancel || dialogs.no;
+    @Inject(MAT_DIALOG_DATA) public data: DialogData,
+  ) {}
+
+  ngOnInit(): void {
+    this.setDialogData(this.data);
   }
 
-  onConfirm(): void {
-    this.dialogRef.close(true);
-  }
-
-  onDismiss(): void {
-    this.dialogRef.close(false);
+  setDialogData(data: DialogData) {
+    this.title = data.data.title ?? '';
+    if ('data' in data) {
+      this.item = data.data.item ?? '';
+      this.name = data.data.name ?? '';
+      this.icon = data.data.icon ?? '';
+      this.subTitle = data.data.subTitle ?? '';
+      this.subHeaderTitle = data.data.message ?? '';
+      this.buttonText = data.data.buttonText ?? {};
+      this.bottomText = data.data.bottomText ?? '';
+      this.width = data.data.width ?? '';
+      this.dialogStyleWidth = { width: this.width };
+    }
   }
 }

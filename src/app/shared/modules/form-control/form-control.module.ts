@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { ButtonComponent } from './components/button/button.component';
 import { TextControlComponent } from './components/text-control/text-control.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { SharedModule } from 'src/app/shared/shared.module';
 import { TimePickerComponent } from './components/time-picker/time-picker.component';
 import { NgxMatTimepickerModule } from 'ngx-mat-timepicker';
 import { ToggleComponent } from './components/toggle/toggle.component';
@@ -21,6 +20,8 @@ import { NoDataFoundComponent } from './components/no-data-found/no-data-found/n
 import { CaptchaComponent } from './components/captcha/captcha.component';
 import { RecaptchaFormsModule, RecaptchaModule } from 'ng-recaptcha';
 import { DeleteConfirmationDialogComponent } from './components/dialogs/delete-confirmation-dialog/delete-confirmation-dialog.component';
+import { SharedModule } from '../../shared.module';
+import { TreeViewComponent } from './components/tree-view/tree-view.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { DeleteConfirmationDialogComponent } from './components/dialogs/delete-c
     FileUploadComponent,
     TimePickerComponent,
     NoDataFoundComponent,
+    TreeViewComponent,
     // directives
     NumbersOnlyDirective,
     DatePickerComponent,
@@ -45,12 +47,12 @@ import { DeleteConfirmationDialogComponent } from './components/dialogs/delete-c
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    SharedModule,
     RecaptchaModule,
     RecaptchaFormsModule,
     FormsModule,
     NgxMatTimepickerModule,
     SharedMaterialModule,
+    SharedModule,
   ],
   exports: [
     ButtonComponent,
@@ -69,6 +71,7 @@ import { DeleteConfirmationDialogComponent } from './components/dialogs/delete-c
     NumbersOnlyDirective,
     DatePickerComponent,
     StrokedButtonComponent,
+    TreeViewComponent,
   ],
 })
 export class FormControlModule {}
