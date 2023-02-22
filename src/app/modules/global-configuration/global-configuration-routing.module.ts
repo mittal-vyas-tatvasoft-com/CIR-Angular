@@ -25,6 +25,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./email/email.module').then((m) => m.EmailModule),
   },
+  {
+    path: `${Navigation.Messages}`,
+    loadChildren: () =>
+      import('./messages/messages.module').then((m) => m.MessagesModule),
+  },
 ];
 
 @NgModule({
