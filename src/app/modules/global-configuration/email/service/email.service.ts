@@ -14,13 +14,13 @@ export class EmailService {
 
   getEmails(cultureId: number): Observable<ResponseModel<Email[]>> {
     return this.http.get<ResponseModel<Email[]>>(
-      environment.baseURL + `GlobalConfigurationEmails/` + cultureId,
+      `${environment.baseURL}GlobalConfigurationEmails/${cultureId}`,
     );
   }
 
   saveEmails(emails: Email[]) {
     return this.http.post<ResponseModel<Email[]>>(
-      environment.baseURL + `GlobalConfigurationEmails/create`,
+      `${environment.baseURL}GlobalConfigurationEmails/create`,
       emails,
     );
   }
