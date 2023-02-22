@@ -67,7 +67,6 @@ import { RecaptchaFormsModule, RecaptchaModule } from 'ng-recaptcha';
     NumbersOnlyDirective,
     DatePickerComponent,
     StrokedButtonComponent,
-    SharedMaterialModule,
   ],
 })
 export class FormControlModule {}
