@@ -33,9 +33,9 @@ const routes: Routes = [
       {
         path: `${Navigation.GlobalConfiguration}`,
         loadChildren: () =>
-          import('../modules/users/roles/roles.module').then(
-            (m) => m.RolesModule,
-          ),
+          import(
+            '../modules/global-configuration/global-configuration-routing.module'
+          ).then((m) => m.GlobalConfigurationRoutingModule),
       },
     ],
   },
