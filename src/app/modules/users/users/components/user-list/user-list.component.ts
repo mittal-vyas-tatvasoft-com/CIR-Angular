@@ -7,6 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserListComponent implements OnInit {
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    //throw new Error('Method not implemented.');
   }
 }

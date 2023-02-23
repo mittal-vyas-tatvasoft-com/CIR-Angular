@@ -8,6 +8,7 @@ const routes: Routes = [
   {
     path: '',
     component: UserListComponent,
+    data: { breadcrumb: 'Users' },
     // data: { privilegeId: Permissions.USER_LIST },
   },
   {
