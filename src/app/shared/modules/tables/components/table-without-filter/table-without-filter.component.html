@@ -36,6 +36,7 @@
         <ng-template #columnHasInput>
           <div *ngIf="columnData.type == 'toggle'">
             <mat-slide-toggle
+              color="primary"
               (change)="
                 selection.emit({
                   data: $event,
