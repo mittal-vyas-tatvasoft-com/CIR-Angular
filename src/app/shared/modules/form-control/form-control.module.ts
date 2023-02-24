@@ -37,6 +37,7 @@ import { TreeViewComponent } from './components/tree-view/tree-view.component';
     TimePickerComponent,
     NoDataFoundComponent,
     TreeViewComponent,
+
     // directives
     NumbersOnlyDirective,
     DatePickerComponent,

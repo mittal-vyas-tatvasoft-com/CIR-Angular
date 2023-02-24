@@ -14,7 +14,7 @@ import { DialogStyleWidth } from './delete-confirmation-dialog.interface';
 })
 export class DeleteConfirmationDialogComponent implements OnInit {
   // vars
-  dialogStyleWidth: DialogStyleWidth;
+
   title = '';
   item = '';
   name = '';
@@ -24,6 +24,7 @@ export class DeleteConfirmationDialogComponent implements OnInit {
   buttonText!: ButtonText;
   bottomText!: string;
   width: string;
+  dialogStyleWidth: DialogStyleWidth;
 
   constructor(
     public dialogRef: MatDialogRef<DeleteConfirmationDialogComponent>,

@@ -9,8 +9,8 @@ import { CKEditor4 } from 'ckeditor4-angular/ckeditor.module';
 export class EditorComponent {
   @Input() data = 'Hello world!<br> This is the testing text.';
   @Output() change = new EventEmitter();
-  @Input() id: number;
   @Input() type: number;
+  @Input() id: number;
 
   onChange(event: any, type: number, messageId: number) {
     const data = event.editor.getData();

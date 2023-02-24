@@ -13,5 +13,5 @@ export interface ButtonText {
 }
 
 export interface DialogStyleWidth {
-  width: string;
+  width?: string;
 }

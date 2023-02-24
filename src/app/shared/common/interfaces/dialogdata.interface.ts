@@ -12,8 +12,8 @@ export interface DialogData {
   panelClass?: string;
   backdropClass?: string;
   maxWidth?: string;
-  showDialogIcon?: boolean;
   bottomText?: string;
+  showDialogIcon?: boolean;
 }
 
 export interface ButtonText {
