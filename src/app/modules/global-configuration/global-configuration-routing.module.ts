@@ -30,6 +30,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./messages/messages.module').then((m) => m.MessagesModule),
   },
+  {
+    path: `${Navigation.Font}`,
+    loadChildren: () =>
+      import('./fonts/fonts.module').then((m) => m.FontsModule),
+  },
 ];
 
 @NgModule({

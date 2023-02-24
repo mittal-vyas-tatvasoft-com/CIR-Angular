@@ -1,1 +1,50 @@
-<p>email-list works!</p>
+<form [formGroup]="form" class="container">
+  <div class="card-content">
+    <app-select
+      [formControlModel]="emailConfig.languageField"
+      [form]="form"
+      [options]="commonFacadeService.cultureList$ | async"
+      (selection)="onLanguageSelect($event.value)"
+      class="languageSelect"
+    ></app-select>
+  </div>
+  <div class="parent">
+    <div class="emails">
+      <p *ngFor="let email of emailList">
+        <app-email
+          [email]="email"
+          (changeContent)="contentChange($event)"
+          (subjectChange)="subjectChange($event)"
+        ></app-email>
+      </p>
+    </div>
+    <div class="fields">
+      <h2>Dynamic Data Fields</h2>
+      <div>
+        <h4><b>Service Emails Field's</b></h4>
+        <div *ngFor="let field of dynamicData">
+          <p *ngIf="field.fieldTypeId == dynamicFields.SERVICE_FIELDS">
+            [{{ field.fieldName }}]
+          </p>
+        </div>
+      </div>
+      <div>
+        <h4><b>Booking Form Email Field's</b></h4>
+        <div *ngFor="let field of dynamicData">
+          <p *ngIf="field.fieldTypeId == dynamicFields.BOOKING_FIELDS">
+            [{{ field.fieldName }}]
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="btnDiv">
+    <app-button
+      class="saveButton"
+      type="submit"
+      label="Save"
+      (btnClick)="onSubmit()"
+    >
+    </app-button>
+  </div>
+</form>
