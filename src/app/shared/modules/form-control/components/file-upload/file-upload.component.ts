@@ -14,6 +14,7 @@ export class FileUploadComponent {
   @Input() fileType: string[];
   @Output()
   imageFile: EventEmitter<File | null> = new EventEmitter<File | null>();
+  @Input() fileSourceKey: string;
 
   constructor(public _validator: ValidatorService) {}
 
@@ -29,5 +30,14 @@ export class FileUploadComponent {
     const target = event.target as HTMLInputElement;
     //sending the file to dynamic-form component.
     this.imageFile.emit(target.files ? target?.files[0] : null);
+  }
+
+  getFileName() {
+    const formControl = this.form.get(this.fileSourceKey);
+
+    if (formControl) {
+      return formControl.value?.name;
+    }
+    return '';
   }
 }

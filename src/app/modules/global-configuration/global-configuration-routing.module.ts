@@ -26,6 +26,11 @@ const routes: Routes = [
       import('./email/email.module').then((m) => m.EmailModule),
   },
   {
+    path: `${Navigation.Fields}`,
+    loadChildren: () =>
+      import('./Fields/fields.module').then((m) => m.FieldsModule),
+  },
+  {
     path: `${Navigation.Messages}`,
     loadChildren: () =>
       import('./messages/messages.module').then((m) => m.MessagesModule),
