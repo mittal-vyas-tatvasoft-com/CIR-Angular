@@ -6,10 +6,10 @@ import { ResponseModel } from 'src/app/shared/common/interfaces/response.interfa
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class FontsService {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getFontList(): Observable<ResponseModel<GlobalConfigurationFonts[]>> {
     return this.http.get<ResponseModel<GlobalConfigurationFonts[]>>(
@@ -17,18 +17,17 @@ export class FontsService {
     );
   }
 
-  saveFont(fonts: GlobalConfigurationFonts[]) {
-    return this.http.post<ResponseModel<GlobalConfigurationFonts[]>>(
-      environment.baseURL + 'GlobalConfigurationFonts/Create',
+  saveFont(fonts: GlobalConfigurationFonts) {
+    return this.http.post<ResponseModel<GlobalConfigurationFonts>>(
+      environment.baseURL + 'GlobalConfigurationFonts',
       fonts,
     );
   }
 
   updateFonts(fonts: GlobalConfigurationFonts[]) {
     return this.http.put<ResponseModel<GlobalConfigurationFonts[]>>(
-      environment.baseURL + 'GlobalConfigurationFonts/Update',
+      environment.baseURL + 'GlobalConfigurationFonts',
       fonts,
     );
   }
 }
-

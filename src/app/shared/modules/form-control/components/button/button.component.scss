@@ -1,0 +1,13 @@
+.center {
+  left: 45%;
+}
+@media (max-width: 420px) {
+  .center {
+    left: 40%;
+  }
+}
+@media (max-width: 370px) {
+  .center {
+    left: 35%;
+  }
+}
