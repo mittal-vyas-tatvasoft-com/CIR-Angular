@@ -20,3 +20,7 @@ export interface ButtonText {
   ok?: string;
   cancel?: string;
 }
+
+export interface DialogStyleWidth {
+  width: string;
+}

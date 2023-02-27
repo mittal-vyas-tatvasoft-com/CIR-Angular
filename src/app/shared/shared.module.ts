@@ -3,9 +3,10 @@ import { CommonModule } from '@angular/common';
 import { SharedMaterialModule } from './material/shared-material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditorComponent } from './component/editor/editor.component';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DeleteConfirmationDialogComponent } from './dialogs/delete-confirmation-dialog/delete-confirmation-dialog.component';
 @NgModule({
-  declarations: [EditorComponent],
+  declarations: [EditorComponent, DeleteConfirmationDialogComponent],
   imports: [
     CommonModule,
     SharedMaterialModule,
@@ -18,6 +19,7 @@ import { EditorComponent } from './component/editor/editor.component';
     ReactiveFormsModule,
     FormsModule,
     EditorComponent,
+    DeleteConfirmationDialogComponent,
   ],
 })
 export class SharedModule {}

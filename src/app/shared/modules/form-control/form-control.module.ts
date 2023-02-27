@@ -19,8 +19,6 @@ import { StrokedButtonComponent } from './components/stroked-button/stroked-butt
 import { NoDataFoundComponent } from './components/no-data-found/no-data-found/no-data-found.component';
 import { CaptchaComponent } from './components/captcha/captcha.component';
 import { RecaptchaFormsModule, RecaptchaModule } from 'ng-recaptcha';
-import { DeleteConfirmationDialogComponent } from './components/dialogs/delete-confirmation-dialog/delete-confirmation-dialog.component';
-import { SharedModule } from '../../shared.module';
 import { TreeViewComponent } from './components/tree-view/tree-view.component';
 
 @NgModule({
@@ -37,7 +35,6 @@ import { TreeViewComponent } from './components/tree-view/tree-view.component';
     TimePickerComponent,
     NoDataFoundComponent,
     TreeViewComponent,
-
     // directives
     NumbersOnlyDirective,
     DatePickerComponent,
@@ -68,6 +65,7 @@ import { TreeViewComponent } from './components/tree-view/tree-view.component';
     TimePickerComponent,
     CaptchaComponent,
     NoDataFoundComponent,
+    TreeViewComponent,
     // directives
     NumbersOnlyDirective,
     DatePickerComponent,
