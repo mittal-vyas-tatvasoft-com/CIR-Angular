@@ -43,7 +43,8 @@ export class TableWithoutFilterComponent<T> implements OnInit, OnChanges {
     return (
       columnData.type == 'toggle' ||
       columnData.type == 'radio' ||
-      columnData.type == 'textInput'
+      columnData.type == 'textInput' ||
+      columnData.type == 'fileUpload'
     );
   }
 

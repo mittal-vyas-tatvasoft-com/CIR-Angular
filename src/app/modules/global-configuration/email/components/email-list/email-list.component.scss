@@ -1,0 +1,22 @@
+.container {
+  padding: 20px;
+}
+.languageSelect {
+  text-align: end;
+}
+
+.parent {
+  display: flex;
+  justify-content: space-between;
+}
+
+.emails {
+  flex-basis: 70%;
+}
+.fields {
+  flex-basis: 28%;
+}
+.btnDiv {
+  text-align: center;
+  margin-top: 10px;
+}

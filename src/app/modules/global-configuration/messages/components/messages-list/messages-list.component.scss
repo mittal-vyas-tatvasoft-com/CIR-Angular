@@ -1,0 +1,17 @@
+.table-responsive {
+    .row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    table {
+      width: 100%;
+    }
+    .footer-button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2em 0 1em;
+    }
+  }

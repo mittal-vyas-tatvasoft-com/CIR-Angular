@@ -36,6 +36,7 @@
         <ng-template #columnHasInput>
           <div *ngIf="columnData.type == 'toggle'">
             <mat-slide-toggle
+              color="primary"
               (change)="
                 selection.emit({
                   data: $event,
@@ -46,8 +47,31 @@
               [checked]="element[columnData.columnDef]"
             ></mat-slide-toggle>
           </div>
+          <div
+            *ngIf="columnData.type == 'fileUpload'"
+            class="upload-btn-wrapper"
+          >
+            <div class="filename-overflow">
+              {{ element[columnData.columnDef] }}
+            </div>
+            <input
+              type="file"
+              hidden
+              #fileUpload
+              (change)="
+                selection.emit({
+                  data: $event,
+                  element: element,
+                  columnDef: columnData.columnDef
+                })
+              "
+            />
+            <app-button (click)="fileUpload.click()" label="Upload">
+            </app-button>
+          </div>
           <div *ngIf="columnData.type == 'radio'">
             <mat-radio-button
+              color="primary"
               (change)="
                 selection.emit({
                   data: $event,

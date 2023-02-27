@@ -2,17 +2,17 @@ export const defaultPageSizeOption = [10, 25, 50];
 export const defaultCurrentPage = 0;
 export const defaultTotalCount = 0;
 export const snackBarDuration = 5000;
-export const defaultCountryId = 3;
+export const defaultCountryId = 1;
 export const defaultCultureId = 1;
 export const defaultDateFormat = 'dd/MM/yyyy';
 export const defaultMessagesEditorTitle = [
-  'Welcome Message',
-  'Final Message',
-  'Refund Message',
-  'Maintenance Mode Message',
-  'Return Details Message',
-  'Tracking Welcome Message',
-  'Print Label Welcome Message',
+  { id: 0, text: 'Welcome Message' },
+  { id: 1, text: 'Final Message' },
+  { id: 2, text: 'Refund Message' },
+  { id: 3, text: 'Maintenance Mode Message' },
+  { id: 4, text: 'Return Details Message' },
+  { id: 5, text: 'Tracking Welcome Message' },
+  { id: 6, text: 'Print Label Welcome Message' },
 ];
 export const fieldTypes = [
   { id: 1, msg: 'Service - Postal' },

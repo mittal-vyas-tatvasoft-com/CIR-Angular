@@ -1,0 +1,31 @@
+<div class="holiday-wrapper">
+  <mat-card class="mat-elevation-z0 box">
+    <mat-card-header>
+      <mat-card-title class="pb-5">Add New Currency</mat-card-title>
+    </mat-card-header>
+    <form [formGroup]="form" novalidate>
+      <div class="example-container">
+        <mat-card-content>
+          <div>
+            <app-text-control
+              [formControlModel]="addNewCurrencyFormControl.symbolField"
+              [form]="form"
+            ></app-text-control>
+          </div>
+          <div>
+            <app-text-control
+              [formControlModel]="addNewCurrencyFormControl.codeNameField"
+              [form]="form"
+            ></app-text-control>
+          </div>
+        </mat-card-content>
+        <div>
+          <mat-card-actions>
+            <app-button [label]="'Save'" (btnClick)="addNewCurrency()">
+            </app-button>
+          </mat-card-actions>
+        </div>
+      </div>
+    </form>
+  </mat-card>
+</div>

@@ -17,9 +17,9 @@ import { FileUploadComponent } from './components/file-upload/file-upload.compon
 import { SharedMaterialModule } from 'src/app/shared/material/shared-material.module';
 import { DatePickerComponent } from './components/date-picker/date-picker.component';
 import { StrokedButtonComponent } from './components/stroked-button/stroked-button.component';
-import { NoDataFoundComponent } from './components/no-data-found/no-data-found/no-data-found.component';
 import { CaptchaComponent } from './components/captcha/captcha.component';
 import { RecaptchaFormsModule, RecaptchaModule } from 'ng-recaptcha';
+import { TreeViewComponent } from './components/tree-view/tree-view.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +33,7 @@ import { RecaptchaFormsModule, RecaptchaModule } from 'ng-recaptcha';
     TextControlNumberComponent,
     FileUploadComponent,
     TimePickerComponent,
-    NoDataFoundComponent,
+    TreeViewComponent,
     // directives
     NumbersOnlyDirective,
     DatePickerComponent,
@@ -62,12 +62,11 @@ import { RecaptchaFormsModule, RecaptchaModule } from 'ng-recaptcha';
     FileUploadComponent,
     TimePickerComponent,
     CaptchaComponent,
-    NoDataFoundComponent,
+    TreeViewComponent,
     // directives
     NumbersOnlyDirective,
     DatePickerComponent,
     StrokedButtonComponent,
-    SharedMaterialModule,
   ],
 })
 export class FormControlModule {}
