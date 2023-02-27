@@ -18,5 +18,10 @@
   ></app-table-without-filter>
   <div class="footer-button" *ngIf="currencies.length > 0">
     <app-button [label]="'Save'" (btnClick)="onSubmit()"></app-button>
+    <app-button
+      class="addBtn"
+      [label]="'Add New Currency'"
+      (btnClick)="addNewCurrency()"
+    ></app-button>
   </div>
 </div>

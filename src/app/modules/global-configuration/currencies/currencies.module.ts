@@ -6,9 +6,11 @@ import { CurrenciesComponent } from './components/currencies/currencies.componen
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormControlModule } from 'src/app/shared/modules/form-control/form-control.module';
 import { TablesModule } from 'src/app/shared/modules/tables/tables.module';
+import { AddCurrencyComponent } from './components/add-currency/add-currency.component';
+import { SharedMaterialModule } from 'src/app/shared/material/shared-material.module';
 
 @NgModule({
-  declarations: [CurrenciesComponent],
+  declarations: [CurrenciesComponent, AddCurrencyComponent],
   imports: [
     CommonModule,
     CurrenciesRoutingModule,
@@ -16,6 +18,7 @@ import { TablesModule } from 'src/app/shared/modules/tables/tables.module';
     ReactiveFormsModule,
     FormControlModule,
     TablesModule,
+    SharedMaterialModule,
   ],
 })
 export class CurrenciesModule {}
