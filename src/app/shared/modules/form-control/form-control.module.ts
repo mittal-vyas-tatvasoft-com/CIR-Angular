@@ -20,6 +20,7 @@ import { StrokedButtonComponent } from './components/stroked-button/stroked-butt
 import { NoDataFoundComponent } from './components/no-data-found/no-data-found/no-data-found.component';
 import { CaptchaComponent } from './components/captcha/captcha.component';
 import { RecaptchaFormsModule, RecaptchaModule } from 'ng-recaptcha';
+import { TreeViewComponent } from './components/tree-view/tree-view.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { RecaptchaFormsModule, RecaptchaModule } from 'ng-recaptcha';
     FileUploadComponent,
     TimePickerComponent,
     NoDataFoundComponent,
+    TreeViewComponent,
     // directives
     NumbersOnlyDirective,
     DatePickerComponent,
@@ -63,6 +65,7 @@ import { RecaptchaFormsModule, RecaptchaModule } from 'ng-recaptcha';
     TimePickerComponent,
     CaptchaComponent,
     NoDataFoundComponent,
+    TreeViewComponent,
     // directives
     NumbersOnlyDirective,
     DatePickerComponent,
