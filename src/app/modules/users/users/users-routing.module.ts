@@ -8,16 +8,19 @@ const routes: Routes = [
   {
     path: '',
     component: UserListComponent,
+    data: { breadCrumb: 'Users' },
     // data: { privilegeId: Permissions.USER_LIST },
   },
   {
     path: `${Navigation.Add}`,
     component: AddEditUserComponent,
+    data: { breadCrumb: 'Users/Add' },
     //data: { privilegeId: Permissions.USER_CREATE },
   },
   {
     path: `${Navigation.Edit}/:id`,
     component: AddEditUserComponent,
+    data: { breadCrumb: 'Users/Edit' },
     //data: { privilegeId: Permissions.USER_EDIT },
   },
 ];

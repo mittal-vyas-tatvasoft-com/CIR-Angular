@@ -10,11 +10,13 @@ const routes: Routes = [
   },
   {
     path: `${Navigation.Currencies}`,
+    data: { breadCrumb: 'GlobalConfiguration' },
     loadChildren: () =>
       import('./currencies/currencies.module').then((m) => m.CurrenciesModule),
   },
   {
     path: `${Navigation.CutOffTimes}`,
+    data: { breadCrumb: 'GlobalConfiguration' },
     loadChildren: () =>
       import('./cut-off-times/cut-off-times.module').then(
         (m) => m.CutOffTimesModule,
@@ -22,21 +24,25 @@ const routes: Routes = [
   },
   {
     path: `${Navigation.Email}`,
+    data: { breadCrumb: 'GlobalConfiguration' },
     loadChildren: () =>
       import('./email/email.module').then((m) => m.EmailModule),
   },
   {
     path: `${Navigation.Fields}`,
+    data: { breadCrumb: 'GlobalConfiguration' },
     loadChildren: () =>
       import('./Fields/fields.module').then((m) => m.FieldsModule),
   },
   {
     path: `${Navigation.Messages}`,
+    data: { breadCrumb: 'GlobalConfiguration' },
     loadChildren: () =>
       import('./messages/messages.module').then((m) => m.MessagesModule),
   },
   {
     path: `${Navigation.Font}`,
+    data: { breadCrumb: 'GlobalConfiguration' },
     loadChildren: () =>
       import('./fonts/fonts.module').then((m) => m.FontsModule),
   },
