@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { DialogData } from '../../common/interfaces/dialogdata.interface';
+import { DialogData } from '../../common/interfaces/dialogData.interface';
 
 @Injectable({
   providedIn: 'root',
 })
-export class DeleteService {
+export class DialogService {
   constructor(private dialog: MatDialog) {}
 
+  //eslint-disable-next-line @typescript-eslint/no-explicit-any
   openModel(component: any, data: DialogData, hasBackdrop = true) {
     let dialogRef = undefined;
     if (this.dialog.openDialogs.length < 2) {
