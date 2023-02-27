@@ -31,6 +31,7 @@ export enum Navigation {
   Email = 'emails',
   Holidays = 'holidays',
   Weekends = 'weekends',
+  Fields = 'fields',
 
   //Utilities Navigation
   Utilities = 'utilities',
