@@ -26,8 +26,8 @@ const routes: Routes = [
       {
         path: `${Navigation.User}`,
         loadChildren: () =>
-          import('../modules/users/roles/roles.module').then(
-            (m) => m.RolesModule,
+          import('../modules/users/users/users.module').then(
+            (m) => m.UsersModule,
           ),
       },
       {
