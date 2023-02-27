@@ -1,3 +1,17 @@
 .mat-table {
   width: 100%;
 }
+
+.upload-btn-wrapper {
+  display: flex;
+  justify-content: space-between;
+  max-width: 90%;
+  align-items: center;
+
+  .filename-overflow {
+    width: 80%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
