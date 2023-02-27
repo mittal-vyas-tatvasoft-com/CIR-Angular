@@ -1,6 +1,7 @@
 <div [formGroup]="form">
   <div class="file-upload-wrapper" data-text="Select your file">
     <input
+      hidden
       [type]="getType()"
       [formControlName]="formControlModel.key"
       [id]="formControlModel.key"
@@ -8,9 +9,13 @@
       [name]="formControlModel.key"
       multiple="multiple"
       accept=".png, .jpg, .jpeg"
+      #fileUpload
     />
-    <app-button type="submit" [isDisabled]="!form.valid" label="Upload">
-    </app-button>
+
+    <app-button (click)="fileUpload.click()" label="Upload"> </app-button>
+    <div class="fileName">
+      {{ getFileName() }}
+    </div>
   </div>
   <mat-error>
     {{ _validator.getError(form, formControlModel.key, formControlModel) }}

@@ -1,1 +1,38 @@
-<p>add-font works!</p>
+<mat-card class="card-content">
+  <mat-card-header>
+    <mat-card-title>Add Font</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <app-text-control
+      [formControlModel]="fontControl.nameField"
+      [form]="form"
+    ></app-text-control>
+  </mat-card-content>
+  <mat-card-content>
+    <app-text-control
+      [formControlModel]="fontControl.fontFamilyField"
+      [form]="form"
+    ></app-text-control>
+  </mat-card-content>
+  <mat-card-content>
+    <app-toggle
+      [form]="form"
+      [formControlModel]="fontControl.enabledField"
+    ></app-toggle>
+  </mat-card-content>
+  <mat-card-content>
+    <app-file-upload
+      [form]="form"
+      [formControlModel]="fontControl.fileUploadField"
+      (imageFile)="file($event)"
+      fileSourceKey="fileSource"
+    ></app-file-upload>
+  </mat-card-content>
+  <mat-card-actions class="footer-button">
+    <app-button
+      [label]="'Add Font'"
+      (btnClick)="addFont()"
+      [isDisabled]="!form.valid"
+    ></app-button>
+  </mat-card-actions>
+</mat-card>
