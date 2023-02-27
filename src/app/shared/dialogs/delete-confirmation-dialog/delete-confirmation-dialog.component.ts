@@ -16,7 +16,6 @@ export class DeleteConfirmationDialogComponent implements OnInit {
   // vars
 
   title = '';
-  subTitle = '';
   subHeaderTitle = '';
   buttonText!: ButtonText;
   width: string;
@@ -34,7 +33,6 @@ export class DeleteConfirmationDialogComponent implements OnInit {
   setDialogData(data: DialogData) {
     this.title = data.data.title ?? '';
     if ('data' in data) {
-      this.subTitle = data.data.subTitle ?? '';
       this.subHeaderTitle = data.data.message ?? '';
       this.buttonText = data.data.buttonText ?? {};
       this.width = data.data.width ?? '';
