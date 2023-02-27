@@ -35,6 +35,13 @@ const routes: Routes = [
             './modules/global-configuration/global-configuration.module'
           ).then((m) => m.GlobalConfigurationModule),
       },
+      {
+        path: `${Navigation.Fields}`,
+        loadChildren: () =>
+          import('./modules/global-configuration/Fields/fields.module').then(
+            (m) => m.FieldsModule,
+          ),
+      },
     ],
   },
 ];

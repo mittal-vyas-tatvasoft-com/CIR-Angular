@@ -1,0 +1,15 @@
+<mat-card class="card-content">
+  <mat-card-header>
+    <mat-card-title>Global Fields</mat-card-title>
+  </mat-card-header>
+  <app-table-without-filter
+    *ngIf="fields.length > 0"
+    [tableColumns]="tableColumn"
+    [tableData]="fields"
+    (selection)="selectionChanges($event)"
+  ></app-table-without-filter>
+
+  <div class="footer-button" *ngIf="fields.length > 0">
+    <app-button [label]="'Save'" (btnClick)="onSubmit()"></app-button>
+  </div>
+</mat-card>
