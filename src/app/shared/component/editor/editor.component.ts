@@ -12,7 +12,7 @@ export class EditorComponent {
   @Input() id: number;
   @Input() type: number;
 
-  onChange(event: CKEditor4.EventInfo, type: number, messageId: number) {
+  onChange(event: any, type: number, messageId: number) {
     const data = event.editor.getData();
     this.change.emit({
       data: data,
