@@ -25,13 +25,13 @@ import { SelectOption } from 'src/app/shared/modules/form-control/interface/sele
 import { Column } from 'src/app/shared/modules/tables/interfaces/table-data.interface';
 import { SnackbarService } from 'src/app/shared/snackbar/snackbar.service';
 import { DownloadService } from 'src/app/shared/services/role-permission/download/download.service';
-import { DeleteConfirmationDialogComponent } from 'src/app/shared/components/dialogs/delete-confirmation-dialog/delete-confirmation-dialog/delete-confirmation-dialog.component';
 import {
   defaultCurrentPage,
   defaultPageSizeOption,
   defaultSelectOptionRole,
   defaultTotalCount,
 } from 'src/app/shared/common/interfaces/constants.static';
+import { DeleteConfirmationDialogComponent } from 'src/app/shared/dialogs/delete-confirmation-dialog/delete-confirmation-dialog.component';
 export { UserModel as User } from '../../interface/user.interface';
 
 @Component({
