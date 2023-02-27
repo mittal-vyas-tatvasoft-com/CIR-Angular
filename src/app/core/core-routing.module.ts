@@ -2,12 +2,13 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { Navigation } from '../shared/common/enum';
 import { CoreComponent } from './core.component';
+import { AuthGuard } from './guards/auth/auth.guard';
 
 const routes: Routes = [
   {
     path: '',
     component: CoreComponent,
-    // canActivate: [AuthGuardService],
+    canActivate: [AuthGuard],
     children: [
       {
         path: 'app-control',
