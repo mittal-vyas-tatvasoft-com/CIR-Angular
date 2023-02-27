@@ -13,7 +13,7 @@ import { UserService } from '../../services/user.service';
 import { UserFacadeService } from '../../services/user-facade.service';
 import { SelectOption } from 'src/app/shared/modules/form-control/interface/select-option.interface';
 import { SnackbarService } from 'src/app/shared/snackbar/snackbar.service';
-import { CommonFacadeService } from 'src/app/shared/common/common-facade.service';
+import { CommonFacadeService } from 'src/app/shared/services/common/common-facade.service';
 @Component({
   selector: 'app-add-edit-user',
   templateUrl: './add-edit-user.component.html',

@@ -1,5 +1,4 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { CKEditor4 } from 'ckeditor4-angular/ckeditor.module';
 
 @Component({
   selector: 'app-editor',
