@@ -14,6 +14,7 @@ import {
 } from '../../interfaces/currencies.interface';
 import { CurrenciesFacadeService } from '../../services/currencies-facade.service';
 import { CurrenciesService } from '../../services/currencies.service';
+import { errors } from 'src/app/shared/messages/error.static';
 
 @Component({
   selector: 'app-currencies',
@@ -26,9 +27,8 @@ export class CurrenciesComponent implements OnInit, OnDestroy {
   dataSource = new MatTableDataSource<GlobalConfigurationCurrencyModel>();
   countries: CountryCode[] = [];
   selectedCountry: number = defaultCountryId;
-  currencySelections: GlobalConfigurationCurrencyModel[] = [];
   currencies: CurrencyModel[] = [];
-  changedCurrencies: CurrencyModel[] = [];
+  changedCurrencies: GlobalConfigurationCurrencyModel[] = [];
   form: FormGroup;
   countryField = currenciesControl.countryField;
   tableColumn = [
@@ -60,7 +60,6 @@ export class CurrenciesComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.getCurrencies();
-    this.getCurrencyByCountryId(this.selectedCountry);
     this.commonFacadeService.fetchCountryList().subscribe();
     this.createForm();
   }
@@ -78,10 +77,10 @@ export class CurrenciesComponent implements OnInit, OnDestroy {
       .subscribe({
         next: (res: CurrencyModel[]) => {
           this.currencies = res;
-          console.log(res);
+          this.getCurrencyByCountryId(this.selectedCountry);
         },
         error: (e: Error) => {
-          this.snackbarService.error(e.message);
+          this.snackbarService.error(errors.common.serverError || e.message);
         },
       });
   }
@@ -112,7 +111,7 @@ export class CurrenciesComponent implements OnInit, OnDestroy {
           }
         },
         error: (e: Error) => {
-          this.snackbarService.error(e.message);
+          this.snackbarService.error(errors.common.serverError || e.message);
         },
       });
   }
@@ -127,7 +126,6 @@ export class CurrenciesComponent implements OnInit, OnDestroy {
     });
 
     this.changedCurrencies = [];
-    this.currencySelections = [];
   }
 
   // sets country id
@@ -142,6 +140,7 @@ export class CurrenciesComponent implements OnInit, OnDestroy {
     this.currencies.map((data, i) => {
       if (data.currencyId == e.element.currencyId) {
         this.currencies[i].enabled = e.data.checked;
+        this.currencies[i].countryId = this.selectedCountry;
 
         const existingCurrencyIndex = this.changedCurrencies.findIndex(
           (x) =>
@@ -150,7 +149,11 @@ export class CurrenciesComponent implements OnInit, OnDestroy {
         );
 
         if (existingCurrencyIndex === -1) {
-          this.changedCurrencies.push(this.currencies[i]);
+          this.changedCurrencies.push({
+            countryId: this.currencies[i].countryId,
+            currencyId: this.currencies[i].currencyId,
+            enabled: this.currencies[i].enabled,
+          });
         } else {
           this.changedCurrencies[existingCurrencyIndex].enabled =
             e.element.enabled;
@@ -159,20 +162,8 @@ export class CurrenciesComponent implements OnInit, OnDestroy {
     });
   }
 
-  // set currencies for api input
-  setCurrencies(): void {
-    this.changedCurrencies.forEach((ele) => {
-      this.currencySelections.push({
-        countryId: this.selectedCountry,
-        currencyId: ele.currencyId,
-        enabled: ele.enabled,
-      });
-    });
-  }
-
   // submits/saves currencies data
   onSubmit(): void {
-    this.setCurrencies();
     this.currenciesService
       .updateCurrencyList(this.changedCurrencies)
       .subscribe({
@@ -185,10 +176,15 @@ export class CurrenciesComponent implements OnInit, OnDestroy {
           this.getCurrencyByCountryId(this.selectedCountry);
         },
         error: (e: Error) => {
-          this.snackbarService.error(e.message);
+          this.snackbarService.error(errors.common.serverError || e.message);
           this.getCurrencyByCountryId(this.selectedCountry);
         },
       });
+  }
+
+  addNewCurrency() {
+    //open add new currency dialog
+    console.log('ok');
   }
 
   ngOnDestroy(): void {

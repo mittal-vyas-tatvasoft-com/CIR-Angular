@@ -31,7 +31,7 @@ export class CurrenciesService {
 
   addNewCurrency(currency: Currency): Observable<ResponseModel<Currency>> {
     return this.http.post<ResponseModel<Currency>>(
-      environment.baseURL + 'AddNewCurrency',
+      environment.baseURL + 'GlobalConfigurationCurrencies/AddNewCurrency',
       currency,
     );
   }
