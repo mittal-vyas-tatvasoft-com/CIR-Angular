@@ -106,10 +106,8 @@ export class FontListComponent implements OnInit, OnDestroy {
       case 'fontFileName':
         {
           this.data.some((item) => {
-            console.count('some');
             if (element.id === item.id) {
               item.fontFileName = event.data.target.files[0].name;
-              console.log(event.data.target.files[0]);
               return true;
             }
             return false;
