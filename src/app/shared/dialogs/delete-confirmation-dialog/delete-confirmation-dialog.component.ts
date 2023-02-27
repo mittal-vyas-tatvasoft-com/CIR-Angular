@@ -16,15 +16,11 @@ export class DeleteConfirmationDialogComponent implements OnInit {
   // vars
 
   title = '';
-  item = '';
-  name = '';
-  icon = '';
   subTitle = '';
   subHeaderTitle = '';
   buttonText!: ButtonText;
-  bottomText!: string;
   width: string;
-  dialogStyleWidth: DialogStyleWidth;
+  dialogWidth: DialogStyleWidth;
 
   constructor(
     public dialogRef: MatDialogRef<DeleteConfirmationDialogComponent>,
@@ -38,15 +34,11 @@ export class DeleteConfirmationDialogComponent implements OnInit {
   setDialogData(data: DialogData) {
     this.title = data.data.title ?? '';
     if ('data' in data) {
-      this.item = data.data.item ?? '';
-      this.name = data.data.name ?? '';
-      this.icon = data.data.icon ?? '';
       this.subTitle = data.data.subTitle ?? '';
       this.subHeaderTitle = data.data.message ?? '';
       this.buttonText = data.data.buttonText ?? {};
-      this.bottomText = data.data.bottomText ?? '';
       this.width = data.data.width ?? '';
-      this.dialogStyleWidth = { width: this.width };
+      this.dialogWidth = { width: this.width };
     }
   }
 }
