@@ -1,11 +1,10 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-
 import {
   ButtonText,
   DialogData,
   DialogStyleWidth,
-} from 'src/app/shared/common/interfaces/dialogdata.interface';
+} from 'src/app/shared/common/interfaces/dialogData.interface';
 
 @Component({
   selector: 'app-delete-confirmation-dialog',

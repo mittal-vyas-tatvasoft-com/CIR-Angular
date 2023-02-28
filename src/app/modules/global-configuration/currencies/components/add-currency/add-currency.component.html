@@ -4,7 +4,7 @@
       <mat-card-title class="pb-5">Add New Currency</mat-card-title>
     </mat-card-header>
     <form [formGroup]="form" novalidate>
-      <div class="example-container">
+      <div [style]="dialogWidth" class="example-container">
         <mat-card-content>
           <div>
             <app-text-control
@@ -21,7 +21,18 @@
         </mat-card-content>
         <div>
           <mat-card-actions>
-            <app-button [label]="'Save'" (btnClick)="addNewCurrency()">
+            <app-button
+              [label]="'Save'"
+              (btnClick)="addNewCurrency()"
+              [isDisabled]="!form.valid"
+            >
+            </app-button>
+
+            <app-button
+              class="cancelBtn"
+              [label]="'Cancel'"
+              [mat-dialog-close]="false"
+            >
             </app-button>
           </mat-card-actions>
         </div>
