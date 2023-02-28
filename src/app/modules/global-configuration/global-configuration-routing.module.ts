@@ -40,6 +40,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./fonts/fonts.module').then((m) => m.FontsModule),
   },
+  {
+    path: `${Navigation.DropdownOption}`,
+    loadChildren: () =>
+      import('./Reasons/reasons.module').then((m) => m.ReasonsModule),
+  },
 ];
 
 @NgModule({
