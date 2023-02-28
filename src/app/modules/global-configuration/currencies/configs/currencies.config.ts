@@ -13,11 +13,13 @@ export const addNewCurrencyControl = {
     value: '',
     label: 'Symbol',
     inputType: 'text',
+    requiredErrMsg: 'Symbol is required',
   },
   codeNameField: {
     key: 'codeName',
     value: '',
     label: 'Code Name',
     inputType: 'text',
+    requiredErrMsg: 'Currency Code Name is required',
   },
 };

@@ -6,11 +6,12 @@ const routes: Routes = [
   {
     path: '',
     component: MessagesListComponent,
+    data: { breadCrumb: 'Messages' },
   },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class MessagesRoutingModule { }
+export class MessagesRoutingModule {}

@@ -15,6 +15,8 @@ import {
 import { CurrenciesFacadeService } from '../../services/currencies-facade.service';
 import { CurrenciesService } from '../../services/currencies.service';
 import { errors } from 'src/app/shared/messages/error.static';
+import { DialogService } from 'src/app/shared/services/dialog/dialog.service';
+import { AddCurrencyComponent } from '../add-currency/add-currency.component';
 
 @Component({
   selector: 'app-currencies',
@@ -54,6 +56,7 @@ export class CurrenciesComponent implements OnInit, OnDestroy {
     private fb: FormBuilder,
     private currenciesService: CurrenciesService,
     private currenciesFacadeService: CurrenciesFacadeService,
+    private dialogService: DialogService,
     public commonFacadeService: CommonFacadeService,
     public snackbarService: SnackbarService,
   ) {}
@@ -164,27 +167,35 @@ export class CurrenciesComponent implements OnInit, OnDestroy {
 
   // submits/saves currencies data
   onSubmit(): void {
-    this.currenciesService
-      .updateCurrencyList(this.changedCurrencies)
-      .subscribe({
-        next: (res: ResponseModel<GlobalConfigurationCurrencyModel[]>) => {
-          if (res.result) {
-            this.snackbarService.success(res.message);
-          } else {
-            this.snackbarService.error(res.message);
-          }
-          this.getCurrencyByCountryId(this.selectedCountry);
-        },
-        error: (e: Error) => {
-          this.snackbarService.error(errors.common.serverError || e.message);
-          this.getCurrencyByCountryId(this.selectedCountry);
-        },
-      });
+    if (this.changedCurrencies.length > 0) {
+      this.currenciesService
+        .updateCurrencyList(this.changedCurrencies)
+        .subscribe({
+          next: (res: ResponseModel<GlobalConfigurationCurrencyModel[]>) => {
+            if (res.result) {
+              this.snackbarService.success(res.message);
+            } else {
+              this.snackbarService.error(res.message);
+            }
+            this.getCurrencyByCountryId(this.selectedCountry);
+          },
+          error: (e: Error) => {
+            this.snackbarService.error(errors.common.serverError || e.message);
+            this.getCurrencyByCountryId(this.selectedCountry);
+          },
+        });
+    }
   }
 
   addNewCurrency() {
-    //open add new currency dialog
-    console.log('ok');
+    this.dialogService.openModel(AddCurrencyComponent, {
+      data: {
+        width: '600px',
+        maxWidth: '600px',
+        showDialogIcon: true,
+      },
+      message: '',
+    });
   }
 
   ngOnDestroy(): void {

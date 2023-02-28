@@ -8,14 +8,17 @@ const routes: Routes = [
   {
     path: '',
     component: RolesComponent,
+    data: { breadCrumb: 'Roles' },
   },
   {
     path: `${Navigation.Add}`,
     component: AddEditRoleComponent,
+    data: { breadCrumb: 'Roles/Add' },
   },
   {
     path: `${Navigation.Edit}/:id`,
     component: AddEditRoleComponent,
+    data: { breadCrumb: 'Roles/Edit' },
   },
 ];
 
