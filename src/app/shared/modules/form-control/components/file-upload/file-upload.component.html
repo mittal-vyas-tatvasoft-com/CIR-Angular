@@ -8,13 +8,13 @@
       (change)="onChange($event)"
       [name]="formControlModel.key"
       multiple="multiple"
-      accept=".png, .jpg, .jpeg"
+      [accept]="formControlModel.accept"
       #fileUpload
     />
 
     <app-button (click)="fileUpload.click()" label="Upload"> </app-button>
     <div class="fileName">
-      {{ getFileName() }}
+      {{ fileName }}
     </div>
   </div>
   <mat-error>
