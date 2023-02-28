@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CurrenciesComponent } from './components/currencies/currencies.component';
+import { ReasonsComponent } from './components/reasons/reasons.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: CurrenciesComponent,
-    data: { breadCrumb: 'Currencies' },
+    component: ReasonsComponent,
   },
 ];
 
@@ -14,4 +13,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class CurrenciesRoutingModule {}
+export class ReasonsRoutingModule {}
