@@ -21,6 +21,7 @@ export const FontControl = {
     label: 'File Upload',
     inputType: 'file',
     required: false,
+    accept: ['.otf', '.ttf', '.woff'],
   },
   enabledField: {
     inputType: 'boolean',

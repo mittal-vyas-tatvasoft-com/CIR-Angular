@@ -31,6 +31,9 @@ export const errors = {
   holidays: {
     holidayNotFound: 'No Holidays were Found',
   },
+  fonts: {
+    wrongFile: 'The file format is invalid. accepted only .woff,.otf and .ttf',
+  },
   weekend: {
     weekendNotFound: 'No Weekends were Found',
   },
