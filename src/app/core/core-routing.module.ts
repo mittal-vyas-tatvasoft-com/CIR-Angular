@@ -9,6 +9,7 @@ const routes: Routes = [
     path: '',
     component: CoreComponent,
     canActivate: [AuthGuard],
+    data: { breadCrumb: 'Admin' },
     children: [
       {
         path: 'app-control',
@@ -35,15 +36,8 @@ const routes: Routes = [
         path: `${Navigation.GlobalConfiguration}`,
         loadChildren: () =>
           import(
-            '../modules/global-configuration/global-configuration-routing.module'
-          ).then((m) => m.GlobalConfigurationRoutingModule),
-      },
-      {
-        path: `${Navigation.Fields}`,
-        loadChildren: () =>
-          import('../modules/global-configuration/Fields/fields.module').then(
-            (m) => m.FieldsModule,
-          ),
+            '../modules/global-configuration/global-configuration.module'
+          ).then((m) => m.GlobalConfigurationModule),
       },
     ],
   },

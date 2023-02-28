@@ -4,7 +4,12 @@ import { FontsComponent } from '../fonts/components/fonts/fonts.component';
 import { AddFontComponent } from './components/add-font/add-font.component';
 
 const routes: Routes = [
-  { path: '', component: FontsComponent },
+  {
+    path: '',
+    component: FontsComponent,
+    data: { breadCrumb: 'Fonts' },
+  },
+  ,
   { path: 'add-font', component: AddFontComponent },
 ];
 
