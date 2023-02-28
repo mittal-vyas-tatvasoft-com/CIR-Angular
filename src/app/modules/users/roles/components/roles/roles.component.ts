@@ -20,9 +20,10 @@ import { SnackbarService } from 'src/app/shared/snackbar/snackbar.service';
 import { RolePermissionService } from 'src/app/shared/services/role-permission/role-permission.service';
 import { ResponseModel } from 'src/app/shared/common/interfaces/response.interface';
 import { SortObj } from '../../interfaces/role-section.interface';
-import { DialogData } from 'src/app/shared/common/interfaces/dialogdata.interface';
+
 import { DeleteConfirmationDialogComponent } from 'src/app/shared/dialogs/delete-confirmation-dialog/delete-confirmation-dialog.component';
-import { DeleteService } from 'src/app/shared/services/dialog/delete.service';
+import { DialogData } from 'src/app/shared/common/interfaces/dialogData.interface';
+import { DialogService } from 'src/app/shared/services/dialog/dialog.service';
 
 @Component({
   selector: 'app-roles',
@@ -61,7 +62,7 @@ export class RolesComponent implements OnInit {
     public fb: FormBuilder,
     public snackbarService: SnackbarService,
     public rolePermissionService: RolePermissionService,
-    public dialogService: DeleteService,
+    public dialogService: DialogService,
   ) {}
 
   ngOnInit(): void {

@@ -9,7 +9,6 @@ const routes: Routes = [
     component: FontsComponent,
     data: { breadCrumb: 'Fonts' },
   },
-  ,
   { path: 'add-font', component: AddFontComponent },
 ];
 
