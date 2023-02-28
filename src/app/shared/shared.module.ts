@@ -22,6 +22,7 @@ import { CKEditorModule } from 'ckeditor4-angular';
     FormsModule,
     EditorComponent,
     DeleteConfirmationDialogComponent,
+    CKEditorModule,
   ],
 })
 export class SharedModule {}
