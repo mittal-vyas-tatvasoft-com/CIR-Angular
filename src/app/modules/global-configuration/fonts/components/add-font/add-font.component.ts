@@ -6,6 +6,7 @@ import {
   Output,
 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 import { ResponseModel } from 'src/app/shared/common/interfaces/response.interface';
 import { SnackbarService } from 'src/app/shared/snackbar/snackbar.service';
@@ -28,6 +29,7 @@ export class AddFontComponent implements OnInit, OnDestroy {
     private fb: FormBuilder,
     private fontsService: FontsService,
     public snackbarService: SnackbarService,
+    private router: Router,
   ) {}
 
   ngOnInit(): void {
@@ -41,12 +43,12 @@ export class AddFontComponent implements OnInit, OnDestroy {
       fontFamilyField: ['', [Validators.required]],
       fileUploadField: [''],
       enabledField: [true],
-      fileSource: [null],
+      fileSource: [''],
     });
   }
 
   //get uploaded file
-  file(event: File | null) {
+  file(event: File | string) {
     this.form.patchValue({
       fileSource: event,
     });
@@ -59,7 +61,9 @@ export class AddFontComponent implements OnInit, OnDestroy {
         id: 0,
         name: this.form.value.nameField,
         fontFamily: this.form.value.fontFamilyField,
-        fontFileName: this.form.value.fileSource?.name,
+        fontFileName: this.form.value.fileSource?.name
+          ? this.form.value.fileSource?.name
+          : '',
         isDefault: false,
         enabled: this.form.value.enabledField,
       };
@@ -73,6 +77,7 @@ export class AddFontComponent implements OnInit, OnDestroy {
               this.getFontsData.emit();
               this.createForm();
               this.snackbarService.success(res.message);
+              this.router.navigate(['admin/global-configuration/fonts']);
             } else {
               this.snackbarService.error(res.message);
             }
