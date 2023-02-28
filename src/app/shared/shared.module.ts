@@ -5,9 +5,14 @@ import { EditorComponent } from './components/editor/editor.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DeleteConfirmationDialogComponent } from './dialogs/delete-confirmation-dialog/delete-confirmation-dialog.component';
 import { CKEditorModule } from 'ckeditor4-angular';
+import { NoDataFoundComponent } from './components/no-data-found/no-data-found/no-data-found.component';
 
 @NgModule({
-  declarations: [EditorComponent, DeleteConfirmationDialogComponent],
+  declarations: [
+    EditorComponent,
+    DeleteConfirmationDialogComponent,
+    NoDataFoundComponent,
+  ],
   imports: [
     CommonModule,
     SharedMaterialModule,
@@ -23,6 +28,7 @@ import { CKEditorModule } from 'ckeditor4-angular';
     EditorComponent,
     DeleteConfirmationDialogComponent,
     CKEditorModule,
+    NoDataFoundComponent,
   ],
 })
 export class SharedModule {}
