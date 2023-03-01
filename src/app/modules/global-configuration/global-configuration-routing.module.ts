@@ -51,6 +51,12 @@ const routes: Routes = [
     loadChildren: () =>
       import('./Reasons/reasons.module').then((m) => m.ReasonsModule),
   },
+  {
+    path: `${Navigation.Weekends}`,
+    data: { breadCrumb: 'GlobalConfiguration' },
+    loadChildren: () =>
+      import('./weekends/weekends.module').then((m) => m.WeekendsModule),
+  },
 ];
 
 @NgModule({
