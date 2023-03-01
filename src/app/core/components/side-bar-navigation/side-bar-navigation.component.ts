@@ -7,7 +7,7 @@ import { Navigation, Website } from 'src/app/shared/common/enum';
 import { FlatNode } from 'src/app/shared/modules/form-control/components/tree-view/tree-view.component';
 import { RolePermissionService } from 'src/app/shared/services/role-permission/role-permission.service';
 import { LoginService } from '../../auth/services/login.service';
-import { navBarRoutes } from '../configs/side-nav-routes.config';
+import { navBarRoutes } from '../../configs/side-nav-routes.config';
 
 @Component({
   selector: 'app-side-bar-navigation',

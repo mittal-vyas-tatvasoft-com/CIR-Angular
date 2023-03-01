@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRoute, Data } from '@angular/router';
-import { BreadCrumb } from '../bread-crumb/breadcrumb.interface';
+import { BreadCrumb } from '../components/bread-crumb/breadcrumb.interface';
 
 @Injectable({
   providedIn: 'root',

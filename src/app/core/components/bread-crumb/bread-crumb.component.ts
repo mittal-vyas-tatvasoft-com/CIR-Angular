@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs';
-import { BreadCrumbService } from '../services/bread-crumb.service';
+import { BreadCrumbService } from '../../services/bread-crumb.service';
 import { BreadCrumb } from './breadcrumb.interface';
 
 @Component({
