@@ -40,7 +40,12 @@
       top: -5px;
     }
   }
-
+  a {
+    font-weight: 600;
+    font-size: 16px;
+    background-color: transparent;
+    color: #fff;
+  }
   .mat-expansion-indicator::after {
     color: #fff;
   }

@@ -8,6 +8,7 @@ import { SideBarNavigationComponent } from './components/side-bar-navigation/sid
 import { RouterModule } from '@angular/router';
 import { CoreRoutingModule } from './core-routing.module';
 import { SharedMaterialModule } from '../shared/material/shared-material.module';
+import { BreadCrumbComponent } from './components/bread-crumb/bread-crumb.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { SharedMaterialModule } from '../shared/material/shared-material.module'
     HeaderComponent,
     FooterComponent,
     SideBarNavigationComponent,
+    BreadCrumbComponent,
   ],
   imports: [
     CommonModule,
