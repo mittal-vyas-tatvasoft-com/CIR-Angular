@@ -51,10 +51,16 @@ const routes: Routes = [
     loadChildren: () =>
       import('./Reasons/reasons.module').then((m) => m.ReasonsModule),
   },
+  {
+    path: `${Navigation.Style}`,
+    data: { breadCrumb: 'GlobalConfiguration' },
+    loadChildren: () =>
+      import('./styles/styles.module').then((m) => m.StylesModule),
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class GlobalConfigurationRoutingModule {}
+export class GlobalConfigurationRoutingModule { }
