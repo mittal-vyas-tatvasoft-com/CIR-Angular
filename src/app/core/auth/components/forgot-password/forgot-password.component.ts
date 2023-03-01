@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 import { ResponseModel } from 'src/app/shared/common/interfaces/response.interface';
 import { validations } from 'src/app/shared/messages/validation.static';
@@ -21,6 +22,7 @@ export class ForgotPasswordComponent implements OnInit, OnDestroy {
     private fb: FormBuilder,
     private loginService: LoginService,
     private snackbarService: SnackbarService,
+    private router: Router,
   ) {}
 
   // apply when page loads
@@ -53,12 +55,13 @@ export class ForgotPasswordComponent implements OnInit, OnDestroy {
           next: (res: ResponseModel<string>) => {
             if (res.result) {
               this.snackbarService.success(res.message);
+              this.router.navigate(['/reset-password']);
             } else {
-              this.snackbarService.success(res.message);
+              this.snackbarService.error(res.message);
             }
           },
           error: (error) => {
-            this.snackbarService.success(error.message);
+            this.snackbarService.error(error.message);
           },
         });
     }

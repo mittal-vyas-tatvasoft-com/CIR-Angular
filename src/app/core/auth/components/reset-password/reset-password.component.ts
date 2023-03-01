@@ -39,7 +39,13 @@ export class ResetPasswordComponent implements OnInit, OnDestroy {
           Validators.pattern(validations.common.emailREGEX),
         ],
       ],
-      oldPassword: ['', [Validators.required]],
+      oldPassword: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern(validations.common.passwordREGEX),
+        ],
+      ],
       newPassword: [
         '',
         [
@@ -68,11 +74,11 @@ export class ResetPasswordComponent implements OnInit, OnDestroy {
               this.form.reset();
               this.router.navigate(['/']);
             } else {
-              this.snackbarService.success(res.message);
+              this.snackbarService.error(res.message);
             }
           },
           error: (error) => {
-            this.snackbarService.success(error.message);
+            this.snackbarService.error(error.message);
           },
         });
     }
