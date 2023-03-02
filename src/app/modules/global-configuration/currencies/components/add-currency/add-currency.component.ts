@@ -59,7 +59,9 @@ export class AddCurrencyComponent implements OnInit, OnDestroy {
               this.snackbarService.success(res.message);
               this.dialogRef.close();
             }
-            this.snackbarService.error(res.message);
+            if (!res.result) {
+              this.snackbarService.error(res.message);
+            }
           },
           error: (e) => {
             this.snackbarService.error(errors.common.serverError || e.message);

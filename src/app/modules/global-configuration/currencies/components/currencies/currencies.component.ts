@@ -188,13 +188,21 @@ export class CurrenciesComponent implements OnInit, OnDestroy {
   }
 
   addNewCurrency() {
-    this.dialogService.openModel(AddCurrencyComponent, {
+    const dialogRef = this.dialogService.openModel(AddCurrencyComponent, {
       data: {
         width: '600px',
         maxWidth: '600px',
         showDialogIcon: true,
       },
       message: '',
+    });
+    dialogRef?.afterClosed().subscribe({
+      next: () => {
+        this.getCurrencies();
+      },
+      error: (e) => {
+        this.snackbarService.error(errors.common.serverError || e.message);
+      },
     });
   }
 

@@ -1,10 +1,4 @@
 .table-responsive {
-  .row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
   table {
     width: 100%;
   }
@@ -18,5 +12,38 @@
 
   .addBtn {
     margin-left: 10px;
+  }
+}
+
+.card-header {
+  background-color: var(--card-header-bg-color);
+}
+
+.card-content {
+  background-color: var(--card-content-bg-color);
+  margin-top: 20px;
+  border: 1px solid var(--card-content-border-color);
+}
+
+div.mat-card-header-text {
+  margin-left: 0px;
+}
+
+.countrySelect {
+  text-align: end;
+}
+.overflow {
+  overflow-x: auto;
+}
+
+.container {
+  gap: 10px 20px;
+  padding: 20px;
+}
+
+@media (max-width: 1328px) {
+  .container {
+    display: block;
+    padding: 10px;
   }
 }
