@@ -58,6 +58,10 @@ export const navBarRoutes = {
         label: 'Weekends',
         path: `./${Navigation.GlobalConfiguration}/${Navigation.Weekends}`,
       },
+      {
+        label: 'Fields',
+        path: `./${Navigation.GlobalConfiguration}/${Navigation.Fields}`,
+      },
     ],
     label: 'Global Configs',
     icon: 'perm_data_setting',
