@@ -50,8 +50,14 @@ export class AddCurrencyComponent implements OnInit, OnDestroy {
 
   addNewCurrency() {
     if (this.form.valid) {
+      const currencyData: Currency = {
+        id: 0,
+        codeName: this.form.value.codeName.toUpperCase(),
+        symbol: this.form.value.symbol,
+      };
+
       this.currenciesService
-        .addNewCurrency(this.form.getRawValue())
+        .addNewCurrency(currencyData)
         .pipe(takeUntil(this.ngUnsubscribe$))
         .subscribe({
           next: (res: ResponseModel<Currency>) => {

@@ -21,5 +21,6 @@ export const addNewCurrencyControl = {
     label: 'Code Name',
     inputType: 'text',
     requiredErrMsg: 'Currency Code Name is required',
+    maxLength: 3,
   },
 };
