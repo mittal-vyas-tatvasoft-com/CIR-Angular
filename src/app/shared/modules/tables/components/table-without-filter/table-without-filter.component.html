@@ -47,6 +47,7 @@
               [checked]="element[columnData.columnDef]"
             ></mat-slide-toggle>
           </div>
+          <!-- TODO: If anyone need to use file upload remove accept type -->
           <div
             *ngIf="columnData.type == 'fileUpload'"
             class="upload-btn-wrapper"
@@ -58,13 +59,8 @@
               type="file"
               hidden
               #fileUpload
-              (change)="
-                selection.emit({
-                  data: $event,
-                  element: element,
-                  columnDef: columnData.columnDef
-                })
-              "
+              (change)="selections($event, element, columnData.columnDef)"
+              accept="{{ acceptType }}"
             />
             <app-button (click)="fileUpload.click()" label="Upload">
             </app-button>

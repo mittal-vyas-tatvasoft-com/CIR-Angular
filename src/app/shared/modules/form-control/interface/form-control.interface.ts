@@ -8,4 +8,5 @@ export interface FormControlModel {
   inputType: string;
   displayIcon?: boolean;
   iconName?: string;
+  accept?: string[];
 }

@@ -1,0 +1,43 @@
+.role-inputs {
+  display: flex;
+
+  > div {
+    margin-right: 15px;
+  }
+}
+
+.container {
+  padding: 20px;
+}
+
+.roleBtn {
+  float: right;
+}
+
+.p-15 {
+  padding: 7px 0px;
+}
+
+.site-section {
+  display: flex;
+  > div {
+    margin-right: 35px;
+  }
+}
+
+.section-btn {
+  display: flex;
+  flex-direction: row;
+
+  > div {
+    margin: 10px 10px 10px 0px;
+  }
+}
+
+.tree-section {
+  border-bottom: 1px solid var(--border-color-lg-grey);
+}
+
+.m-10 {
+  margin-right: 20px;
+}

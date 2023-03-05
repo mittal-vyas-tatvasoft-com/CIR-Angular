@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { errors } from 'src/app/shared/messages/error.static';
+import { SnackbarService } from 'src/app/shared/snackbar/snackbar.service';
 import { FormControlModel } from '../../interface/form-control.interface';
 import { ValidatorService } from '../../service/validator.service';
 
@@ -12,10 +14,14 @@ export class FileUploadComponent {
   @Input() formControlModel: FormControlModel;
   @Input() form: FormGroup;
   @Output()
-  imageFile: EventEmitter<File | null> = new EventEmitter<File | null>();
+  imageFile: EventEmitter<File | string> = new EventEmitter<File | string>();
   @Input() fileSourceKey: string;
+  fileName = '';
 
-  constructor(public _validator: ValidatorService) {}
+  constructor(
+    public _validator: ValidatorService,
+    public snackbarService: SnackbarService,
+  ) {}
 
   getType() {
     const formControlModel = this.formControlModel as FormControlModel;
@@ -28,15 +34,24 @@ export class FileUploadComponent {
   onChange(event: Event) {
     const target = event.target as HTMLInputElement;
     //sending the file to dynamic-form component.
-    this.imageFile.emit(target.files ? target?.files[0] : null);
-  }
-
-  getFileName() {
+    this.fileName = '';
     const formControl = this.form.get(this.fileSourceKey);
-
-    if (formControl) {
-      return formControl.value?.name;
+    if (target.files) {
+      const name = target.files[0].name;
+      const extensionWithName = name.split('.');
+      if (formControl) {
+        if (
+          this.formControlModel.accept?.includes(`.${extensionWithName[1]}`)
+        ) {
+          this.imageFile.emit(target.files[0]);
+          this.fileName = formControl.value.name;
+          return this.fileName;
+        } else {
+          this.snackbarService.error(errors.fonts.wrongFile);
+          this.imageFile.emit('');
+        }
+      }
     }
-    return '';
+    return this.fileName;
   }
 }
