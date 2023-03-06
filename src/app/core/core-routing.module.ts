@@ -39,6 +39,13 @@ const routes: Routes = [
             '../modules/global-configuration/global-configuration.module'
           ).then((m) => m.GlobalConfigurationModule),
       },
+      {
+        path: `${Navigation.Utilities}`,
+        loadChildren: () =>
+          import('../modules/utilities/utilities.module').then(
+            (m) => m.UtilitiesModule,
+          ),
+      },
     ],
   },
 ];
