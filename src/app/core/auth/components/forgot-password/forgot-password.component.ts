@@ -16,6 +16,7 @@ import { LoginService } from '../../services/login.service';
 export class ForgotPasswordComponent implements OnInit, OnDestroy {
   form: FormGroup;
   forgotModel = forgotControl;
+  disable = false;
   private ngUnsubscribe$ = new Subject<void>();
 
   constructor(
@@ -48,6 +49,9 @@ export class ForgotPasswordComponent implements OnInit, OnDestroy {
       const data = {
         userName: this.form.value.userName,
       };
+
+      this.disable = true;
+
       this.loginService
         .forgotPassword(data)
         .pipe(takeUntil(this.ngUnsubscribe$))
@@ -58,10 +62,12 @@ export class ForgotPasswordComponent implements OnInit, OnDestroy {
               this.router.navigate(['/reset-password']);
             } else {
               this.snackbarService.error(res.message);
+              this.disable = false;
             }
           },
           error: (error) => {
             this.snackbarService.error(error.message);
+            this.disable = false;
           },
         });
     }

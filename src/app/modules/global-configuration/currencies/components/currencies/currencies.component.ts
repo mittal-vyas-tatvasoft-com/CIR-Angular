@@ -187,6 +187,7 @@ export class CurrenciesComponent implements OnInit, OnDestroy {
     }
   }
 
+  //open dialog to add new currency
   addNewCurrency() {
     const dialogRef = this.dialogService.openModel(AddCurrencyComponent, {
       data: {

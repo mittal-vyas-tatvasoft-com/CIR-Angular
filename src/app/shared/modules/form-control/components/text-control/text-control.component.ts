@@ -12,6 +12,7 @@ export class TextControlComponent {
   @Input() formControlModel: FormControlModel;
   @Input() form: FormGroup;
   @Input() class = '';
+  @Input() maxLength: number;
   @Output() inputChange = new EventEmitter<string>();
   @Output() iconClick = new EventEmitter<Event>();
 

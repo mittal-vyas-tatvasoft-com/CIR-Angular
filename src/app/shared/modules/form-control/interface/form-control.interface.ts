@@ -9,4 +9,5 @@ export interface FormControlModel {
   displayIcon?: boolean;
   iconName?: string;
   accept?: string[];
+  maxLength?: number;
 }

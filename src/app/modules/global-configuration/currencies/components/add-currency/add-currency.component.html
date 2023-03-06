@@ -16,6 +16,7 @@
             <app-text-control
               [formControlModel]="addNewCurrencyFormControl.codeNameField"
               [form]="form"
+              [maxLength]="addNewCurrencyFormControl.codeNameField.maxLength"
             ></app-text-control>
           </div>
         </mat-card-content>
