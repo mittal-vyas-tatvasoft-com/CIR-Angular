@@ -1,0 +1,41 @@
+<form [formGroup]="form">
+  <mat-card class="card-header">
+    <mat-card-title>Global Cut-Off Times</mat-card-title>
+    <mat-card-content>
+      <mat-card class="card-content">
+        <app-select
+          class="countrySelect"
+          [formControlModel]="countryField"
+          [form]="form"
+          [options]="commonService.countryList$ | async"
+          (selection)="onCountrySelect($event.value)"
+        ></app-select>
+
+        <div class="mat-card-header">
+          <mat-card-title>Edit Cut-Off Time</mat-card-title>
+        </div>
+
+        <mat-card-content>
+          <app-time-picker
+            (timeChanged)="onTimeChange($event)"
+            [timePickerModel]="timePickerField"
+            [form]="form"
+          ></app-time-picker>
+        </mat-card-content>
+
+        <mat-card-content>
+          <app-select
+            [formControlModel]="cutOffDayField"
+            [form]="form"
+            [options]="cutOffDayOptions"
+            (selection)="onCutOffDaySelection($event.value)"
+          ></app-select>
+        </mat-card-content>
+
+        <mat-card-content>
+          <app-button class="saveButton" type="submit" label="Save" (btnClick)="onSave()"> </app-button>
+        </mat-card-content>
+      </mat-card>
+    </mat-card-content>
+  </mat-card>
+</form>

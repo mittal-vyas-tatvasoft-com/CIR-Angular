@@ -6,8 +6,8 @@
       "./.eslintrc.json",
       "./.eslintignore.json"
     ],
+    "js/ts.implicitProjectConfig.experimentalDecorators": true,
     "files.trimTrailingWhitespace": true,
-    "eslint.alwaysShowStatus": true,
     "editor.codeActionsOnSave": {
       "source.fixAll": true,
       "source.removeUnusedImports": true
@@ -33,5 +33,5 @@
       "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "diffEditor.ignoreTrimWhitespace": false,
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
 }
