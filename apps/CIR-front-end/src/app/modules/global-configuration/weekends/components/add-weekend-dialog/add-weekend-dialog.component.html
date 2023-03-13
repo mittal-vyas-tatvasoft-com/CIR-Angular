@@ -1,0 +1,27 @@
+<mat-card class="center">
+  <mat-card-title>Add Weekend</mat-card-title>
+  <mat-card-content>
+    <form [formGroup]="form" novalidate>
+      <div [style]="dialogWidth">
+        <mat-card-content>
+          <div>
+            <app-select
+              [formControlModel]="countryField"
+              [form]="form"
+              [options]="commonService.countryList$ | async"
+            ></app-select>
+          </div>
+          <div>
+            <app-select [formControlModel]="dayField" [form]="form" [options]="dayOptions"></app-select>
+          </div>
+        </mat-card-content>
+        <div>
+          <mat-card-actions>
+            <app-button [label]="'Save'" (btnClick)="saveWeekend()" [isDisabled]="!form.valid"> </app-button>
+            <app-button class="cancelBtn" [label]="'Cancel'" [mat-dialog-close]="false"> </app-button>
+          </mat-card-actions>
+        </div>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

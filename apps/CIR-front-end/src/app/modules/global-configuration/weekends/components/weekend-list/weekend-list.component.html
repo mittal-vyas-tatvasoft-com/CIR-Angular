@@ -1,1 +1,52 @@
-<p>weekend-list works!</p>
+<form [formGroup]="form">
+  <mat-card class="card-header">
+    <div class="mat-card-header">
+      <mat-card-title>Global Weekends</mat-card-title>
+    </div>
+    <mat-card class="card-content">
+      <div class="d-flex">
+        <div>
+          <mat-card-content>
+            <app-text-control
+              [formControlModel]="searchField"
+              [form]="form"
+              (inputChange)="onSearch($event)"
+            >
+            </app-text-control>
+          </mat-card-content>
+        </div>
+        <div>
+          <mat-card-content>
+            <div>
+              <app-button
+                label="Export to CSV"
+                (click)="exportData()"
+              ></app-button>
+            </div>
+          </mat-card-content>
+        </div>
+      </div>
+
+      <app-table
+        [tableColumns]="tableColumn"
+        [tableData]="weekendList.filteredData"
+        [noDataFoundMessage]="noDataFound"
+        (selection)="select($event)"
+      >
+      </app-table>
+      <mat-paginator
+        [length]="totalCount"
+        [pageSize]="itemsPerPage"
+        [pageSizeOptions]="pageSizeOption"
+        aria-labels="Select page of users"
+        showFirstLastButtons
+      ></mat-paginator>
+      <mat-card-actions class="footer-button addBtn">
+        <app-button
+          [label]="'Add Weekend Day'"
+          (click)="addWeekend()"
+        ></app-button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-card>
+</form>
