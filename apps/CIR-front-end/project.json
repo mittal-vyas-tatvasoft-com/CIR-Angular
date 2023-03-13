@@ -1,0 +1,107 @@
+{
+  "name": "CIR-front-end",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "generators": {
+    "@schematics/angular:component": {
+      "style": "scss"
+    }
+  },
+  "sourceRoot": "apps/CIR-front-end/src",
+  "prefix": "app",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "options": {
+        "outputPath": "dist/apps/CIR-front-end",
+        "index": "apps/CIR-front-end/src/index.html",
+        "main": "apps/CIR-front-end/src/main.ts",
+        "polyfills": "apps/CIR-front-end/src/polyfills.ts",
+        "tsConfig": "apps/CIR-front-end/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/CIR-front-end/src/favicon.ico",
+          "apps/CIR-front-end/src/assets"
+        ],
+        "styles": ["apps/CIR-front-end/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "4mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/CIR-front-end/src/environments/environment.ts",
+              "with": "apps/CIR-front-end/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "CIR-front-end:build:production"
+        },
+        "development": {
+          "browserTarget": "CIR-front-end:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "CIR-front-end:build"
+      }
+    },
+    "test": {
+      "executor": "@angular-devkit/build-angular:karma",
+      "options": {
+        "main": "apps/CIR-front-end/src/test.ts",
+        "polyfills": "apps/CIR-front-end/src/polyfills.ts",
+        "tsConfig": "apps/CIR-front-end/tsconfig.spec.json",
+        "karmaConfig": "apps/CIR-front-end/karma.conf.js",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/CIR-front-end/src/favicon.ico",
+          "apps/CIR-front-end/src/assets"
+        ],
+        "styles": ["apps/CIR-front-end/src/styles.scss"],
+        "scripts": []
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/CIR-front-end/**/*.ts",
+          "apps/CIR-front-end/**/*.html"
+        ],
+        "hasTypeAwareRules": true
+      }
+    }
+  }
+}

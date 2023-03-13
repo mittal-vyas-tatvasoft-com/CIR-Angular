@@ -1,0 +1,30 @@
+<form [formGroup]="form" novalidate>
+  <div class="example-container">
+    <mat-card-content>
+      <div>
+        <app-text-control [formControlModel]="searchField" [form]="form" (inputChange)="onSearch($event)"></app-text-control>
+      </div>
+    </mat-card-content>
+  </div>
+</form>
+<div class="p-15">
+  <app-table
+    [tableColumns]="tableColumn"
+    [tableData]="dataSource.filteredData"
+    [noDataFoundMessage]="noRoleDataFound"
+    (selection)="select($event)"
+  ></app-table>
+
+  <mat-paginator
+    #paginator
+    [length]="totalCount"
+    [pageSize]="itemsPerPage"
+    [pageSizeOptions]="pageSizeOption"
+    (page)="onPageChange($event)"
+    showFirstLastButtons
+  ></mat-paginator>
+
+  <div class="addRole">
+    <app-button label="Add New Role" (btnClick)="addNewRole()"></app-button>
+  </div>
+</div>

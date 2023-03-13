@@ -1,0 +1,42 @@
+<div class="container">
+  <form [formGroup]="form" novalidate>
+    <div class="example-container">
+      <mat-card-content>
+        <div>
+          <app-text-control [formControlModel]="searchField" [form]="form" (inputChange)="onSearch($event)"></app-text-control>
+        </div>
+      </mat-card-content>
+      <mat-card-content>
+        <div>
+          <app-button label="Export to CSV" (click)="exportData()"> </app-button>
+        </div>
+      </mat-card-content>
+    </div>
+  </form>
+
+  <app-table
+    [tableColumns]="tableColumn"
+    [tableData]="userList.filteredData"
+    [noDataFoundMessage]="noUserDataFound"
+    (selection)="select($event)"
+  ></app-table>
+
+  <mat-paginator
+    [length]="totalCount"
+    [pageSize]="itemsPerPage"
+    [pageSizeOptions]="pageSizeOption"
+    aria-labels="Select page of users"
+    (page)="onPageChange($event)"
+    showFirstLastButtons
+  ></mat-paginator>
+  <!-- <div
+    class="float-right"
+    *ngIf="
+      permissions.USER_CREATE
+        ? rolePermissionService.checkPermission(permissions.USER_CREATE)
+        : true
+    "
+  > -->
+  <app-button type="submit" label="Create new user" [routerLink]="navigationEnum.Add"> Add User </app-button>
+  <!-- </div> -->
+</div>

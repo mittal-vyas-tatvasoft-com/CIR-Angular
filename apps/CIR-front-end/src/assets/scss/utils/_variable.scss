@@ -1,0 +1,35 @@
+:root {
+  // primary colors
+  --primary-color: #4c5dde;
+  --primary-lighter-color: #c9cef5;
+  --primary-darker-color: #3341d1;
+  // --text-primary-color: #{$light-primary-text};
+  // --text-primary-lighter-color: #{$dark-primary-text};
+  // --text-primary-darker-color: #{$light-primary-text};
+
+  // accent color
+  --accent-color: #e8e8e8;
+  --accent-lighter-color: #f8f8f8;
+  --accent-darker-color: #dedede;
+  // --text-accent-color: #{$dark-primary-text};
+  // --text-accent-lighter-color: #{$dark-primary-text};
+  // --text-accent-darker-color: #{$dark-primary-text};
+
+  //warn color
+  --warn-color: #fa3a49;
+  --warn-lighter-color: #fec4c8;
+  --warn-darker-color: #f82531;
+  // --text-warn-color: #{$light-primary-text};
+  // --text-warn-lighter-color: #{$dark-primary-text};
+  // --text-warn-darker-color: #{$light-primary-text};
+
+  --text-color: #000000;
+
+  --color-error: #e60000;
+  --color-success: #45af52;
+  --border-color-lg-grey: #d3d3d3;
+  --card-header-bg-color: #e8eaf6;
+  --card-content-bg-color: #ced2ec;
+  --color-white: white;
+  --card-content-border-color: #9095b1;
+}

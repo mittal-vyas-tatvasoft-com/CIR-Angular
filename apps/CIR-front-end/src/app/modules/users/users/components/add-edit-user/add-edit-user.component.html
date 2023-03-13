@@ -1,0 +1,79 @@
+<div class="user-wrapper">
+  <mat-card class="mat-elevation-z0 box">
+    <mat-card-header>
+      <mat-card-title *ngIf="!userId" class="pb-5">User Add</mat-card-title>
+      <mat-card-title *ngIf="userId" class="pb-5">User Update</mat-card-title>
+    </mat-card-header>
+    <form [formGroup]="form" novalidate>
+      <div class="example-container">
+        <mat-card-content>
+          <div>
+            <app-text-control [formControlModel]="userModel.employeeField" [form]="form"></app-text-control>
+          </div>
+          <div>
+            <app-select [formControlModel]="userModel.salutationField" [form]="form" [options]="salutationOptions"></app-select>
+          </div>
+          <div>
+            <app-text-control [formControlModel]="userModel.firstNameField" [form]="form"></app-text-control>
+          </div>
+          <div>
+            <app-text-control [formControlModel]="userModel.lastNameField" [form]="form"></app-text-control>
+          </div>
+
+          <div>
+            <app-text-control [formControlModel]="userModel.emailField" [form]="form"></app-text-control>
+          </div>
+          <div>
+            <app-text-control-number [formControlModel]="userModel.numberField" [form]="form"> </app-text-control-number>
+          </div>
+          <div>
+            <app-text-control [formControlModel]="userModel.companyNameField" [form]="form"></app-text-control>
+          </div>
+          <div>
+            <app-text-control [formControlModel]="userModel.userNameField" [form]="form"></app-text-control>
+          </div>
+
+          <div>
+            <app-text-control [formControlModel]="userModel.passwordField" [form]="form"></app-text-control>
+          </div>
+          <div>
+            <app-text-control [formControlModel]="userModel.confirmPasswordField" [form]="form"></app-text-control>
+            <div *ngIf="form.get('confirmPassword')?.touched && form.errors?.['notSame']" class="text-danger">
+              {{ notMatchedPassword }}
+            </div>
+          </div>
+
+          <!-- Role -->
+          <div>
+            <app-select [formControlModel]="userModel.roleField" [form]="form" [options]="roleOptions"></app-select>
+          </div>
+          <div>
+            <app-select [formControlModel]="userModel.defaultTimeZoneField" [form]="form" [options]="defaultOptions"></app-select>
+          </div>
+          <div>
+            <app-select
+              [formControlModel]="userModel.defaultLanguageField"
+              [form]="form"
+              [options]="commonService.cultureList$ | async"
+            ></app-select>
+          </div>
+          <div>
+            <app-select [formControlModel]="userModel.portalThemeField" [form]="form" [options]="defaultOptions"></app-select>
+          </div>
+          <div>
+            <app-toggle [form]="form" [formControlModel]="userModel.enableField"></app-toggle>
+          </div>
+          <div>
+            <app-toggle [form]="form" [formControlModel]="userModel.schedulerActiveField"></app-toggle>
+          </div>
+        </mat-card-content>
+        <div>
+          <mat-card-actions>
+            <app-button type="submit" label="Save" (btnClick)="save()"> </app-button>
+            <app-button type="submit" label="Cancel" (btnClick)="cancel()"> </app-button>
+          </mat-card-actions>
+        </div>
+      </div>
+    </form>
+  </mat-card>
+</div>
