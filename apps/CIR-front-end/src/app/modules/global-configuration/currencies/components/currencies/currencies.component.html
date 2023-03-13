@@ -1,0 +1,30 @@
+<div class="table-responsive">
+  <mat-card class="card-header">
+    <mat-card-title>Global Currencies</mat-card-title>
+    <mat-card-content class="card-content">
+      <div class="container">
+        <div class="row">
+          <div>
+            <app-select
+              class="countrySelect"
+              [form]="form"
+              [formControlModel]="countryField"
+              [options]="commonFacadeService.countryList$ | async"
+              (selection)="onSelectCountry($event.value)"
+            ></app-select>
+          </div>
+        </div>
+        <app-table-without-filter
+          *ngIf="currencies.length > 0"
+          [tableColumns]="tableColumn"
+          [tableData]="currencies"
+          (selection)="selectionChanges($event)"
+        ></app-table-without-filter>
+        <div class="footer-button" *ngIf="currencies.length > 0">
+          <app-button [label]="'Save'" (btnClick)="onSubmit()"></app-button>
+          <app-button class="addBtn" [label]="'Add New Currency'" (btnClick)="addNewCurrency()"></app-button>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

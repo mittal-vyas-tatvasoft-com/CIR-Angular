@@ -1,5 +1,4 @@
 {
-  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=827846
   "recommendations": [
     "angular.ng-template",
     "streetsidesoftware.code-spell-checker",
@@ -9,6 +8,8 @@
     "quicktype.quicktype",
     "esbenp.prettier-vscode",
     "kuscamara.remove-unused-imports",
-    "wayou.vscode-todo-highlight"
+    "wayou.vscode-todo-highlight",
+    "nrwl.angular-console",
+    "firsttris.vscode-jest-runner"
   ]
 }
