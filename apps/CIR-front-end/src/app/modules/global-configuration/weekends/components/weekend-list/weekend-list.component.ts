@@ -10,11 +10,11 @@ import {
   defaultSelectCountryCode,
   defaultSelectCountryName,
   defaultTotalCount,
-} from 'src/app/shared/common/interfaces/constants.static';
-import { ResponseModel } from 'src/app/shared/common/interfaces/response.interface';
-import { CommonFacadeService } from 'src/app/shared/services/common/common-facade.service';
-import { DownloadService } from 'src/app/shared/services/role-permission/download/download.service';
-import { SnackbarService } from 'src/app/shared/snackbar/snackbar.service';
+} from '../../../../../shared/common/interfaces/constants.static';
+import { ResponseModel } from '../../../../../shared/common/interfaces/response.interface';
+import { CommonFacadeService } from '../../../../../shared/services/common/common-facade.service';
+import { DownloadService } from '../../../../../shared/services/role-permission/download/download.service';
+import { SnackbarService } from '../../../../../shared/snackbar/snackbar.service';
 import { WeekendDataFilter } from '../../interfaces/weekend.filter.interface';
 import {
   GlobalConfigurationWeekendModel,
@@ -26,13 +26,12 @@ import {
   tableColumnConfig,
 } from '../../configs/weekends.config';
 import { WeekendsService } from '../../services/weekends.service';
-import { Column } from 'src/app/shared/modules/tables/interfaces/table-data.interface';
-import { errors } from 'src/app/shared/messages/error.static';
-import { SelectOption } from 'd:/CIR/CIR-Angular/src/app/shared/modules/form-control/interface/select-option.interface';
-import { DeleteConfirmationDialogComponent } from 'src/app/shared/dialogs/delete-confirmation-dialog/delete-confirmation-dialog.component';
-import { DialogService } from 'src/app/shared/services/dialog/dialog.service';
+import { Column } from '../../../../../shared/modules/tables/interfaces/table-data.interface';
+import { errors } from '../../../../../shared/messages/error.static';
+import { SelectOption } from '../../../../../shared/modules/form-control/interface/select-option.interface';
+import { DeleteConfirmationDialogComponent } from '../../../../../shared/dialogs/delete-confirmation-dialog/delete-confirmation-dialog.component';
+import { DialogService } from '../../../../../shared/services/dialog/dialog.service';
 import { AddWeekendDialogComponent } from '../add-weekend-dialog/add-weekend-dialog.component';
-
 @Component({
   selector: 'app-weekend-list',
   templateUrl: './weekend-list.component.html',
