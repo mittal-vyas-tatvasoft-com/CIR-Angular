@@ -29,4 +29,10 @@ export class EmailComponent implements OnInit {
       subject: [this.email.subject, [Validators.required]],
     });
   }
+
+  //hide or show the content
+  hideOrShow(i: number) {
+    debugger;
+    this.fieldTypes[i].isHide = !this.fieldTypes[i].isHide;
+  }
 }

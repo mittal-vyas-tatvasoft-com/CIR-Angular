@@ -1,28 +1,36 @@
-<h3>
-  <b>{{ fieldTypes[email.fieldTypeId - 1].msg }}</b>
-</h3>
+<div class="flex">
+  <h3>
+    <b>{{ fieldTypes[email.fieldTypeId - 1].msg }}</b>
+  </h3>
+  <app-button
+    type="button"
+    (click)="hideOrShow(fieldTypes[email.fieldTypeId - 1].id)"
+    label="{{ fieldTypes[email.fieldTypeId - 1].isHide ? 'show' : 'hide' }}"
+  ></app-button>
+</div>
+<div *ngIf="!fieldTypes[email.fieldTypeId - 1].isHide">
+  <app-text-control
+    [formControlModel]="subjectField"
+    [form]="form"
+    (inputChange)="
+      subjectChange.emit({
+        id: email.id,
+        content: $event,
+        fieldTypeId: email.fieldTypeId
+      })
+    "
+  ></app-text-control>
 
-<app-text-control
-  [formControlModel]="subjectField"
-  [form]="form"
-  (inputChange)="
-    subjectChange.emit({
-      id: email.id,
-      content: $event,
-      fieldTypeId: email.fieldTypeId
-    })
-  "
-></app-text-control>
-
-<app-editor
-  [data]="email.content"
-  [id]="email.id"
-  [type]="email.fieldTypeId"
-  (change)="
-    changeContent.emit({
-      id: email.id,
-      content: $event,
-      fieldTypeId: email.fieldTypeId
-    })
-  "
-></app-editor>
+  <app-editor
+    [data]="email.content"
+    [id]="email.id"
+    [type]="email.fieldTypeId"
+    (change)="
+      changeContent.emit({
+        id: email.id,
+        content: $event,
+        fieldTypeId: email.fieldTypeId
+      })
+    "
+  ></app-editor>
+</div>
