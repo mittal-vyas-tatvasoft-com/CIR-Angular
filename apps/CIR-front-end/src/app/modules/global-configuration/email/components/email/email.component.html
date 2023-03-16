@@ -5,10 +5,10 @@
   <app-button
     type="button"
     (click)="hideOrShow(fieldTypes[email.fieldTypeId - 1].id)"
-    label="{{ fieldTypes[email.fieldTypeId - 1].isHide ? 'show' : 'hide' }}"
+    label="{{ fieldTypes[email.fieldTypeId - 1].hide ? 'show' : 'hide' }}"
   ></app-button>
 </div>
-<div *ngIf="!fieldTypes[email.fieldTypeId - 1].isHide">
+<div *ngIf="!fieldTypes[email.fieldTypeId - 1].hide">
   <app-text-control
     [formControlModel]="subjectField"
     [form]="form"

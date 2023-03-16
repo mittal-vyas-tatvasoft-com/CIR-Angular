@@ -153,7 +153,7 @@ export class MessagesListComponent implements OnInit {
 
   //hide or show the content
   hideOrShow(i: number) {
-    this.editorsTitle[i].isHide = !this.editorsTitle[i].isHide;
+    this.editorsTitle[i].hide = !this.editorsTitle[i].hide;
   }
 
   ngOnDestroy(): void {

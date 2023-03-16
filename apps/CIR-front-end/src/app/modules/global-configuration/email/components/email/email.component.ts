@@ -32,7 +32,6 @@ export class EmailComponent implements OnInit {
 
   //hide or show the content
   hideOrShow(i: number) {
-    debugger;
-    this.fieldTypes[i].isHide = !this.fieldTypes[i].isHide;
+    this.fieldTypes[i].hide = !this.fieldTypes[i].hide;
   }
 }

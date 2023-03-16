@@ -17,10 +17,10 @@
           type="button"
           (click)="hideOrShow(i)"
           class="btn-show-hide"
-          label="{{ title.isHide ? 'show' : 'hide' }}"
+          label="{{ title.hide ? 'show' : 'hide' }}"
         ></app-button>
       </div>
-      <div *ngIf="!title.isHide" class="btn">
+      <div *ngIf="!title.hide" class="btn">
         <app-editor
           [data]="messages[i].content"
           [type]="messages[i].type"

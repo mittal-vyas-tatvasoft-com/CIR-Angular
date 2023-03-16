@@ -6,19 +6,19 @@ export const defaultCountryId = 1;
 export const defaultCultureId = 1;
 export const defaultDateFormat = 'dd/MM/yyyy';
 export const defaultMessagesEditorTitle = [
-  { id: 0, text: 'Welcome Message', isHide: false },
-  { id: 1, text: 'Final Message', isHide: false },
-  { id: 2, text: 'Refund Message', isHide: false },
-  { id: 3, text: 'Maintenance Mode Message', isHide: false },
-  { id: 4, text: 'Return Details Message', isHide: false },
-  { id: 5, text: 'Tracking Welcome Message', isHide: false },
-  { id: 6, text: 'Print Label Welcome Message', isHide: false },
+  { id: 0, text: 'Welcome Message', hide: false },
+  { id: 1, text: 'Final Message', hide: false },
+  { id: 2, text: 'Refund Message', hide: false },
+  { id: 3, text: 'Maintenance Mode Message', hide: false },
+  { id: 4, text: 'Return Details Message', hide: false },
+  { id: 5, text: 'Tracking Welcome Message', hide: false },
+  { id: 6, text: 'Print Label Welcome Message', hide: false },
 ];
 export const fieldTypes = [
-  { id: 0, msg: 'Service - Postal', isHide: false },
-  { id: 1, msg: 'Service - Drop Off', isHide: false },
-  { id: 2, msg: 'Service - Collection', isHide: false },
-  { id: 3, msg: 'Booking Form', isHide: false },
+  { id: 0, msg: 'Service - Postal', hide: false },
+  { id: 1, msg: 'Service - Drop Off', hide: false },
+  { id: 2, msg: 'Service - Collection', hide: false },
+  { id: 3, msg: 'Booking Form', hide: false },
 ];
 export const dynamicFields = [
   { fieldTypeId: 1, fieldName: 'Reference' },
